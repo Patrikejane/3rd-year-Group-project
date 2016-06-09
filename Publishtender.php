@@ -113,7 +113,7 @@
           <ul class="treeview-menu">
             <li><a href="Tenderlist.php"><i class="fa fa-circle-o"></i> Tender List</a></li>
             <li class="active"><a href="Publishtender.php"><i class="fa fa-circle-o"></i> Publish Tender </a></li>
-            <li><a href="Publishedtender.php"><i class="fa fa-circle-o"></i> Published Tenders</a></li>
+            <li><a href="Published.php"><i class="fa fa-circle-o"></i> Published Tenders</a></li>
             
           </ul>
         </li>
