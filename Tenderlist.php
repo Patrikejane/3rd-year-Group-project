@@ -166,7 +166,125 @@
         <li><a href="#"><i class="fa fa-dashboard"></i> Tender List</a></li>
         
       </ol>
-    </section>
+    </section><div class="col-md-12">
+          <!-- Custom Tabs -->
+          <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#basic" data-toggle="tab">Basic Deatils</a></li>
+              <li><a href="#cover" data-toggle="tab">Cover Details</a></li>
+              <li><a href="#nit" data-toggle="tab">NIT Document</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  Dropdown <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                  <li role="presentation" class="divider"></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                </ul>
+              </li>
+              <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="basic">
+                  <form class="form-horizontal">
+                    <div class="box-body">
+                      <div class="form-group">
+                        <label for="tender_reference" class="col-sm-4 control-label">Tender Reference Number* </label>
+
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="tender_reference" placeholder="Tender Reference Number">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="tender_type" class="col-sm-4 control-label">Tender type* </label>
+                          <div class="col-sm-4 ">
+                            
+                            <select class="form-control">
+                              <option class="active">-Select-</option>
+                              <option>Open</option>
+                              <option>Limited</option>
+                              <option>Auction</option>
+                              <option>Single</option>
+                            </select>
+                          </div>
+                        
+                      </div>
+
+                      <div class="form-group">
+                        <label for="tender_type" class="col-sm-4 control-label">No of Covers* </label>
+                          <div class="col-sm-4 ">
+                            
+                            <select class="form-control">
+                              <option class="active">-Select-</option>
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                            </select>
+                          </div>
+                      <div class="form-group">
+                        <label for="tender_reference" class="col-sm-4 control-label">Should allow Re-bid submission</label>
+                        div class="radio">
+                    <label>
+                      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                      Option 
+                    </label>
+
+                  </div>
+                        
+                      </div>
+                        
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox"> Remember me
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                      <button type="submit" class="btn btn-default">Cancel</button>
+                      <button type="submit" class="btn btn-info pull-right">Sign in</button>
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+              </div>
+              <!-- /.tab-pane -->
+              <div class="tab-pane" id="cover">
+                The European languages are members of the same family. Their separate existence is a myth.
+                For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
+                in their grammar, their pronunciation and their most common words. Everyone realizes why a
+                new common language would be desirable: one could refuse to pay expensive translators. To
+                achieve this, it would be necessary to have uniform grammar, pronunciation and more common
+                words. If several languages coalesce, the grammar of the resulting language is more simple
+                and regular than that of the individual languages.
+              </div>
+              <!-- /.tab-pane -->
+              <div class="tab-pane" id="nit">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries, but also the leap into electronic typesetting,
+                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                like Aldus PageMaker including versions of Lorem Ipsum.
+              </div>
+              <!-- /.tab-pane -->
+            </div>
+            <!-- /.tab-content -->
+          </div>
+          <!-- nav-tabs-custom -->
+        </div>
+
+
+
 
     
         
