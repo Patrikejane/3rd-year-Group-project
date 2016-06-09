@@ -1,0 +1,1 @@
+This directory is for common libraries on which the application depends, and should be on the PHP include_path.
