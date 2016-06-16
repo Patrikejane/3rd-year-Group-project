@@ -12,7 +12,7 @@
 		$email = $_POST["email"];
 		$password = $_POST["password"];
 		$organization_name = $_POST["organization_name"];
-		$department = $_POST["dept_circle"];
+		$department = $_POST["department"];
 		$division = $_POST["division"];
 		$designation = $_POST["designation"];
 		$address_1 = $_POST["address_1"];
@@ -178,7 +178,7 @@
 
 	                        <div class="col-sm-4">
 	                          	
-	                            	<input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+	                            	<input type="password" name="password" class="form-control" id="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 6 characters' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;" placeholder="Password" required>
 	                            	
 	                          	
 	                        </div>
@@ -187,7 +187,7 @@
 
 	                        <div class="col-sm-4">
 	                        	
-	                            	<input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Retype Password" required>
+	                            	<input type="password" name="password_confirmation" class="form-control" id="password_confirmation" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '');" placeholder="Retype Password" required>
 	                            	
 	                          	
 	                        </div>
@@ -356,7 +356,7 @@
                           <div class="col-sm-offset-2 col-sm-10">
                             <div class="checkbox">
                               <label>
-                                <input type="checkbox"> I agree to the <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms & Conditions</a>.
+                                <input type="checkbox" required> I agree to the <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms & Conditions</a>.
                               </label>
                               <!--<a href="" class="btn btn-link pull-right">Forgot Password?</a>-->
                             </div>
@@ -382,6 +382,7 @@
                       </div>                      
                       <!-- /.box-footer -->
                     </form>
+                    <div><?php echo $msg;?></div>
                   </div>
                   </div>
 </div>
