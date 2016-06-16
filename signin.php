@@ -53,14 +53,14 @@
                           <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
 
                           <div class="col-sm-10">
-                            <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
                           </div>
                         </div>
                         <div class="form-group">
                           <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
 
                           <div class="col-sm-10">
-                            <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
                           </div>
                         </div>
                         <div class="form-group">
@@ -76,8 +76,14 @@
                       </div>
                       <!-- /.box-body -->
                       <div class="box-footer">
-                        <button type="submit" class="btn btn-default">Cancel</button>
+                        <div class="row">
+                        <div class="col-md-4 col-md-offset-2"> 
+                        <button type="submit" class="btn btn-default"><a href="signup.php">Cancel</a></button>
+                        </div>
+                        <div class="col-md-4 col-md-offset-2"> 
                         <button type="submit" name = "submit" class="btn btn-info pull-right">Sign in</button>
+                        </div>
+                        </div>
                       </div>
                       <!-- /.box-footer -->
                     </form>

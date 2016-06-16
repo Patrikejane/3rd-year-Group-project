@@ -370,7 +370,7 @@
                       	<div class="row">
 
                       		<div class="col-md-4 col-md-offset-2">                      	
-                        		<button type="submit" class="btn btn-default">Cancel</button>
+                        		<button type="submit" class="btn btn-default"><a href="signin.php">Cancel</a></button>
                         	</div>
 
                         	<div class="col-md-4 col-md-offset-2">
