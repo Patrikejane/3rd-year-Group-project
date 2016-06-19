@@ -52,14 +52,23 @@
 		$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
 		if(mysqli_num_rows($result) == 1)
 		{
-			$msg = "Sorry...This email already exist...";
+			echo 	'<script type="text/javascript">
+						setTimeout(function(){
+							sweetAlert("", "This email already exist...", "error")
+						},100);
+					 </script>';
 		}
 		else
 		{
 			$query = mysqli_query($db, "INSERT INTO user (title, first_name, last_name, dob, email, password, organization_name, department, division, designation, address_1, address_2, district, city, alternate_email, phone_number, fax_number, mobile_number, user_role)VALUES ('$title', '$first_name', '$last_name', '$dob', '$email', '$password', '$organization_name', '$department', '$division', '$designation', '$address_1', '$address_2', '$district', '$city', '$alternate_email', '$phone_number', '$fax_number', '$mobile_number', '$user_role')");
 			if($query)
 			{
-				$msg = "Thank You! you are now registered.";
+				echo 	'<script type="text/javascript">
+							setTimeout(function(){
+								sweetAlert("", "You are now registered.", "success");
+							},100);
+					 	 </script>';
+
 			}
 		}
 	}
@@ -86,6 +95,9 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 
+  <!-- css file for sweetalert -->
+  <link rel="stylesheet" href="sweetalert/dist/sweetalert.css" />
+
   
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -94,7 +106,9 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+
 </head>
+
 
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="container">
@@ -356,7 +370,7 @@
                           <div class="col-sm-offset-2 col-sm-10">
                             <div class="checkbox">
                               <label>
-                                <input type="checkbox" required> I agree to the <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms & Conditions</a>.
+                                <input type="checkbox" id="checkbox" required> I agree to the <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms & Conditions</a>.
                               </label>
                               <!--<a href="" class="btn btn-link pull-right">Forgot Password?</a>-->
                             </div>
@@ -374,17 +388,22 @@
                         	</div>
 
                         	<div class="col-md-4 col-md-offset-2">
-                        		<button type="submit" name = "submit" class="btn btn-info pull-right">Register</button>
+                        		<button type="submit" name="submit" class="btn btn-info pull-right">Register</button>
                         	</div>
 
                         </div>
 
                       </div>                      
                       <!-- /.box-footer -->
+
                     </form>
+
                     <div><?php echo $msg;?></div>
+
                   </div>
+
                   </div>
+
 </div>
 
 <!-- Modal -->
@@ -396,11 +415,11 @@
 					<h4 class="modal-title" id="myModalLabel">Terms & Conditions</h4>
 				</div>
 				<div class="modal-body">
-					<p>Note : The requested tenders adiministration accounts details will be communicated by email</p>
+					<p>Note : The requested tenders administration accounts details will be communicated by email</p>
 					<p>Disclaimer : This account is meant for publishing and maintaining the tenders information on E-Procurement Management System. The sole responsibility of the accuracy and validity of user information/contents in the tender documents shall rest with the authorized user of the account i.e. the concerened tender inviting authority is responsible for tender administration. NIC shall be responsible only for ensuring the system performance and security.</p>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" data-dismiss="modal">I Agree</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="document.getElementById('checkbox').checked=!document.getElementById('checkbox').checked;">I Agree</button>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
@@ -416,6 +435,11 @@
 <script src="dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+
+<!-- js file for sweetalert -->
+<script src="sweetalert/dist/sweetalert.min.js"></script>
+
+
 
 </body>
 </html>

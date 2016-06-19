@@ -35,7 +35,11 @@
 				header("location: home.php"); // Redirecting To Other Page
 			}else
 			{
-				$error = "Incorrect username or password.";
+				echo 	'<script type="text/javascript">
+							setTimeout(function(){
+								sweetAlert("", "Incorrect username or password.", "error")
+							},100);
+					 	</script>';
 			}
 
 		}
