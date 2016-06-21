@@ -63,12 +63,33 @@
 			$query = mysqli_query($db, "INSERT INTO user (title, first_name, last_name, dob, email, password, organization_name, department, division, designation, address_1, address_2, district, city, alternate_email, phone_number, fax_number, mobile_number, user_role)VALUES ('$title', '$first_name', '$last_name', '$dob', '$email', '$password', '$organization_name', '$department', '$division', '$designation', '$address_1', '$address_2', '$district', '$city', '$alternate_email', '$phone_number', '$fax_number', '$mobile_number', '$user_role')");
 			if($query)
 			{
-				echo 	'<script type="text/javascript">
-							setTimeout(function(){
-								sweetAlert("", "You are now registered.", "success");
-							},100);
-					 	 </script>';
-
+				if ($user_role === 'bid_opener'){
+					echo 	'<script type="text/javascript">
+								setTimeout(function(){
+	        						swal({title: "", text: "You are now registered as a bid opener.", type: "success"},
+		        						function(isConfirm){
+											if(isConfirm){
+												window.location.href = "companyDetails.php";
+											}
+										}
+	        						)
+	        					},100);
+	        				</script>';
+        		}
+        		else
+        		{		
+					echo 	'<script type="text/javascript">
+								setTimeout(function(){
+									swal({title: "", text: "You are now registered.", type: "success"},
+										function(isConfirm){
+											if(isConfirm){
+												window.location.href = "signin.php";
+											}
+										}
+									)
+								},100);
+						 	 </script>';
+				}
 			}
 		}
 	}
@@ -354,7 +375,7 @@
 				                  <select class="form-control" name="user_role" id="user_role" required>
 				                  	<option disabled selected value>Select An User Role</option>
 				                    <option>Tender Creator</option>
-				                    <option>Bid Opener</option>
+				                    <option value="bid_opener">Bid Opener</option>
 				                    <option>Volunteer</option>
 				                  </select>
 				                  

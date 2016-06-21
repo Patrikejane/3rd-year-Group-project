@@ -30,6 +30,7 @@
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -38,6 +39,7 @@
   <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+
 <div class="wrapper">
  <header class="main-header">
     <!-- Logo -->
@@ -169,24 +171,37 @@
     </section><div class="col-md-12">
           <!-- Custom Tabs -->
           <div class="nav-tabs-custom">
-            <ul class="nav nav-tabs">
+            <ul class="nav nav-tabs" id="wheel-tab" data-tabs="tabs">
               <li class="active"><a href="#basic" data-toggle="tab">Basic Deatils</a></li>
               <li><a href="#cover" data-toggle="tab">Cover Details</a></li>
               <li><a href="#nit" data-toggle="tab">NIT Document</a></li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                  Dropdown <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-                  <li role="presentation" class="divider"></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-                </ul>
-              </li>
+              
               <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
             </ul>
+            <div class="row">
+                <div class="row">
+                    <ul class="nav nav-tabs nav-justified tab-bar">
+                        <li><a href="#" id="wheel-left" onclick="myFunc()">PREVIOUS</a></li>
+                        <li><a href="#" id="wheel-right" onclick="myFunc()">NEXT</a></li>
+                    </ul>
+                </div>
+            </div>
+            <script type="text/javascript">
+            function myFunc(){
+              
+              
+
+              var $tabs = $('#wheel-tab li');
+
+              $('#wheel-left').on('click', function () {
+                  $tabs.filter('.active').Previous('li').find('a[data-toggle="tab"]').tab('show');
+              });
+
+              $('#wheel-right').on('click', function () {
+                  $tabs.filter('.active').next('li').find('a[data-toggle="tab"]').tab('show');
+              });
+            }
+            </script>
             <div class="tab-content">
               <div class="tab-pane active" id="basic">
                   <form class="form-horizontal">
@@ -225,46 +240,186 @@
                               <option>4</option>
                             </select>
                           </div>
+                          </div>
                       <div class="form-group">
                         <label for="tender_reference" class="col-sm-4 control-label">Should allow Re-bid submission</label>
-                        div class="radio">
-                    <label>
-                      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                      Option 
-                    </label>
-
-                  </div>
-                        
-                      </div>
-                        
-                      </div>
-                      <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                          <div class="checkbox">
+                        <div class="col-sm-1">
+                          <div class="radio">
                             <label>
-                              <input type="checkbox"> Remember me
+                              <input type="radio" name="optionsRadios" id="op1yes" value="yes" checked>
+                              Yes 
+                            </label>
+
+                          </div>
+                        </div>
+                        <div class="col-sm-1">
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="optionsRadios" id="op1no" value="no" checked>
+                              No
                             </label>
                           </div>
                         </div>
                       </div>
-                    </div>
+                      <!-- ///////////////////////// -->
+                      <div class="form-group">
+                        <label for="tender_reference" class="col-sm-4 control-label">Should allow Withdrawwl of bids</label>
+                        <div class="col-sm-1">
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="optionsRadios" id="op2yes" value="yes" checked>
+                              Yes 
+                            </label>
+
+                          </div>
+                        </div>
+                        <div class="col-sm-1">
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="optionsRadios" id="op2no" value="no" checked>
+                              No
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- ///////////////////////// -->
+                      <div class="form-group">
+                        <label for="tender_reference" class="col-sm-4 control-label">Should allow Offline Submission</label>
+                        <div class="col-sm-1">
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="optionsRadios" id="op3yes" value="yes" checked>
+                              Yes 
+                            </label>
+
+                          </div>
+                        </div>
+                        <div class="col-sm-1">
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="optionsRadios" id="op3no" value="no" checked>
+                              No
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- ///////////////////////// -->
+                      <div class="form-group">
+                        <label for="tender_reference" class="col-sm-4 control-label">Should allow General Technical Submission</label>
+                        <div class="col-sm-1">
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="optionsRadios" id="op4yes" value="yes" checked>
+                              Yes 
+                            </label>
+
+                          </div>
+                        </div>
+                        <div class="col-sm-1">
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="optionsRadios" id="op4no" value="no" checked>
+                              No
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      
+                        
+                      </div>
+                      <div class="form-group">
+                        <label for="tender_type" class="col-sm-4 control-label">Payment Method* </label>
+                        <div class="col-sm-1">
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox"> Offline
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-sm-1">
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox"> Online
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    
                     <!-- /.box-body -->
                     <div class="box-footer">
-                      <button type="submit" class="btn btn-default">Cancel</button>
-                      <button type="submit" class="btn btn-info pull-right">Sign in</button>
-                    </div>
+                      <button type="submit" class="btn btn-info pull-right" style="margin-left:5px">Cancel</button>
+                   </div>
+                   <ul class="pager">
+                      <li><a href="#">Previous</a></li>
+                      <li><a href="#cover">Next</a></li>
+                  </ul>
+                    
+                    
                     <!-- /.box-footer -->
                 </form>
               </div>
               <!-- /.tab-pane -->
               <div class="tab-pane" id="cover">
-                The European languages are members of the same family. Their separate existence is a myth.
-                For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
-                in their grammar, their pronunciation and their most common words. Everyone realizes why a
-                new common language would be desirable: one could refuse to pay expensive translators. To
-                achieve this, it would be necessary to have uniform grammar, pronunciation and more common
-                words. If several languages coalesce, the grammar of the resulting language is more simple
-                and regular than that of the individual languages.
+                <div class="box">
+                  <div class="box-header">
+                    <h3 class="box-title">Condensed Full Width Table</h3>
+                  </div>
+                  <!-- /.box-header -->
+                  <div class="box-body no-padding">
+                    <table class="table table-condensed">
+                      <tr>
+                        <th style="width: 10px">S.no</th>
+                        <th>Cover Name</th>
+                        <th>Cover Type</th>
+                        <th style="width: 40px">Cover Document</th>
+                        <th>Add Content</th>
+                      </tr>
+                      <tr>
+                        <td>1.</td>
+                        <td>Update software</td>
+                        <td>
+                          <div class="progress progress-xs">
+                            <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                          </div>
+                        </td>
+                        <td><span class="badge bg-red">55%</span></td>
+                      </tr>
+                      <tr>
+                        <td>2.</td>
+                        <td>Clean database</td>
+                        <td>
+                          <div class="progress progress-xs">
+                            <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+                          </div>
+                        </td>
+                        <td><span class="badge bg-yellow">70%</span></td>
+                      </tr>
+                      <tr>
+                        <td>3.</td>
+                        <td>Cron job running</td>
+                        <td>
+                          <div class="progress progress-xs progress-striped active">
+                            <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+                          </div>
+                        </td>
+                        <td><span class="badge bg-light-blue">30%</span></td>
+                      </tr>
+                      <tr>
+                        <td>4.</td>
+                        <td>Fix and squish bugs</td>
+                        <td>
+                          <div class="progress progress-xs progress-striped active">
+                            <div class="progress-bar progress-bar-success" style="width: 90%"></div>
+                          </div>
+                        </td>
+                        <td><span class="badge bg-green">90%</span></td>
+                      </tr>
+                    </table>
+                  </div>
+                  <!-- /.box-body -->
+                </div>
               </div>
               <!-- /.tab-pane -->
               <div class="tab-pane" id="nit">
@@ -277,8 +432,18 @@
                 like Aldus PageMaker including versions of Lorem Ipsum.
               </div>
               <!-- /.tab-pane -->
+              <div class="box-footer clearfix">
+              <ul class="pagination pagination-sm no-margin pull-right">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#basic">1</a></li>
+                <li><a href="#cover">2</a></li>
+                <li><a href="#nit">3</a></li>
+                <li><a href="#">&raquo;</a></li>
+              </ul>
+            </div>
             </div>
             <!-- /.tab-content -->
+            
           </div>
           <!-- nav-tabs-custom -->
         </div>
