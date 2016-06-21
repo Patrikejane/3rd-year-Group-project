@@ -168,40 +168,19 @@
         <li><a href="#"><i class="fa fa-dashboard"></i> Tender List</a></li>
         
       </ol>
-    </section><div class="col-md-12">
+    </section>
+    <div class="col-md-12">
           <!-- Custom Tabs -->
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs" id="wheel-tab" data-tabs="tabs">
               <li class="active"><a href="#basic" data-toggle="tab">Basic Deatils</a></li>
               <li><a href="#cover" data-toggle="tab">Cover Details</a></li>
-              <li><a href="#nit" data-toggle="tab">NIT Document</a></li>
+              <li><a href="#wid" data-toggle="tab">Work Item Details</a></li>
               
               <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
             </ul>
-            <div class="row">
-                <div class="row">
-                    <ul class="nav nav-tabs nav-justified tab-bar">
-                        <li><a href="#" id="wheel-left" onclick="myFunc()">PREVIOUS</a></li>
-                        <li><a href="#" id="wheel-right" onclick="myFunc()">NEXT</a></li>
-                    </ul>
-                </div>
-            </div>
-            <script type="text/javascript">
-            function myFunc(){
-              
-              
-
-              var $tabs = $('#wheel-tab li');
-
-              $('#wheel-left').on('click', function () {
-                  $tabs.filter('.active').Previous('li').find('a[data-toggle="tab"]').tab('show');
-              });
-
-              $('#wheel-right').on('click', function () {
-                  $tabs.filter('.active').next('li').find('a[data-toggle="tab"]').tab('show');
-              });
-            }
-            </script>
+            
+            
             <div class="tab-content">
               <div class="tab-pane active" id="basic">
                   <form class="form-horizontal">
@@ -422,14 +401,46 @@
                 </div>
               </div>
               <!-- /.tab-pane -->
-              <div class="tab-pane" id="nit">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                It has survived not only five centuries, but also the leap into electronic typesetting,
-                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                like Aldus PageMaker including versions of Lorem Ipsum.
+              <div class="tab-pane" id="wid">
+                <div class="box box-info">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">Horizontal Form</h3>
+                  </div>
+                  <!-- /.box-header -->
+                  <!-- form start -->
+                  <form class="form-horizontal">
+                    
+                    <div class="box-body">
+                      <div class="form-group">
+                        <label for="tender_reference" class="col-sm-4 control-label">Work/Item Title* </label>
+
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="work_title" placeholder="Title">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="tender_reference" class="col-sm-4 control-label">Work/Item Description* </label>
+
+                        <div class="col-sm-4">
+                          <textarea class="form-control" rows="3" placeholder="Desccription" ></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="tender_reference" class="col-sm-4 control-label">Pre Qualification Details * </label>
+
+                        <div class="col-sm-4">
+                          <textarea class="form-control" rows="3" placeholder="Desccription" ></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                      <button type="submit" class="btn btn-default">Cancel</button>
+                      <button type="submit" class="btn btn-info pull-right">Sign in</button>
+                    </div>
+                    <!-- /.box-footer -->
+                  </form>
+                </div>
               </div>
               <!-- /.tab-pane -->
               <div class="box-footer clearfix">
