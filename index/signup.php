@@ -114,6 +114,8 @@ if(isset($_POST["submit"]))
 
     <link href="css/animate.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet">
+    <!-- css file for sweetalert -->
+    <link rel="stylesheet" href="../sweetalert/dist/sweetalert.css" />
 
     <!-- boxed bg -->
     <link id="bodybg" href="bodybg/bg1.css" rel="stylesheet" type="text/css" />
