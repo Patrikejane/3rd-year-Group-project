@@ -83,7 +83,7 @@ if(isset($_POST["submit"]))
 									swal({title: "", text: "You are now registered.", type: "success"},
 										function(isConfirm){
 											if(isConfirm){
-												window.location.href = "index.php";
+												window.location.href = "/Git/3rd-year-Group-project/index/index.php";
 											}
 										}
 									)
@@ -119,6 +119,9 @@ if(isset($_POST["submit"]))
     <link id="bodybg" href="bodybg/bg1.css" rel="stylesheet" type="text/css" />
     <!-- template skin -->
     <link id="t-colors" href="color/default.css" rel="stylesheet">
+    
+    <!-- css file for sweetalert -->
+    <link rel="stylesheet" href="../sweetalert/dist/sweetalert.css" />
 
 
 </head>
@@ -538,6 +541,8 @@ if(isset($_POST["submit"]))
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/nivo-lightbox.min.js"></script>
 <script src="js/custom.js"></script>
+<!-- js file for sweetalert -->
+<script src="../sweetalert/dist/sweetalert.min.js"></script>
 
 
 </body>

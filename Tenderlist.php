@@ -425,6 +425,13 @@
                           <textarea class="form-control" rows="3" placeholder="Desccription" ></textarea>
                         </div>
                       </div>
+                      <div class="form-group">
+                        <label for="tender_reference" class="col-sm-4 control-label">Pre Qualification Details * </label>
+
+                        <div class="col-sm-4">
+                          <textarea class="form-control" rows="3" placeholder="Desccription" ></textarea>
+                        </div>
+                      </div>
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
