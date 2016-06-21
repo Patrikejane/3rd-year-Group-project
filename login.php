@@ -33,13 +33,14 @@
 			{
 				$_SESSION['email'] = $email; // Initializing Session
 				header("location: home.php"); // Redirecting To Other Page
-			}else
+			}
+			else
 			{
 				echo 	'<script type="text/javascript">
 							setTimeout(function(){
-								sweetAlert("", "Incorrect username or password.", "error")
+								swal("", "Incorrect username or password.", "error");
 							},100);
-					 	</script>';
+						</script>';
 			}
 
 		}
