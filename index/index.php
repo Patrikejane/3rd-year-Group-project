@@ -42,7 +42,7 @@ include ("../login.php");
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     <img src="img/logo.png" alt="" width="150" height="40" />
                 </a>
             </div>
@@ -50,10 +50,10 @@ include ("../login.php");
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
 			  <ul class="nav navbar-nav">
-				<li class="active"><a href="#intro">Home</a></li>
+				<li class="active"><a href="index.php">Home</a></li>
 				<li><a href="#about">About</a></li>
                   <li><a href="#News">News</a></li>
-                  <li><a href="#signup">Sign UP</a></li>
+                  <li><a href="signup.php">Sign UP</a></li>
 
 			  </ul>
             </div>
@@ -71,15 +71,24 @@ include ("../login.php");
 					<div class="col-lg-6">
 
 						<div class="well well-trans">
-						<div class="wow fadeInRight" data-wow-delay="0.1s">
+						<div class="wow fadeInRight " style="height: 200px;overflow: hidden;"  data-wow-delay="0.1s">
+                            <div style="overflow-y: hidden;">
+                                    <marquee direction="up">
+                                        <ul class="lead-list">
+                                            list of  new proc details
+                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
+                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
+                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
+                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
+                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
+                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
+                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
+                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
 
-						<ul class="lead-list">
-                            list of  new proc details
-							<li> <span class="list"><strong>xxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
-							<li></span> <span class="list"><strong>xxxxxxxxxxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
-							<li></span> <span class="list"><strong>xxxxxxxxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
-						</ul>
 
+                                        </ul>
+                                    </marquee>
+                            </div>
 						</div>
 						</div>
 
