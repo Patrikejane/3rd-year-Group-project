@@ -1,12 +1,5 @@
 <?php
-    include('login.php'); // Include Login Script
-
-    if ((isset($_SESSION['email']) != '')) 
-    {
-        header('Location: home.php');
-    }
-
-    include('side1.php'); 
+  include('side1.php'); 
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Sign in page</title>
+  <title>Company Detail Form</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -41,50 +34,81 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="container">
-        <div class="row" style="margin-top:150px">
+        <div class="row" style="margin-top:60px">
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-4">
                   <!-- Horizontal Form -->
                   <div class="box box-info">
                     <div class="box-header with-border">
-                      <h3 class="box-title">Please Sign In</h3>
+                      <h3 class="box-title">Please provide details of your company</h3>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
                     <form class="form-horizontal" method="post" action="">
                       <div class="box-body">
                         <div class="form-group">
-                          <label for="email" class="col-sm-2 control-label">Email</label>
+                          <label for="company_name" class="col-sm-4 control-label">Company Name</label>
 
-                          <div class="col-sm-10">
+                          <div class="col-sm-8">
+                            <input type="text" name="company_name" class="form-control" id="company_name" placeholder="Company Name" required>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="email" class="col-sm-4 control-label">Email</label>
+
+                          <div class="col-sm-8">
                             <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="password" class="col-sm-2 control-label">Password</label>
+                          <label for="tin_number" class="col-sm-4 control-label">TIN Number</label>
 
-                          <div class="col-sm-10">
-                            <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                          <div class="col-sm-8">
+                            <input type="number" name="tin_number" class="form-control" id="tin_number" placeholder="TIN Number" required>
                           </div>
                         </div>
                         <div class="form-group">
-                          <div class="col-sm-offset-2 col-sm-10">
-                            <div class="checkbox">
-                              <label>
-                                <input type="checkbox"> Remember me
-                              </label>
-                              <a href="" class="btn btn-link pull-right">Forgot Password?</a>
-                            </div>
+                          <label for="diversity_categories" class="col-sm-4 control-label">Diversity Categories</label>
+
+                          <div class="col-sm-8">
+                            <input type="text" name="diversity_categories" class="form-control" id="diversity_categories" placeholder="Diversity Categories" required>
                           </div>
                         </div>
+                        <div class="form-group">
+                          <label for="city" class="col-sm-4 control-label">City</label>
+
+                          <div class="col-sm-8">
+                            <input type="text" name="city" class="form-control" id="city" placeholder="City" required>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="web_url" class="col-sm-4 control-label">Web URL</label>
+
+                          <div class="col-sm-8">
+                            <input type="url" name="web_url" class="form-control" id="web_url" placeholder="Web URL" required>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="phone_number" class="col-sm-4 control-label">Phone Number</label>
+
+                          <div class="col-sm-8">
+                            <input type="tel" name="phone_number" class="form-control" id="phone_number" placeholder="Phone Number">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="fax_number" class="col-sm-4 control-label">Fax Number</label>
+
+                          <div class="col-sm-8">
+                            <input type="tel" name="fax_number" class="form-control" id="fax_number" placeholder="Fax Number">
+                          </div>
+                        </div>
+                        
                       </div>
                       <!-- /.box-body -->
                       <div class="box-footer">
                         <div class="row">
-                        <div class="col-md-4 col-md-offset-2"> 
-                        <button type="submit" class="btn btn-default"><a href="signup.php">Cancel</a></button>
-                        </div>
-                        <div class="col-md-4 col-md-offset-2"> 
-                        <button type="submit" name = "submit" class="btn btn-info pull-right">Sign in</button>
+                        
+                        <div class="col-md-12"> 
+                        <button type="submit" name = "submit" class="btn btn-info pull-right">Submit</button>
                         </div>
                         </div>
                       </div>
