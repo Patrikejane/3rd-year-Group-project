@@ -37,6 +37,7 @@
 			if($query)
 			{
 				echo "You provided the details of your company.";
+				header("location: signin.php");
 			}
 		}
 	}

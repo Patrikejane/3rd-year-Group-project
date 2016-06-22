@@ -69,7 +69,7 @@ if(isset($_POST["submit"]))
 	        						swal({title: "", text: "You are now registered as a bid opener.", type: "success"},
 		        						function(isConfirm){
 											if(isConfirm){
-												window.location.href = "../companyDetails.php";
+												window.location.href = "../companyDetailForm.php";
 											}
 										}
 	        						)
@@ -83,7 +83,7 @@ if(isset($_POST["submit"]))
 									swal({title: "", text: "You are now registered.", type: "success"},
 										function(isConfirm){
 											if(isConfirm){
-												window.location.href = "/Git/3rd-year-Group-project/index/index.php";
+												window.location.href = "../index/index.php";
 											}
 										}
 									)
