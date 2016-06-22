@@ -93,7 +93,7 @@
 			}
 		}
 	}
-	include('side1.php');
+	
 ?>
 
 <!DOCTYPE html>
@@ -132,7 +132,9 @@
 
 
 <body class="hold-transition skin-blue sidebar-mini">
-<div class="container">
+<?php include('side1.php');
+?>
+<div class="container" style="overflow-y:auto">
 
 		<div class="row" style="margin-top:40px">
         <div class="col-xs-12 col-sm-8 col-md-10 col-sm-offset-2 col-md-offset-2">

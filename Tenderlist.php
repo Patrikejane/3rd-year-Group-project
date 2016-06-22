@@ -30,6 +30,7 @@
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -38,6 +39,7 @@
   <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+
 <div class="wrapper">
  <header class="main-header">
     <!-- Logo -->
@@ -166,27 +168,19 @@
         <li><a href="#"><i class="fa fa-dashboard"></i> Tender List</a></li>
         
       </ol>
-    </section><div class="col-md-12">
+    </section>
+    <div class="col-md-12">
           <!-- Custom Tabs -->
           <div class="nav-tabs-custom">
-            <ul class="nav nav-tabs">
+            <ul class="nav nav-tabs" id="wheel-tab" data-tabs="tabs">
               <li class="active"><a href="#basic" data-toggle="tab">Basic Deatils</a></li>
               <li><a href="#cover" data-toggle="tab">Cover Details</a></li>
-              <li><a href="#nit" data-toggle="tab">NIT Document</a></li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                  Dropdown <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-                  <li role="presentation" class="divider"></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-                </ul>
-              </li>
+              <li><a href="#wid" data-toggle="tab">Work Item Details</a></li>
+              
               <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
             </ul>
+            
+            
             <div class="tab-content">
               <div class="tab-pane active" id="basic">
                   <form class="form-horizontal">
@@ -225,26 +219,217 @@
                               <option>4</option>
                             </select>
                           </div>
+                          </div>
                       <div class="form-group">
                         <label for="tender_reference" class="col-sm-4 control-label">Should allow Re-bid submission</label>
-                        div class="radio">
-                    <label>
-                      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                      Option 
-                    </label>
+                        <div class="col-sm-1">
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="optionsRadios" id="op1yes" value="yes" checked>
+                              Yes 
+                            </label>
 
-                  </div>
-                        
+                          </div>
+                        </div>
+                        <div class="col-sm-1">
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="optionsRadios" id="op1no" value="no" checked>
+                              No
+                            </label>
+                          </div>
+                        </div>
                       </div>
+                      <!-- ///////////////////////// -->
+                      <div class="form-group">
+                        <label for="tender_reference" class="col-sm-4 control-label">Should allow Withdrawwl of bids</label>
+                        <div class="col-sm-1">
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="optionsRadios" id="op2yes" value="yes" checked>
+                              Yes 
+                            </label>
+
+                          </div>
+                        </div>
+                        <div class="col-sm-1">
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="optionsRadios" id="op2no" value="no" checked>
+                              No
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- ///////////////////////// -->
+                      <div class="form-group">
+                        <label for="tender_reference" class="col-sm-4 control-label">Should allow Offline Submission</label>
+                        <div class="col-sm-1">
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="optionsRadios" id="op3yes" value="yes" checked>
+                              Yes 
+                            </label>
+
+                          </div>
+                        </div>
+                        <div class="col-sm-1">
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="optionsRadios" id="op3no" value="no" checked>
+                              No
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- ///////////////////////// -->
+                      <div class="form-group">
+                        <label for="tender_reference" class="col-sm-4 control-label">Should allow General Technical Submission</label>
+                        <div class="col-sm-1">
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="optionsRadios" id="op4yes" value="yes" checked>
+                              Yes 
+                            </label>
+
+                          </div>
+                        </div>
+                        <div class="col-sm-1">
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="optionsRadios" id="op4no" value="no" checked>
+                              No
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      
                         
                       </div>
                       <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
+                        <label for="tender_type" class="col-sm-4 control-label">Payment Method* </label>
+                        <div class="col-sm-1">
                           <div class="checkbox">
                             <label>
-                              <input type="checkbox"> Remember me
+                              <input type="checkbox"> Offline
                             </label>
                           </div>
+                        </div>
+                        <div class="col-sm-1">
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox"> Online
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                      <button type="submit" class="btn btn-info pull-right" style="margin-left:5px">Cancel</button>
+                   </div>
+                   <ul class="pager">
+                      <li><a href="#">Previous</a></li>
+                      <li><a href="#cover">Next</a></li>
+                  </ul>
+                    
+                    
+                    <!-- /.box-footer -->
+                </form>
+              </div>
+              <!-- /.tab-pane -->
+              <div class="tab-pane" id="cover">
+                <div class="box">
+                  <div class="box-header">
+                    <h3 class="box-title">Condensed Full Width Table</h3>
+                  </div>
+                  <!-- /.box-header -->
+                  <div class="box-body no-padding">
+                    <table class="table table-condensed">
+                      <tr>
+                        <th style="width: 10px">S.no</th>
+                        <th>Cover Name</th>
+                        <th>Cover Type</th>
+                        <th style="width: 40px">Cover Document</th>
+                        <th>Add Content</th>
+                      </tr>
+                      <tr>
+                        <td>1.</td>
+                        <td>Update software</td>
+                        <td>
+                          <div class="progress progress-xs">
+                            <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                          </div>
+                        </td>
+                        <td><span class="badge bg-red">55%</span></td>
+                      </tr>
+                      <tr>
+                        <td>2.</td>
+                        <td>Clean database</td>
+                        <td>
+                          <div class="progress progress-xs">
+                            <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+                          </div>
+                        </td>
+                        <td><span class="badge bg-yellow">70%</span></td>
+                      </tr>
+                      <tr>
+                        <td>3.</td>
+                        <td>Cron job running</td>
+                        <td>
+                          <div class="progress progress-xs progress-striped active">
+                            <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+                          </div>
+                        </td>
+                        <td><span class="badge bg-light-blue">30%</span></td>
+                      </tr>
+                      <tr>
+                        <td>4.</td>
+                        <td>Fix and squish bugs</td>
+                        <td>
+                          <div class="progress progress-xs progress-striped active">
+                            <div class="progress-bar progress-bar-success" style="width: 90%"></div>
+                          </div>
+                        </td>
+                        <td><span class="badge bg-green">90%</span></td>
+                      </tr>
+                    </table>
+                  </div>
+                  <!-- /.box-body -->
+                </div>
+              </div>
+              <!-- /.tab-pane -->
+              <div class="tab-pane" id="wid">
+                <div class="box box-info">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">Horizontal Form</h3>
+                  </div>
+                  <!-- /.box-header -->
+                  <!-- form start -->
+                  <form class="form-horizontal">
+                    
+                    <div class="box-body">
+                      <div class="form-group">
+                        <label for="tender_reference" class="col-sm-4 control-label">Work/Item Title* </label>
+
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="work_title" placeholder="Title">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="tender_reference" class="col-sm-4 control-label">Work/Item Description* </label>
+
+                        <div class="col-sm-4">
+                          <textarea class="form-control" rows="3" placeholder="Desccription" ></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="tender_reference" class="col-sm-4 control-label">Pre Qualification Details * </label>
+
+                        <div class="col-sm-4">
+                          <textarea class="form-control" rows="3" placeholder="Desccription" ></textarea>
                         </div>
                       </div>
                     </div>
@@ -254,31 +439,22 @@
                       <button type="submit" class="btn btn-info pull-right">Sign in</button>
                     </div>
                     <!-- /.box-footer -->
-                </form>
+                  </form>
+                </div>
               </div>
               <!-- /.tab-pane -->
-              <div class="tab-pane" id="cover">
-                The European languages are members of the same family. Their separate existence is a myth.
-                For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
-                in their grammar, their pronunciation and their most common words. Everyone realizes why a
-                new common language would be desirable: one could refuse to pay expensive translators. To
-                achieve this, it would be necessary to have uniform grammar, pronunciation and more common
-                words. If several languages coalesce, the grammar of the resulting language is more simple
-                and regular than that of the individual languages.
-              </div>
-              <!-- /.tab-pane -->
-              <div class="tab-pane" id="nit">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                It has survived not only five centuries, but also the leap into electronic typesetting,
-                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                like Aldus PageMaker including versions of Lorem Ipsum.
-              </div>
-              <!-- /.tab-pane -->
+              <div class="box-footer clearfix">
+              <ul class="pagination pagination-sm no-margin pull-right">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#basic">1</a></li>
+                <li><a href="#cover">2</a></li>
+                <li><a href="#nit">3</a></li>
+                <li><a href="#">&raquo;</a></li>
+              </ul>
+            </div>
             </div>
             <!-- /.tab-content -->
+            
           </div>
           <!-- nav-tabs-custom -->
         </div>

@@ -32,9 +32,11 @@
 			if(mysqli_num_rows($result) == 1)
 			{
 				$_SESSION['email'] = $email; // Initializing Session
-				header("location: home.php"); // Redirecting To Other Page
-			}
-			else
+				header("location: ../home.php"); // Redirecting To Other Page
+
+			}else
+
+
 			{
 				echo 	'<script type="text/javascript">
 							setTimeout(function(){
