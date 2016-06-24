@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
+  <title>Tender List</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -176,27 +176,32 @@
               <li class="active"><a href="#basic" data-toggle="tab">Basic Deatils</a></li>
               <li><a href="#cover" data-toggle="tab">Cover Details</a></li>
               <li><a href="#wid" data-toggle="tab">Work Item Details</a></li>
+              <li><a href="#fd" data-toggle="tab">Fee Details</a></li>
               
               <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
             </ul>
             
             
             <div class="tab-content">
+            <!-- ********************************************************************** -->
               <div class="tab-pane active" id="basic">
-                  <form class="form-horizontal">
+                  <form class="form-horizontal" method="post" action="tenderdata.php">
                     <div class="box-body">
+                    <h3 class="box-title">Main Details</h3>
+
                       <div class="form-group">
                         <label for="tender_reference" class="col-sm-4 control-label">Tender Reference Number* </label>
 
                         <div class="col-sm-4">
-                          <input type="text" class="form-control" id="tender_reference" placeholder="Tender Reference Number">
+                          <input type="text" class="form-control" id="tender_reference" name="tender_reference" placeholder="Tender Reference Number">
                         </div>
                       </div>
+
                       <div class="form-group">
                         <label for="tender_type" class="col-sm-4 control-label">Tender type* </label>
                           <div class="col-sm-4 ">
                             
-                            <select class="form-control">
+                            <select class="form-control" name="select_tender_type">
                               <option class="active">-Select-</option>
                               <option>Open</option>
                               <option>Limited</option>
@@ -204,14 +209,13 @@
                               <option>Single</option>
                             </select>
                           </div>
-                        
                       </div>
 
                       <div class="form-group">
                         <label for="tender_type" class="col-sm-4 control-label">No of Covers* </label>
                           <div class="col-sm-4 ">
                             
-                            <select class="form-control">
+                            <select class="form-control" name="select_covers">
                               <option class="active">-Select-</option>
                               <option>1</option>
                               <option>2</option>
@@ -219,13 +223,14 @@
                               <option>4</option>
                             </select>
                           </div>
-                          </div>
+                      </div>
+
                       <div class="form-group">
-                        <label for="tender_reference" class="col-sm-4 control-label">Should allow Re-bid submission</label>
+                        <label for="submission" class="col-sm-4 control-label">Should allow Re-bid submission</label>
                         <div class="col-sm-1">
                           <div class="radio">
                             <label>
-                              <input type="radio" name="optionsRadios" id="op1yes" value="yes" checked>
+                              <input type="radio" name="resubyes" id="op1yes" value="yes" checked>
                               Yes 
                             </label>
 
@@ -234,19 +239,20 @@
                         <div class="col-sm-1">
                           <div class="radio">
                             <label>
-                              <input type="radio" name="optionsRadios" id="op1no" value="no" checked>
+                              <input type="radio" name="resubno" id="op1no" value="no" checked>
                               No
                             </label>
                           </div>
                         </div>
                       </div>
-                      <!-- ///////////////////////// -->
+
+                      <!-- /////////////////////////////////////////////////// -->
                       <div class="form-group">
                         <label for="tender_reference" class="col-sm-4 control-label">Should allow Withdrawwl of bids</label>
                         <div class="col-sm-1">
                           <div class="radio">
                             <label>
-                              <input type="radio" name="optionsRadios" id="op2yes" value="yes" checked>
+                              <input type="radio" name="withdrawyes" id="op2yes" value="yes" checked>
                               Yes 
                             </label>
 
@@ -255,20 +261,20 @@
                         <div class="col-sm-1">
                           <div class="radio">
                             <label>
-                              <input type="radio" name="optionsRadios" id="op2no" value="no" checked>
+                              <input type="radio" name="withdrawno" id="op2no" value="no" checked>
                               No
                             </label>
                           </div>
                         </div>
                       </div>
 
-                      <!-- ///////////////////////// -->
+                      <!-- /////////////////////////////////////////////////////////// -->
                       <div class="form-group">
                         <label for="tender_reference" class="col-sm-4 control-label">Should allow Offline Submission</label>
                         <div class="col-sm-1">
                           <div class="radio">
                             <label>
-                              <input type="radio" name="optionsRadios" id="op3yes" value="yes" checked>
+                              <input type="radio" name="offsubyes" id="op3yes" value="yes" checked>
                               Yes 
                             </label>
 
@@ -277,20 +283,20 @@
                         <div class="col-sm-1">
                           <div class="radio">
                             <label>
-                              <input type="radio" name="optionsRadios" id="op3no" value="no" checked>
+                              <input type="radio" name="offsubno" id="op3no" value="no" checked>
                               No
                             </label>
                           </div>
                         </div>
                       </div>
 
-                      <!-- ///////////////////////// -->
+                      <!-- //////////////////////////////////////////////////////////// -->
                       <div class="form-group">
                         <label for="tender_reference" class="col-sm-4 control-label">Should allow General Technical Submission</label>
                         <div class="col-sm-1">
                           <div class="radio">
                             <label>
-                              <input type="radio" name="optionsRadios" id="op4yes" value="yes" checked>
+                              <input type="radio" name="techsubyes" id="op4yes" value="yes" checked>
                               Yes 
                             </label>
 
@@ -299,159 +305,260 @@
                         <div class="col-sm-1">
                           <div class="radio">
                             <label>
-                              <input type="radio" name="optionsRadios" id="op4no" value="no" checked>
+                              <input type="radio" name="techsubno" id="op4no" value="no" checked>
                               No
                             </label>
                           </div>
                         </div>
                       </div>
                       
-                        
+                      <!-- //////////////////////////////////////////////////////////// -->  
                       </div>
                       <div class="form-group">
                         <label for="tender_type" class="col-sm-4 control-label">Payment Method* </label>
                         <div class="col-sm-1">
                           <div class="checkbox">
                             <label>
-                              <input type="checkbox"> Offline
+                              <input type="checkbox" name="paymentoff" id="paymentoff"> Offline
                             </label>
                           </div>
                         </div>
                         <div class="col-sm-1">
                           <div class="checkbox">
                             <label>
-                              <input type="checkbox"> Online
+                              <input type="checkbox" name="paymenton" id="paymenton"> Online
                             </label>
                           </div>
                         </div>
                       </div>
-                    
-                    <!-- /.box-body -->
-                    <div class="box-footer">
-                      <button type="submit" class="btn btn-info pull-right" style="margin-left:5px">Cancel</button>
-                   </div>
-                   <ul class="pager">
-                      <li><a href="#">Previous</a></li>
-                      <li><a href="#cover">Next</a></li>
-                  </ul>
-                    
-                    
-                    <!-- /.box-footer -->
-                </form>
+                    </form>
               </div>
+
+              <!-- ********************************************************************** -->
               <!-- /.tab-pane -->
               <div class="tab-pane" id="cover">
                 <div class="box">
                   <div class="box-header">
-                    <h3 class="box-title">Condensed Full Width Table</h3>
+                    <h3 class="box-title">Add the Documents</h3>
                   </div>
                   <!-- /.box-header -->
                   <div class="box-body no-padding">
                     <table class="table table-condensed">
                       <tr>
                         <th style="width: 10px">S.no</th>
+                        
                         <th>Cover Name</th>
-                        <th>Cover Type</th>
-                        <th style="width: 40px">Cover Document</th>
-                        <th>Add Content</th>
+                        <th style="width: 40px">Cover Type</th>
+                        <th>Add Documents</th>
+                        <th>Add Contents</th>
                       </tr>
                       <tr>
                         <td>1.</td>
-                        <td>Update software</td>
-                        <td>
-                          <div class="progress progress-xs">
-                            <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                          </div>
-                        </td>
-                        <td><span class="badge bg-red">55%</span></td>
+                        <td>2014_</td>
+                        <td>Fee/PreQual/Technical</td>
+                        <td>Document count</td>
+                        <td><input type="file" id="fee/tec"></td>
                       </tr>
                       <tr>
                         <td>2.</td>
-                        <td>Clean database</td>
-                        <td>
-                          <div class="progress progress-xs">
-                            <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                          </div>
-                        </td>
-                        <td><span class="badge bg-yellow">70%</span></td>
+                        <td>2014_</td>
+                        <td>Tender Dcument</td>
+                        <td>Document count</td>
+                        <td><input type="file" id="tenderdoc"></td>
                       </tr>
-                      <tr>
-                        <td>3.</td>
-                        <td>Cron job running</td>
-                        <td>
-                          <div class="progress progress-xs progress-striped active">
-                            <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                          </div>
-                        </td>
-                        <td><span class="badge bg-light-blue">30%</span></td>
-                      </tr>
-                      <tr>
-                        <td>4.</td>
-                        <td>Fix and squish bugs</td>
-                        <td>
-                          <div class="progress progress-xs progress-striped active">
-                            <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                          </div>
-                        </td>
-                        <td><span class="badge bg-green">90%</span></td>
-                      </tr>
+                      
                     </table>
                   </div>
                   <!-- /.box-body -->
                 </div>
               </div>
+
+              <!-- ********************************************************************** -->
               <!-- /.tab-pane -->
               <div class="tab-pane" id="wid">
                 <div class="box box-info">
                   <div class="box-header with-border">
-                    <h3 class="box-title">Horizontal Form</h3>
+                    <h3 class="box-title">Item Details</h3>
                   </div>
-                  <!-- /.box-header -->
+                  
                   <!-- form start -->
-                  <form class="form-horizontal">
+                  <form class="form-horizontal" method="post" action="tenderdata.php">
                     
                     <div class="box-body">
+
                       <div class="form-group">
-                        <label for="tender_reference" class="col-sm-4 control-label">Work/Item Title* </label>
+                        <label for="work_title" class="col-sm-4 control-label">Work/Item Title* </label>
 
                         <div class="col-sm-4">
-                          <input type="text" class="form-control" id="work_title" placeholder="Title">
+                          <input type="text" class="form-control" id="work_title" name="work_title" placeholder="Title">
                         </div>
                       </div>
+
                       <div class="form-group">
-                        <label for="tender_reference" class="col-sm-4 control-label">Work/Item Description* </label>
+                        <label  class="col-sm-4 control-label">Work/Item Description* </label>
 
                         <div class="col-sm-4">
-                          <textarea class="form-control" rows="3" placeholder="Desccription" ></textarea>
+                          <textarea class="form-control" rows="3" id="description" name="description" placeholder="Desccription" ></textarea>
                         </div>
                       </div>
+
                       <div class="form-group">
                         <label for="tender_reference" class="col-sm-4 control-label">Pre Qualification Details * </label>
 
                         <div class="col-sm-4">
-                          <textarea class="form-control" rows="3" placeholder="Desccription" ></textarea>
+                          <textarea class="form-control" rows="3" id="predescription" name="predescription" placeholder="Desccription" ></textarea>
                         </div>
                       </div>
+
+                      <div class="form-group">
+                        <label for="tender_type" class="col-sm-4 control-label">Product Catogary* </label>
+                          <div class="col-sm-4 ">
+                            
+                            <select class="form-control" id="product_catogary" name="product_catogary">
+                              <option class="active">-Select-</option>
+                              <option>Open</option>
+                              <option>Limited</option>
+                              <option>Auction</option>
+                              <option>Single</option>
+                            </select>
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="tender_reference" class="col-sm-4 control-label">Product SubCatogary* </label>
+
+                        <div class="col-sm-4">
+                          <textarea class="form-control" rows="3" id="sub_catogary" name="sub_catogary" placeholder="Desccription" ></textarea>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="tender_type" class="col-sm-4 control-label">Contract type</label>
+                          <div class="col-sm-4 ">
+                            
+                            <select class="form-control" id="contract_type" name="contract_type">
+                              <option class="active">-Select-</option>
+                              <option>Open</option>
+                              <option>Limited</option>
+                              <option>Auction</option>
+                              <option>Single</option>
+                            </select>
+                          </div>
+                      </div>
                     </div>
-                    <!-- /.box-body -->
-                    <div class="box-footer">
-                      <button type="submit" class="btn btn-default">Cancel</button>
-                      <button type="submit" class="btn btn-info pull-right">Sign in</button>
-                    </div>
-                    <!-- /.box-footer -->
+                    
                   </form>
+
                 </div>
               </div>
+
+              <!-- ********************************************************************** -->
+                    <div class="tab-pane" id="fd">
+                      <div class="box box-info">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Fee Details/Special Dates</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <form class="form-horizontal" id="fd" method="post" action="tenderdata.php">
+                          
+                          <div class="box-body">
+                            <div class="form-group">
+                              <label for="tender_reference" class="col-sm-3 control-label">Tender Fee(LK) </label>
+
+                              <div class="col-sm-3">
+                                <input type="text" class="form-control" id="tender_fee" name="tender_fee" placeholder="Tender Fee">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="tender_reference" class="col-sm-3 control-label">Any Other Tax Fee(LK) </label>
+
+                              <div class="col-sm-3">
+                                <input type="text" class="form-control" id="any_other_fee" name="any_other_fee" placeholder="Other Fee">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="publish_date" class="col-sm-3 control-label">Publishing Date* </label>
+
+                              <div class="col-sm-3">
+                                <input type="date" class="form-control" id="pub_date" name="pub_date" >
+                              </div>
+
+                              <label for="publish_date" class="col-sm-2 control-label">At </label>
+
+                              <div class="col-sm-2">
+                                <input type="time" class="form-control" id="pub_time" name="pub_time" >
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="downloade_date" class="col-sm-3 control-label">Document Downloade/Sales start Date* </label>
+
+                              <div class="col-sm-3">
+                                <input type="date" class="form-control" id="doc_date" name="doc_date" >
+                              </div>
+
+                              <label for="downloade_date" class="col-sm-2 control-label">At </label>
+
+                              <div class="col-sm-2">
+                                <input type="time" class="form-control" id="doc_time" name="doc_time" >
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="sub_start_date" class="col-sm-3 control-label">Bid Submission Satrt Date* </label>
+
+                              <div class="col-sm-3">
+                                <input type="date" class="form-control" id="bid_sart_date" name="bid_sart_date" >
+                              </div>
+
+                              <label for="sub_start_date" class="col-sm-2 control-label">At </label>
+
+                              <div class="col-sm-2">
+                                <input type="time" class="form-control" id="bid_start_time" name="bid_start_time" >
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="sub_close_date" class="col-sm-3 control-label">Bid Submission Closing Date* </label>
+
+                              <div class="col-sm-3">
+                                <input type="date" class="form-control" id="bid_close_date" name="bid_close_date" >
+                              </div>
+
+                              <label for="sub_close_date" class="col-sm-2 control-label">At </label>
+
+                              <div class="col-sm-2">
+                                <input type="time" class="form-control" id="bid_close_time" nbid_close_date >
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="bid_open_date" class="col-sm-3 control-label">Bid Opening Date* </label>
+
+                              <div class="col-sm-3">
+                                <input type="date" class="form-control" id="bid_open_date" name="bid_open_date" >
+                              </div>
+
+                              <label for="bid_open_date" class="col-sm-2 control-label">At </label>
+
+                              <div class="col-sm-2">
+                                <input type="time" class="form-control" id="bid_close_opentime" name="bid_close_opentime" >
+                              </div>
+                            </div>
+                            
+
+
+                            
+                          </div>
+                          
+                        </form>
+                        
+                      </div>
+                    </div>
               <!-- /.tab-pane -->
-              <div class="box-footer clearfix">
-              <ul class="pagination pagination-sm no-margin pull-right">
-                <li><a href="#">&laquo;</a></li>
-                <li><a href="#basic">1</a></li>
-                <li><a href="#cover">2</a></li>
-                <li><a href="#nit">3</a></li>
-                <li><a href="#">&raquo;</a></li>
-              </ul>
-            </div>
+              
+              
             </div>
             <!-- /.tab-content -->
             
@@ -524,5 +631,16 @@
 <script src="dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+
+<script type="text/javascript">
+  $ (function () {
+    $('#datepicker').datepicker({
+      autoclose: true
+    });
+  });
+  
+</script>
+
+
 </body>
 </html>
