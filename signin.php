@@ -4,7 +4,7 @@
     if ((isset($_SESSION['email']) != '')) 
     {
         header('Location: home.php');
-    }
+    }   
 
     include('side1.php'); 
 ?>
@@ -53,14 +53,14 @@
                     <form class="form-horizontal" method="post" action="">
                       <div class="box-body">
                         <div class="form-group">
-                          <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                          <label for="email" class="col-sm-2 control-label">Email</label>
 
                           <div class="col-sm-10">
                             <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                          <label for="password" class="col-sm-2 control-label">Password</label>
 
                           <div class="col-sm-10">
                             <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>

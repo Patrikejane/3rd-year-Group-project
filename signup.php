@@ -69,7 +69,7 @@
 	        						swal({title: "", text: "You are now registered as a bid opener.", type: "success"},
 		        						function(isConfirm){
 											if(isConfirm){
-												window.location.href = "companyDetails.php";
+												window.location.href = "companyDetailForm.php";
 											}
 										}
 	        						)

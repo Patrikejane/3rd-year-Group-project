@@ -69,7 +69,7 @@ if(isset($_POST["submit"]))
 	        						swal({title: "", text: "You are now registered as a bid opener.", type: "success"},
 		        						function(isConfirm){
 											if(isConfirm){
-												window.location.href = "../companyDetails.php";
+												window.location.href = "../companyDetailForm.php";
 											}
 										}
 	        						)
@@ -83,7 +83,7 @@ if(isset($_POST["submit"]))
 									swal({title: "", text: "You are now registered.", type: "success"},
 										function(isConfirm){
 											if(isConfirm){
-												window.location.href = "/Git/3rd-year-Group-project/index/index.php";
+												window.location.href = "index.php";
 											}
 										}
 									)
@@ -114,6 +114,8 @@ if(isset($_POST["submit"]))
 
     <link href="css/animate.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet">
+    <!-- css file for sweetalert -->
+    <link rel="stylesheet" href="../sweetalert/dist/sweetalert.css" />
 
     <!-- boxed bg -->
     <link id="bodybg" href="bodybg/bg1.css" rel="stylesheet" type="text/css" />
@@ -147,7 +149,7 @@ if(isset($_POST["submit"]))
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                 <ul class="nav navbar-nav">
                     <li ><a href="index.php">Home</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="about.php">About</a></li>
                     <li><a href="#News">News</a></li>
                     <li class="active"><a href="signup.php">Sign UP</a></li>
 
@@ -507,18 +509,14 @@ if(isset($_POST["submit"]))
                     <div class="col-sm-6 col-md-6 col-lg-6">
                         <div class="wow fadeInLeft" data-wow-delay="0.1s">
                             <div class="text-left">
-                                <p>&copy;Copyright 2015 - UCSC. All rights reserved.</p>
+                                <p>&copy;Copyright 2016 - UCSC. All rights reserved.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-6 col-lg-6">
                         <div class="wow fadeInRight" data-wow-delay="0.1s">
 
-                            <!--
-                                All links in the footer should remain intact.
-                                Licenseing information is available at: http://bootstraptaste.com/license/
-                                You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=Medicio
-                            -->
+
                         </div>
                     </div>
                 </div>
