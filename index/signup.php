@@ -83,7 +83,7 @@ if(isset($_POST["submit"]))
 									swal({title: "", text: "You are now registered.", type: "success"},
 										function(isConfirm){
 											if(isConfirm){
-												window.location.href = "../index/index.php";
+												window.location.href = "index.php";
 											}
 										}
 									)

@@ -4,7 +4,7 @@
     if ((isset($_SESSION['email']) != '')) 
     {
         header('Location: home.php');
-    }
+    }   
 
     include('side1.php'); 
 ?>
