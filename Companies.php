@@ -1,3 +1,19 @@
+<?php
+  include("db.php");
+
+  // Check connection
+  if($db === false){
+      die("ERROR: Could not connect. " . mysqli_connect_error());
+  }
+
+  // Attempt select query execution
+  $sql = "SELECT Supplier_name, City, Web_url, Diversity_categories FROM supplier";
+
+  $result = mysqli_query($db, $sql);
+
+  $num_rows = mysqli_num_rows($result);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,7 +69,7 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>25</h3>
+              <h3><?php echo "$num_rows"; ?></h3>
 
               <p>COMPANY RECORDS</p>
             </div>
@@ -69,7 +85,7 @@
             <!-- small box -->
             <div class="small-box bg-green">
               <div class="inner">
-                <h3>7</h3>
+                <h3>0</h3>
 
                 <p>COMPANIES PENDING APPROVAL</p>
               </div>
@@ -115,183 +131,48 @@
             </div>-->
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Approval</th>
-                  <th>Status</th>
-                  <th>City</th>
-                  <th>Web URL</th>
-                  <th>Diversity Categories</th>
-                </tr>
-                </thead>
-                <tbody>
+            <?php
+            if($result = mysqli_query($db, $sql)){
+            if(mysqli_num_rows($result) > 0){
+              echo "<table id='example1' class='table table-bordered table-striped'>";
+                echo "<thead>";
+                echo "<tr>";
+                  echo "<th>Name</th>";
+                  echo "<th>Approval</th>";
+                  echo "<th>Status</th>";
+                  echo "<th>City</th>";
+                  echo "<th>Web URL</th>";
+                  echo "<th>Diversity Categories</th>";
+                echo "</tr>";
+                echo "</thead>";
+                echo "<tbody>";
+              while($row = mysqli_fetch_array($result)){
+                
 
-                <tr>
-                  <td>Company1</td>
-                  <td>Approved</td>
-                  <td>Active</td>
-                  <td>Colombo</td>
-                  <td><a href="url">www.company1.com</a></td>
-                  <td>SBC</td>
-                </tr>
-                <tr>
-                  <td>Company2</td>
-                  <td>Approved</td>
-                  <td>Active</td>
-                  <td>Colombo</td>
-                  <td><a href="url">www.company2.com</a></td>
-                  <td>LBC</td>
-                </tr>
-                <tr>
-                  <td>Company3</td>
-                  <td>Approved</td>
-                  <td>Active</td>
-                  <td>Colombo</td>
-                  <td><a href="url">www.company3.com</a></td>
-                  <td>FB</td>
-                </tr>
-                <tr>
-                  <td>Company4</td>
-                  <td>Approved</td>
-                  <td>Active</td>
-                  <td>Colombo</td>
-                  <td><a href="url">www.company4.com</a></td>
-                  <td>NO</td>
-                </tr>
-                 <tr>
-                  <td>Company5</td>
-                  <td>Approved</td>
-                  <td>Active</td>
-                  <td>Colombo</td>
-                  <td><a href="url">www.company5.com</a></td>
-                  <td>NO</td>
-                </tr>
-                <tr>
-                  <td>Company6</td>
-                  <td>Approved</td>
-                  <td>Active</td>
-                  <td>Colombo</td>
-                  <td><a href="url">www.company6.com</a></td>
-                  <td>SBC</td>
-                </tr>
-                <tr>
-                  <td>Company7</td>
-                  <td>Approved</td>
-                  <td>Active</td>
-                  <td>Colombo</td>
-                  <td><a href="url">www.company7.com</a></td>
-                  <td>FB</td>
-                </tr>
-                <tr>
-                  <td>Company8</td>
-                  <td>Approved</td>
-                  <td>Active</td>
-                  <td>Colombo</td>
-                  <td><a href="url">www.company8.com</a></td>
-                  <td>LBC</td>
-                </tr>
-                <tr>
-                  <td>Company9</td>
-                  <td>Approved</td>
-                  <td>Active</td>
-                  <td>Colombo</td>
-                  <td><a href="url">www.company9.com</a></td>
-                  <td>LBC</td>
-                </tr>
+                echo "<tr>";
+                  echo "<td>".$row['Supplier_name']."</td>";
+                  echo "<td>Approved</td>";
+                  echo "<td>Active</td>";
+                  echo "<td>".$row['City']."</td>";
+                  echo "<td><a href='url'>".$row['Web_url']."</a></td>";
+                  echo "<td>".$row['Diversity_categories']."</td>";
+                echo "</tr>";
+              }
                 
-                <tr>
-                  <td>CompanyA</td>
-                  <td>Approved</td>
-                  <td>Active</td>
-                  <td>Colombo</td>
-                  <td><a href="url">www.companyA.com</a></td>
-                  <td>FB</td>
-                </tr>
-                <tr>
-                  <td>CompanyB</td>
-                  <td>Approved</td>
-                  <td>Active</td>
-                  <td>Colombo</td>
-                  <td><a href="url">www.companyB.com</a></td>
-                  <td>SBC</td>
-                </tr>
-                <tr>
-                  <td>CompanyC</td>
-                  <td>Approved</td>
-                  <td>Active</td>
-                  <td>Colombo</td>
-                  <td><a href="url">www.companyC.com</a></td>
-                  <td>LBC</td>
-                </tr>
-                <tr>
-                  <td>CompanyD</td>
-                  <td>Approved</td>
-                  <td>Active</td>
-                  <td>Colombo</td>
-                  <td><a href="url">www.companyD.com</a></td>
-                  <td>FB</td>
-                </tr>
-                <tr>
-                  <td>CompanyE</td>
-                  <td>Approved</td>
-                  <td>Active</td>
-                  <td>Colombo</td>
-                  <td><a href="url">www.companyE.com</a></td>
-                  <td>NO</td>
-                </tr>
-                 <tr>
-                  <td>CompanyF</td>
-                  <td>Approved</td>
-                  <td>Active</td>
-                  <td>Colombo</td>
-                  <td><a href="url">www.companyF.com</a></td>
-                  <td>NO</td>
-                </tr>
-                <tr>
-                  <td>CompanyG</td>
-                  <td>Approved</td>
-                  <td>Active</td>
-                  <td>Colombo</td>
-                  <td><a href="url">www.companyG.com</a></td>
-                  <td>SBC</td>
-                </tr>
-                <tr>
-                  <td>CompanyH</td>
-                  <td>Approved</td>
-                  <td>Active</td>
-                  <td>Colombo</td>
-                  <td><a href="url">www.companyH.com</a></td>
-                  <td>FB</td>
-                </tr>
-                <tr>
-                  <td>CompanyI</td>
-                  <td>Approved</td>
-                  <td>Active</td>
-                  <td>Colombo</td>
-                  <td><a href="url">www.companyI.com</a></td>
-                  <td>LBC</td>
-                </tr>
-                <tr>
-                  <td>CompanyJ</td>
-                  <td>Approved</td>
-                  <td>Active</td>
-                  <td>Colombo</td>
-                  <td><a href="url">www.companyJ.com</a></td>
-                  <td>LBC</td>
-                </tr>
-                
-                <tr>
-                  <td>CompanyK</td>
-                  <td>Approved</td>
-                  <td>Active</td>
-                  <td>Colombo</td>
-                  <td><a href="url">www.companyK.com</a></td>
-                  <td>FB</td>
-                </tr>
-                </tbody>
-              </table>
+                echo "</tbody>";
+              echo "</table>";
+              // Close result set
+              mysqli_free_result($result);
+            } else{
+                echo "No records matching your query were found.";
+            }
+            } else{
+                echo "ERROR: Could not able to execute $sql. " . mysqli_error($db);
+            }
+
+            // Close connection
+            mysqli_close($db);
+            ?>
             </div>
             <!-- /.box-body -->
           </div>
