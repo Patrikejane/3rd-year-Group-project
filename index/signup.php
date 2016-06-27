@@ -472,10 +472,7 @@ if(isset($_POST["submit"]))
                 <div class="col-sm-6 col-md-4">
                     <div class="wow fadeInDown" data-wow-delay="0.1s">
                         <div class="widget">
-                            <h5>About E-Proc</h5>
-                            <p>
-                                xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                            </p>
+
                         </div>
                     </div>
 
@@ -483,10 +480,6 @@ if(isset($_POST["submit"]))
                 <div class="col-sm-6 col-md-4">
                     <div class="wow fadeInDown" data-wow-delay="0.1s">
                         <div class="widget">
-                            <h5>xxxxxxxxxxxx</h5>
-                            <p>
-                                xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                            </p>
 
                         </div>
                     </div>
@@ -494,8 +487,6 @@ if(isset($_POST["submit"]))
                 <div class="col-sm-6 col-md-4">
                     <div class="wow fadeInDown" data-wow-delay="0.1s">
                         <div class="widget">
-                            <h5>xxxxx</h5>
-                            <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
 
                         </div>
                     </div>
