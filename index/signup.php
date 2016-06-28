@@ -11,19 +11,12 @@ if(isset($_POST["submit"]))
     $dob = $_POST["dob"];
     $email = $_POST["email"];
     $password = $_POST["password"];
-    $organization_name = $_POST["organization_name"];
-    $department = $_POST["department"];
-    $division = $_POST["division"];
-    $designation = $_POST["designation"];
-    $address_1 = $_POST["address_1"];
-    $address_2 = $_POST["address_2"];
+    
+    $address = $_POST["address"];
+    
     $district = $_POST["district"];
     $city = $_POST["city"];
-    $alternate_email = $_POST["alternate_email"];
-    $phone_number = $_POST["phone_number"];
-    $fax_number = $_POST["fax_number"];
-    $mobile_number = $_POST["mobile_number"];
-    $user_role = $_POST["user_role"];
+    
 
 
     $title = mysqli_real_escape_string($db, $title);
@@ -33,19 +26,12 @@ if(isset($_POST["submit"]))
     $email = mysqli_real_escape_string($db, $email);
     $password = mysqli_real_escape_string($db, $password);
     $password = md5($password);
-    $organization_name = mysqli_real_escape_string($db, $organization_name);
-    $department = mysqli_real_escape_string($db, $department);
-    $division = mysqli_real_escape_string($db, $division);
-    $designation = mysqli_real_escape_string($db, $designation);
-    $address_1 = mysqli_real_escape_string($db, $address_1);
-    $address_2 = mysqli_real_escape_string($db, $address_2);
+    
+    $address = mysqli_real_escape_string($db, $address);
+    
     $district = mysqli_real_escape_string($db, $district);
     $city = mysqli_real_escape_string($db, $city);
-    $alternate_email = mysqli_real_escape_string($db, $alternate_email);
-    $phone_number = mysqli_real_escape_string($db, $phone_number);
-    $fax_number = mysqli_real_escape_string($db, $fax_number);
-    $mobile_number = mysqli_real_escape_string($db, $mobile_number);
-    $user_role = mysqli_real_escape_string($db, $user_role);
+    
 
     $sql="SELECT email FROM user WHERE email='$email'";
     $result=mysqli_query($db,$sql);
@@ -60,36 +46,20 @@ if(isset($_POST["submit"]))
     }
     else
     {
-        $query = mysqli_query($db, "INSERT INTO user (title, first_name, last_name, dob, email, password, organization_name, department, division, designation, address_1, address_2, district, city, alternate_email, phone_number, fax_number, mobile_number, user_role)VALUES ('$title', '$first_name', '$last_name', '$dob', '$email', '$password', '$organization_name', '$department', '$division', '$designation', '$address_1', '$address_2', '$district', '$city', '$alternate_email', '$phone_number', '$fax_number', '$mobile_number', '$user_role')");
+        $query = mysqli_query($db, "INSERT INTO user (title, first_name, last_name, dob, email, password, address, district, city)VALUES ('$title', '$first_name', '$last_name', '$dob', '$email', '$password', '$address', '$district', '$city')");
         if($query)
         {
-            if ($user_role === 'bid_opener'){
-                echo 	'<script type="text/javascript">
-								setTimeout(function(){
-	        						swal({title: "", text: "You are now registered as a bid opener.", type: "success"},
-		        						function(isConfirm){
-											if(isConfirm){
-												window.location.href = "../companyDetailForm.php";
-											}
-										}
-	        						)
-	        					},100);
-	        				</script>';
-            }
-            else
-            {
-                echo 	'<script type="text/javascript">
-								setTimeout(function(){
-									swal({title: "", text: "You are now registered.", type: "success"},
-										function(isConfirm){
-											if(isConfirm){
-												window.location.href = "index.php";
-											}
-										}
-									)
-								},100);
-						 	 </script>';
-            }
+            echo    '<script type="text/javascript">
+                                setTimeout(function(){
+                                    swal({title: "", text: "You are now registered.", type: "success"},
+                                        function(isConfirm){
+                                            if(isConfirm){
+                                                window.location.href = "index.php";
+                                            }
+                                        }
+                                    )
+                                },100);
+                             </script>';
         }
     }
 }
@@ -181,7 +151,7 @@ if(isset($_POST["submit"]))
 
                             <div class="form-group">
 
-                                <label for="title" class="col-sm-2 control-label">Title<span style="color:red;">*</span></label>
+                                <label for="title" class="col-sm-2 control-label">Title</label>
 
                                 <div class="col-sm-4">
 
@@ -194,7 +164,7 @@ if(isset($_POST["submit"]))
 
                             <div class="form-group">
 
-                                <label for="first_name" class="col-sm-2 control-label">First Name<span style="color:red;">*</span></label>
+                                <label for="first_name" class="col-sm-2 control-label">First Name</label>
 
                                 <div class="col-sm-4">
 
@@ -203,7 +173,7 @@ if(isset($_POST["submit"]))
 
                                 </div>
 
-                                <label for="last_name" class="col-sm-2 control-label">Last Name<span style="color:red;">*</span></label>
+                                <label for="last_name" class="col-sm-2 control-label">Last Name</label>
 
                                 <div class="col-sm-4">
 
@@ -216,7 +186,7 @@ if(isset($_POST["submit"]))
 
                             <div class="form-group">
 
-                                <label for="dob" class="col-sm-2 control-label">Date of Birth<span style="color:red;">*</span></label>
+                                <label for="dob" class="col-sm-2 control-label">Date of Birth</label>
 
                                 <div class="col-sm-4">
 
@@ -229,7 +199,7 @@ if(isset($_POST["submit"]))
 
                             <div class="form-group">
 
-                                <label for="dob" class="col-sm-2 control-label">Email<span style="color:red;">*</span></label>
+                                <label for="dob" class="col-sm-2 control-label">Email</label>
 
                                 <div class="col-sm-4">
 
@@ -242,7 +212,7 @@ if(isset($_POST["submit"]))
 
                             <div class="form-group">
 
-                                <label for="password" class="col-sm-2 control-label">Password<span style="color:red;">*</span></label>
+                                <label for="password" class="col-sm-2 control-label">Password</label>
 
                                 <div class="col-sm-4">
 
@@ -251,7 +221,7 @@ if(isset($_POST["submit"]))
 
                                 </div>
 
-                                <label for="password_confirmation" class="col-sm-2 control-label">Confirm Password<span style="color:red;">*</span></label>
+                                <label for="password_confirmation" class="col-sm-2 control-label">Confirm Password</label>
 
                                 <div class="col-sm-4">
 
@@ -262,7 +232,7 @@ if(isset($_POST["submit"]))
 
                             </div>
 
-                            <div class="form-group">
+                            <!--<div class="form-group">
 
                                 <label for="organization_name" class="col-sm-2 control-label">Organization Name<span style="color:red;">*</span></label>
 
@@ -304,27 +274,27 @@ if(isset($_POST["submit"]))
 
                                 </div>
 
-                            </div>
+                            </div>-->
 
                             <div class="form-group">
 
-                                <label for="first_name" class="col-sm-2 control-label">Address 1<span style="color:red;">*</span></label>
+                                <label for="first_name" class="col-sm-2 control-label">Address</label>
 
                                 <div class="col-sm-4">
 
-                                    <input type="text" name="address_1" class="form-control" id="address_1" placeholder="Address 1" required>
+                                    <input type="text" name="address" class="form-control" id="address" placeholder="Address" required>
 
 
                                 </div>
 
-                                <label for="last_name" class="col-sm-2 control-label">Address 2</label>
+                                <!--<label for="last_name" class="col-sm-2 control-label">Address 2</label>
 
                                 <div class="col-sm-4">
 
                                     <input type="text" name="address_2" class="form-control" id="address_2" placeholder="Address 2">
 
 
-                                </div>
+                                </div>-->
 
                             </div>
 
@@ -339,7 +309,7 @@ if(isset($_POST["submit"]))
 
                                 </div>
 
-                                <label for="last_name" class="col-sm-2 control-label">City<span style="color:red;">*</span></label>
+                                <label for="last_name" class="col-sm-2 control-label">City</label>
 
                                 <div class="col-sm-4">
 
@@ -350,7 +320,7 @@ if(isset($_POST["submit"]))
 
                             </div>
 
-                            <div class="form-group">
+                            <!--<div class="form-group">
 
                                 <label for="title" class="col-sm-2 control-label">Alternate Email<span style="color:red;">*</span></label>
 
@@ -416,7 +386,7 @@ if(isset($_POST["submit"]))
 
                                 </div>
 
-                            </div>
+                            </div>-->
 
 
 
