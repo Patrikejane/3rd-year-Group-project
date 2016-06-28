@@ -61,6 +61,7 @@
 		else
 		{
 			$query = mysqli_query($db, "INSERT INTO user (title, first_name, last_name, dob, email, password, organization_name, department, division, designation, address_1, address_2, district, city, alternate_email, phone_number, fax_number, mobile_number, user_role)VALUES ('$title', '$first_name', '$last_name', '$dob', '$email', '$password', '$organization_name', '$department', '$division', '$designation', '$address_1', '$address_2', '$district', '$city', '$alternate_email', '$phone_number', '$fax_number', '$mobile_number', '$user_role')");
+			$query = mysqli_query($db,"INSERT INTO user_admin(email,password,role) VALUES ('$email','$password',normal)");
 			if($query)
 			{
 				if ($user_role === 'bid_opener'){

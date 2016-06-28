@@ -22,16 +22,41 @@
 			$password = md5($password);
 			
 			//Check username and password from database
-			$sql="SELECT email FROM user WHERE email='$email' and password='$password'";
+			$sql="SELECT email,first_name,last_name FROM user WHERE email='$email' and password='$password'";
+			//$sql1 = "SELECT first_name FROM user WHERE email='$email'";
+			
 			$result=mysqli_query($db,$sql);
+			//$result1=mysqli_query($db,$sql1);
+
+			if(mysqli_num_rows($result) == 1)
+			{	while ($row = mysqli_fetch_assoc($result)) {
+                    $email1 = $row["email"];
+                    $first_name = $row["first_name"];
+                    $last_name = $row["last_name"];
+                    
+                    
+                }
+            }
+
+            $username = $first_name." ".$last_name;
+            $_SESSION['username']= $username;
+           
+
+			
+
 			$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+			
+
+			
 			
 			//If email and password exist in our database then create a session.
 			//Otherwise echo error.
 			
+			
 			if(mysqli_num_rows($result) == 1)
 			{
 				$_SESSION['email'] = $email; // Initializing Session
+				
 				header("location: home.php"); // Redirecting To Other Page
 
 			}else
@@ -44,6 +69,7 @@
 							},100);
 						</script>';
 			}
+		
 
 		}
 	}

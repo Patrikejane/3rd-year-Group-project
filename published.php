@@ -4,10 +4,9 @@
 
     $sql="SELECT tender_ref_number,tender_type,no_covers,re_bid_submission FROM tenderdocument";
     $result = mysqli_query($db,$sql);
-    $result=mysqli_query($db,$sql);
 
     $num_rows = mysqli_num_rows($result);
-    echo $num_rows;
+    //echo $num_rows;
     $fields = $num_rows;
 
 ?>
@@ -117,7 +116,7 @@
             <ul class="treeview-menu">
                 <li><a href="Tenderlist.php"><i class="fa fa-circle-o"></i> Tender List</a></li>
                 <li><a href="Publishtender.php"><i class="fa fa-circle-o"></i> Publish Tender </a></li>
-                <li class="active"><a href="Published.php"><i class="fa fa-circle-o"></i> Published Tenders</a></li>
+                <li class="active"><a href="published.php"><i class="fa fa-circle-o"></i> Published Tenders</a></li>
 
             </ul>
         </li>

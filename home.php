@@ -1,4 +1,5 @@
 <?php
+  
   include("check.php"); 
 ?>
 <!DOCTYPE html>
@@ -41,29 +42,39 @@
   <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
-<?php include('side.php'); ?>
+  <div class="wrapper">
+    <?php include('side.php'); ?>
 
- 
-  
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Home
-        
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        
-      </ol>
-    </section>
+   
 
-    
+    <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Home
+            
+          </h1>
+          <?php echo $_SESSION['email']?>
+          <?php echo $_SESSION['username'];?>
+          
+           
+
+
+           
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            
+          </ol>
+        </section>
+
         
-    
+            
+        
   
+
+        
+
   <section class="content">
   <!-- Small boxes (Stat box) -->
       <div class="row">
@@ -139,7 +150,7 @@
       <!-- /.row -->
   </section>
 
-    
+ 
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
