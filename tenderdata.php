@@ -1,6 +1,6 @@
 <?php 
 	include("db.php");
-	echo "yehen";
+	
 
 	if(isset($_POST["submit"]))
 	{
@@ -54,14 +54,12 @@
 		$fee_doc = mysqli_real_escape_string($db, $fee_doc);
 		$tender_doc = mysqli_real_escape_string($db, $tender_doc);
 
-		echo $tender_ref_number;
-		echo $tender_doc;
+		
 		
 		$sql="SELECT tender_ref_number FROM tenderdocument WHERE tender_ref_number='$tender_ref_number'";
 		$result=mysqli_query($db,$sql);
 		$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
 		if (mysqli_num_rows($result) == 1) {
-			echo "yehen11111111";
 			echo 	'<script type="text/javascript">
 						setTimeout(function(){
 							sweetAlert("", "This Tender Reference is already exist...", "error")
@@ -70,10 +68,7 @@
 		}else{
 			$query = mysqli_query($db, "INSERT INTO tenderdocument(tender_ref_number, tender_type, no_covers, re_bid_submission, withdraw_bids, offline_submission,general_technical_submission, paymont_method, item_title, item_description, prequalification, productcatogary, productsubcatogary, contract_type, tender_fee, other_tax_fee, publishing_date, sale_start_date, bid_satrt_date, bid_close_date, bid_opening_date, fee_doc, tender_doc) VALUES ('$tender_ref_number','$tender_type','$no_covers','$re_bid_submission','$withdraw_bids','$offline_submission','$general_technical_submission','$payment_method','$item_title','$item_description','$prequalification','$productcatogary','$productsubcatogary','$contract_type','$tender_fee','$other_tax_fee','publishing_date','$sale_start_date','$bid_start_date','$bid_close_date','$bid_opening_date','$fee_doc','$tender_doc')");
 			
-			if($query)
-				echo 	"fyrhurt";
-			else
-				echo "fuck";
+			
 		}
 
 	}
