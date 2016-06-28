@@ -3,9 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Tender List</title>
+  <title>AdminLTE 2 | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  
+  <link rel="stylesheet" type="text/css" href="jquery.datetimepicker.css"/>
+  <style type="text/css">
+
+  .custom-date-style {
+    background-color: red !important;
+  }
+
+  .input{ 
+  }
+  .input-wide{
+    width: 500px;
+  }
+
+  </style>
+  
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -30,7 +47,6 @@
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
-
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -39,7 +55,6 @@
   <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-
 <div class="wrapper">
  <header class="main-header">
     <!-- Logo -->
@@ -113,8 +128,8 @@
             <span class="label label-primary pull-right">3</span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="Tenderlist.php"><i class="fa fa-circle-o"></i> Tender List</a></li>
-            <li><a href="Publishtender.php"><i class="fa fa-circle-o"></i> Publish Tender </a></li>
+            <li><a href="Tenderlist.php"><i class="fa fa-circle-o"></i> Tender List</a></li>
+            <li class="active"><a href="Publishtender.php"><i class="fa fa-circle-o"></i> Publish Tender </a></li>
             <li><a href="Published.php"><i class="fa fa-circle-o"></i> Published Tenders</a></li>
             
           </ul>
@@ -161,413 +176,323 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Tender List
+        Publish Tender
         
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Tender List</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Publish Tender</a></li>
         
       </ol>
     </section>
-    <div class="col-md-12">
-          <!-- Custom Tabs -->
-          <div class="nav-tabs-custom">
-            <ul class="nav nav-tabs" id="wheel-tab" data-tabs="tabs">
-              <li class="active"><a href="#basic" data-toggle="tab">Basic Deatils</a></li>
-              <li><a href="#cover" data-toggle="tab">Cover Details</a></li>
-              <li><a href="#wid" data-toggle="tab">Work Item Details</a></li>
-              <li><a href="#fd" data-toggle="tab">Fee Details</a></li>
-              
-              <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
-            </ul>
-            
-            
-            <div class="tab-content">
-            <!-- ********************************************************************** -->
-              <div class="tab-pane active" id="basic">
-                  <form class="form-horizontal" method="post" action="tenderdata.php">
-                    <div class="box-body">
-                    <h3 class="box-title">Main Details</h3>
-
-                      <div class="form-group">
-                        <label for="tender_reference" class="col-sm-4 control-label">Tender Reference Number* </label>
-
-                        <div class="col-sm-4">
-                          <input type="text" class="form-control" id="tender_reference" name="tender_reference" placeholder="Tender Reference Number">
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="tender_type" class="col-sm-4 control-label">Tender type* </label>
-                          <div class="col-sm-4 ">
-                            
-                            <select class="form-control" name="select_tender_type">
-                              <option class="active">-Select-</option>
-                              <option>Open</option>
-                              <option>Limited</option>
-                              <option>Auction</option>
-                              <option>Single</option>
-                            </select>
-                          </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="tender_type" class="col-sm-4 control-label">No of Covers* </label>
-                          <div class="col-sm-4 ">
-                            
-                            <select class="form-control" name="select_covers">
-                              <option class="active">-Select-</option>
-                              <option>1</option>
-                              <option>2</option>
-                              <option>3</option>
-                              <option>4</option>
-                            </select>
-                          </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="submission" class="col-sm-4 control-label">Should allow Re-bid submission</label>
-                        <div class="col-sm-1">
-                          <div class="radio">
-                            <label>
-                              <input type="radio" name="resubyes" id="op1yes" value="yes" checked>
-                              Yes 
-                            </label>
-
-                          </div>
-                        </div>
-                        <div class="col-sm-1">
-                          <div class="radio">
-                            <label>
-                              <input type="radio" name="resubno" id="op1no" value="no" checked>
-                              No
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- /////////////////////////////////////////////////// -->
-                      <div class="form-group">
-                        <label for="tender_reference" class="col-sm-4 control-label">Should allow Withdrawwl of bids</label>
-                        <div class="col-sm-1">
-                          <div class="radio">
-                            <label>
-                              <input type="radio" name="withdrawyes" id="op2yes" value="yes" checked>
-                              Yes 
-                            </label>
-
-                          </div>
-                        </div>
-                        <div class="col-sm-1">
-                          <div class="radio">
-                            <label>
-                              <input type="radio" name="withdrawno" id="op2no" value="no" checked>
-                              No
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- /////////////////////////////////////////////////////////// -->
-                      <div class="form-group">
-                        <label for="tender_reference" class="col-sm-4 control-label">Should allow Offline Submission</label>
-                        <div class="col-sm-1">
-                          <div class="radio">
-                            <label>
-                              <input type="radio" name="offsubyes" id="op3yes" value="yes" checked>
-                              Yes 
-                            </label>
-
-                          </div>
-                        </div>
-                        <div class="col-sm-1">
-                          <div class="radio">
-                            <label>
-                              <input type="radio" name="offsubno" id="op3no" value="no" checked>
-                              No
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- //////////////////////////////////////////////////////////// -->
-                      <div class="form-group">
-                        <label for="tender_reference" class="col-sm-4 control-label">Should allow General Technical Submission</label>
-                        <div class="col-sm-1">
-                          <div class="radio">
-                            <label>
-                              <input type="radio" name="techsubyes" id="op4yes" value="yes" checked>
-                              Yes 
-                            </label>
-
-                          </div>
-                        </div>
-                        <div class="col-sm-1">
-                          <div class="radio">
-                            <label>
-                              <input type="radio" name="techsubno" id="op4no" value="no" checked>
-                              No
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <!-- //////////////////////////////////////////////////////////// -->  
-                      </div>
-                      <div class="form-group">
-                        <label for="tender_type" class="col-sm-4 control-label">Payment Method* </label>
-                        <div class="col-sm-1">
-                          <div class="checkbox">
-                            <label>
-                              <input type="checkbox" name="paymentoff" id="paymentoff"> Offline
-                            </label>
-                          </div>
-                        </div>
-                        <div class="col-sm-1">
-                          <div class="checkbox">
-                            <label>
-                              <input type="checkbox" name="paymenton" id="paymenton"> Online
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                    </form>
-              </div>
-
-              <!-- ********************************************************************** -->
-              <!-- /.tab-pane -->
-              <div class="tab-pane" id="cover">
-                <div class="box">
-                  <div class="box-header">
-                    <h3 class="box-title">Add the Documents</h3>
-                  </div>
-                  <!-- /.box-header -->
-                  <div class="box-body no-padding">
-                    <table class="table table-condensed">
-                      <tr>
-                        <th style="width: 10px">S.no</th>
-                        
-                        <th>Cover Name</th>
-                        <th style="width: 40px">Cover Type</th>
-                        <th>Add Documents</th>
-                        <th>Add Contents</th>
-                      </tr>
-                      <tr>
-                        <td>1.</td>
-                        <td>2014_</td>
-                        <td>Fee/PreQual/Technical</td>
-                        <td>Document count</td>
-                        <td><input type="file" id="fee/tec"></td>
-                      </tr>
-                      <tr>
-                        <td>2.</td>
-                        <td>2014_</td>
-                        <td>Tender Dcument</td>
-                        <td>Document count</td>
-                        <td><input type="file" id="tenderdoc"></td>
-                      </tr>
-                      
-                    </table>
-                  </div>
-                  <!-- /.box-body -->
-                </div>
-              </div>
-
-              <!-- ********************************************************************** -->
-              <!-- /.tab-pane -->
-              <div class="tab-pane" id="wid">
-                <div class="box box-info">
-                  <div class="box-header with-border">
-                    <h3 class="box-title">Item Details</h3>
-                  </div>
-                  
-                  <!-- form start -->
-                  <form class="form-horizontal" method="post" action="tenderdata.php">
-                    
-                    <div class="box-body">
-
-                      <div class="form-group">
-                        <label for="work_title" class="col-sm-4 control-label">Work/Item Title* </label>
-
-                        <div class="col-sm-4">
-                          <input type="text" class="form-control" id="work_title" name="work_title" placeholder="Title">
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label  class="col-sm-4 control-label">Work/Item Description* </label>
-
-                        <div class="col-sm-4">
-                          <textarea class="form-control" rows="3" id="description" name="description" placeholder="Desccription" ></textarea>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="tender_reference" class="col-sm-4 control-label">Pre Qualification Details * </label>
-
-                        <div class="col-sm-4">
-                          <textarea class="form-control" rows="3" id="predescription" name="predescription" placeholder="Desccription" ></textarea>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="tender_type" class="col-sm-4 control-label">Product Catogary* </label>
-                          <div class="col-sm-4 ">
-                            
-                            <select class="form-control" id="product_catogary" name="product_catogary">
-                              <option class="active">-Select-</option>
-                              <option>Open</option>
-                              <option>Limited</option>
-                              <option>Auction</option>
-                              <option>Single</option>
-                            </select>
-                          </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="tender_reference" class="col-sm-4 control-label">Product SubCatogary* </label>
-
-                        <div class="col-sm-4">
-                          <textarea class="form-control" rows="3" id="sub_catogary" name="sub_catogary" placeholder="Desccription" ></textarea>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="tender_type" class="col-sm-4 control-label">Contract type</label>
-                          <div class="col-sm-4 ">
-                            
-                            <select class="form-control" id="contract_type" name="contract_type">
-                              <option class="active">-Select-</option>
-                              <option>Open</option>
-                              <option>Limited</option>
-                              <option>Auction</option>
-                              <option>Single</option>
-                            </select>
-                          </div>
-                      </div>
-                    </div>
-                    
-                  </form>
-
-                </div>
-              </div>
-
-              <!-- ********************************************************************** -->
-                    <div class="tab-pane" id="fd">
-                      <div class="box box-info">
-                        <div class="box-header with-border">
-                          <h3 class="box-title">Fee Details/Special Dates</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <!-- form start -->
-                        <form class="form-horizontal" id="fd" method="post" action="tenderdata.php">
-                          
-                          <div class="box-body">
-                            <div class="form-group">
-                              <label for="tender_reference" class="col-sm-3 control-label">Tender Fee(LK) </label>
-
-                              <div class="col-sm-3">
-                                <input type="text" class="form-control" id="tender_fee" name="tender_fee" placeholder="Tender Fee">
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <label for="tender_reference" class="col-sm-3 control-label">Any Other Tax Fee(LK) </label>
-
-                              <div class="col-sm-3">
-                                <input type="text" class="form-control" id="any_other_fee" name="any_other_fee" placeholder="Other Fee">
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <label for="publish_date" class="col-sm-3 control-label">Publishing Date* </label>
-
-                              <div class="col-sm-3">
-                                <input type="date" class="form-control" id="pub_date" name="pub_date" >
-                              </div>
-
-                              <label for="publish_date" class="col-sm-2 control-label">At </label>
-
-                              <div class="col-sm-2">
-                                <input type="time" class="form-control" id="pub_time" name="pub_time" >
-                              </div>
-                            </div>
-
-                            <div class="form-group">
-                              <label for="downloade_date" class="col-sm-3 control-label">Document Downloade/Sales start Date* </label>
-
-                              <div class="col-sm-3">
-                                <input type="date" class="form-control" id="doc_date" name="doc_date" >
-                              </div>
-
-                              <label for="downloade_date" class="col-sm-2 control-label">At </label>
-
-                              <div class="col-sm-2">
-                                <input type="time" class="form-control" id="doc_time" name="doc_time" >
-                              </div>
-                            </div>
-
-                            <div class="form-group">
-                              <label for="sub_start_date" class="col-sm-3 control-label">Bid Submission Satrt Date* </label>
-
-                              <div class="col-sm-3">
-                                <input type="date" class="form-control" id="bid_sart_date" name="bid_sart_date" >
-                              </div>
-
-                              <label for="sub_start_date" class="col-sm-2 control-label">At </label>
-
-                              <div class="col-sm-2">
-                                <input type="time" class="form-control" id="bid_start_time" name="bid_start_time" >
-                              </div>
-                            </div>
-
-                            <div class="form-group">
-                              <label for="sub_close_date" class="col-sm-3 control-label">Bid Submission Closing Date* </label>
-
-                              <div class="col-sm-3">
-                                <input type="date" class="form-control" id="bid_close_date" name="bid_close_date" >
-                              </div>
-
-                              <label for="sub_close_date" class="col-sm-2 control-label">At </label>
-
-                              <div class="col-sm-2">
-                                <input type="time" class="form-control" id="bid_close_time" nbid_close_date >
-                              </div>
-                            </div>
-
-                            <div class="form-group">
-                              <label for="bid_open_date" class="col-sm-3 control-label">Bid Opening Date* </label>
-
-                              <div class="col-sm-3">
-                                <input type="date" class="form-control" id="bid_open_date" name="bid_open_date" >
-                              </div>
-
-                              <label for="bid_open_date" class="col-sm-2 control-label">At </label>
-
-                              <div class="col-sm-2">
-                                <input type="time" class="form-control" id="bid_close_opentime" name="bid_close_opentime" >
-                              </div>
-                            </div>
-                            
-
-
-                            
-                          </div>
-                          
-                        </form>
-                        
-                      </div>
-                    </div>
-              <!-- /.tab-pane -->
-              
-              
+    <section class="content">
+      <div class="row">
+        <div class="col-md-12 ">
+          
+          <div class="box box-info">
+          <div class="box-header with-border">
+              <h2 class="box-title">Main Details</h2>
             </div>
-            <!-- /.tab-content -->
+          <form class="form-horizontal" method="post" name="main" id="main" action="tenderdata.php">
             
+              <div class="form-group">
+                <label for="tender_reference" class="col-sm-4 control-label">Tender Reference Number* </label>
+
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" id="tender_reference" name="tender_reference" placeholder="Tender Reference Number">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="tender_type" class="col-sm-4 control-label">Tender type* </label>
+                  <div class="col-sm-4 ">
+                    
+                    <select class="form-control" name="select_tender_type">
+                      <option class="active">-Select-</option>
+                      <option>Open</option>
+                      <option>Limited</option>
+                      <option>Auction</option>
+                      <option>Single</option>
+                    </select>
+                  </div>
+              </div>
+
+              <div class="form-group">
+                <label for="tender_type" class="col-sm-4 control-label">No of Covers* </label>
+                  <div class="col-sm-4 ">
+                    
+                    <select class="form-control" name="select_covers">
+                      <option class="active">-Select-</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                    </select>
+                  </div>
+              </div>
+
+              <div class="form-group">
+                <label for="submission" class="col-sm-4 control-label">Should allow Re-bid submission</label>
+                <div class="col-sm-1">
+                  <div class="radio" >
+                    <label>
+                      <input type="radio" name="resub" id="op1yes" value="yes" checked>
+                      Yes 
+                    </label>
+
+                  </div>
+                </div>
+                <div class="col-sm-1">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="resub" id="op1no" value="no" checked>
+                      No
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- /////////////////////////////////////////////////// -->
+              <div class="form-group">
+                <label for="tender_reference" class="col-sm-4 control-label">Should allow Withdrawwl of bids</label>
+                <div class="col-sm-1">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="withdraw" id="op2yes" value="yes" checked>
+                      Yes 
+                    </label>
+
+                  </div>
+                </div>
+                <div class="col-sm-1">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="withdraw" id="op2no" value="no" checked>
+                      No
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- /////////////////////////////////////////////////////////// -->
+              <div class="form-group">
+                <label for="tender_reference" class="col-sm-4 control-label">Should allow Offline Submission</label>
+                <div class="col-sm-1">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="offsub" id="op3yes" value="yes" checked>
+                      Yes 
+                    </label>
+
+                  </div>
+                </div>
+                <div class="col-sm-1">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="offsub" id="op3no" value="no" checked>
+                      No
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- //////////////////////////////////////////////////////////// -->
+              <div class="form-group">
+                <label for="tender_reference" class="col-sm-4 control-label">Should allow General Technical Submission</label>
+                <div class="col-sm-1">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="techsub" id="op4yes" value="yes" checked>
+                      Yes 
+                    </label>
+
+                  </div>
+                </div>
+                <div class="col-sm-1">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="techsub" id="op4no" value="no" checked>
+                      No
+                    </label>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- //////////////////////////////////////////////////////////// -->  
+              
+              <div class="form-group">
+                <label for="tender_type" class="col-sm-4 control-label">Payment Method* </label>
+                <div class="col-sm-1">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="payment" id="paymentoff"> Offline
+                    </label>
+                  </div>
+                </div>
+                <div class="col-sm-1">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="payment" id="paymenton"> Online
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+             
+
+              <div class="form-group">
+                <label for="work_title" class="col-sm-4 control-label">Work/Item Title* </label>
+
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" id="work_title" name="work_title" placeholder="Title">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label  class="col-sm-4 control-label">Work/Item Description* </label>
+
+                <div class="col-sm-4">
+                  <textarea class="form-control" rows="3" id="description" name="description" placeholder="Desccription" ></textarea>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="tender_reference" class="col-sm-4 control-label">Pre Qualification Details * </label>
+
+                <div class="col-sm-4">
+                  <textarea class="form-control" rows="3" id="predescription" name="predescription" placeholder="Desccription" ></textarea>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="tender_type" class="col-sm-4 control-label">Product Catogary* </label>
+                  <div class="col-sm-4 ">
+                    
+                    <select class="form-control" id="product_catogary" name="product_catogary">
+                      <option class="active">-Select-</option>
+                      <option>Open</option>
+                      <option>Limited</option>
+                      <option>Auction</option>
+                      <option>Single</option>
+                    </select>
+                  </div>
+              </div>
+
+              <div class="form-group">
+                <label for="tender_reference" class="col-sm-4 control-label">Product SubCatogary* </label>
+
+                <div class="col-sm-4">
+                  <textarea class="form-control" rows="3" id="sub_catogary" name="sub_catogary" placeholder="Desccription" ></textarea>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="tender_type" class="col-sm-4 control-label">Contract type</label>
+                  <div class="col-sm-4 ">
+                    
+                    <select class="form-control" id="contract_type" name="contract_type">
+                      <option class="active">-Select-</option>
+                      <option>Open</option>
+                      <option>Limited</option>
+                      <option>Auction</option>
+                      <option>Single</option>
+                    </select>
+                  </div>
+              </div>
+
+
+                <div class="form-group">
+                  <label for="tender_reference" class="col-sm-4 control-label">Tender Fee(LK) </label>
+
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" id="tender_fee" name="tender_fee" placeholder="Tender Fee">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="tender_reference" class="col-sm-4 control-label">Any Other Tax Fee(LK) </label>
+
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" id="any_other_fee" name="any_other_fee" placeholder="Other Fee">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="publish_date" class="col-sm-4 control-label">Publishing Date* </label>
+                  
+                  <div class="col-sm-4">
+                  <input type="text" value="" id="datetimepicker" name="pub_time" style="width:300px;height:35px" placeholder="Enter date and type">
+                  </div>
+
+                  
+                </div>
+
+                <div class="form-group">
+                  <label for="downloade_date" class="col-sm-4 control-label">Document Downloade/Sales start Date* </label>
+
+                  <div class="col-sm-4">
+                  <input type="text" value="" id="datetimepicker1" name="doc_time" style="width:300px;height:35px" placeholder="Enter date and type">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="sub_start_date" class="col-sm-4 control-label">Bid Submission Satrt Date* </label>
+
+                  <div class="col-sm-4">
+                  <input type="text" value="" id="datetimepicker2" name="bid_start_time" style="width:300px;height:35px" placeholder="Enter date and type">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="sub_close_date" class="col-sm-4 control-label">Bid Submission Closing Date* </label>
+
+                  <div class="col-sm-4">
+                  <input type="text" value="" id="datetimepicker3" name="bid_close_time" style="width:300px;height:35px" placeholder="Enter date and type">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="bid_open_date" class="col-sm-4 control-label">Bid Opening Date* </label>
+
+                  <div class="col-sm-4">
+                  <input type="text" value="" id="datetimepicker4" name="bid_open_time" style="width:300px;height:35px" placeholder="Enter date and type">
+                  </div>
+                </div>
+                <div class="col-md-offset-1">
+                <table class="table table-condensed">
+                  <tr>
+                    <th style="width: 10px">S.no</th>
+                    
+                    <th>Cover Name</th>
+                    <th style="width: 40px">Cover Type</th>
+                    <th>Add Documents</th>
+                    <th>Add Contents</th>
+                  </tr>
+                  <tr>
+                    <td>1.</td>
+                    <td>2014_</td>
+                    <td>Fee/PreQual/Technical</td>
+                    <td>Document count</td>
+                    <td><input type="file" id="fee/tec" name="fee_doc"></td>
+                  </tr>
+                  <tr>
+                    <td>2.</td>
+                    <td>2014_</td>
+                    <td>Tender Dcument</td>
+                    <td>Document count</td>
+                    <td><input type="file" id="tenderdoc" name="tender_doc"></td>
+                  </tr>
+                  
+                </table>
+                </div>
+                
+
+
+                
+              
+              <input type="submit" value="Submit" name="submit" onclick="submitForms()" style="align:right;" />
+          </form>
           </div>
-          <!-- nav-tabs-custom -->
         </div>
-
-
-
+        </div>
+    </section>
 
     
         
@@ -629,16 +554,22 @@
 <script src="dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+<script src="jquery.js"></script>
+<script src="jquery.datetimepicker.full.js"></script>
+<script>/*
+window.onerror = function(errorMsg) {
+  $('#console').html($('#console').html()+'<br>'+errorMsg)
+}*/
 
-<script type="text/javascript">
-  $ (function () {
-    $('#datepicker').datepicker({
-      autoclose: true
-    });
-  });
-  
+$.datetimepicker.setLocale('en');
+$('#datetimepicker,#datetimepicker1,#datetimepicker2,#datetimepicker3,#datetimepicker4').datetimepicker({
+dayOfWeekStart : 1,
+lang:'en',
+disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
+startDate:  '1986/01/05'
+});
+//$('#datetimepicker').datetimepicker({value:'2016/06/26 05:03',step:10});
+
 </script>
-
-
 </body>
 </html>
