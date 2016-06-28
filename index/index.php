@@ -76,21 +76,21 @@ if ((isset($_SESSION['email']) != ''))
 				<div class="row">
 					<div class="col-lg-6">
 
-						<div class="well well-trans">
+						<div class="well well-trans" style="opacity: 0.7;">
 						<div class="wow fadeInRight " style="height: 200px;overflow: hidden;"  data-wow-delay="0.1s">
                             <div style="overflow-y: hidden;">
-                                    <marquee direction="up">
+                                list of  new proc details
+                                    <marquee direction="up"  scrollamount=7>
                                         <ul class="lead-list">
-                                            list of  new proc details
-                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
-                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
-                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
-                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
-                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
-                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
-                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
-                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
 
+                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
+                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
+                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
+                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
+                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
+                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
+                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
+                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
 
                                         </ul>
                                     </marquee>
@@ -172,10 +172,7 @@ if ((isset($_SESSION['email']) != ''))
 				<div class="col-sm-6 col-md-4">
 					<div class="wow fadeInDown" data-wow-delay="0.1s">
 					<div class="widget">
-						<h5>About E-Proc</h5>
-						<p>
-						xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-						</p>
+
 					</div>
 					</div>
 
@@ -183,10 +180,6 @@ if ((isset($_SESSION['email']) != ''))
 				<div class="col-sm-6 col-md-4">
 					<div class="wow fadeInDown" data-wow-delay="0.1s">
 					<div class="widget">
-						<h5>xxxxxxxxxxxx</h5>
-						<p>
-						xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-						</p>
 
 					</div>
 					</div>
@@ -194,8 +187,7 @@ if ((isset($_SESSION['email']) != ''))
 				<div class="col-sm-6 col-md-4">
 					<div class="wow fadeInDown" data-wow-delay="0.1s">
 					<div class="widget">
-						<h5>xxxxx</h5>
-						<p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+
 
 					</div>
 					</div>
