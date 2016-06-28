@@ -362,7 +362,7 @@
                       <tr>
                         <td>2.</td>
                         <td>2014_</td>
-                        <td>Tender Dcument</td>
+                        <td>Tender Document</td>
                         <td>Document count</td>
                         <td><input type="file" id="tenderdoc"></td>
                       </tr>
@@ -492,7 +492,7 @@
                             </div>
 
                             <div class="form-group">
-                              <label for="downloade_date" class="col-sm-3 control-label">Document Downloade/Sales start Date* </label>
+                              <label for="downloade_date" class="col-sm-3 control-label">Document Download/Sales start Date* </label>
 
                               <div class="col-sm-3">
                                 <input type="date" class="form-control" id="doc_date" name="doc_date" >
@@ -506,7 +506,7 @@
                             </div>
 
                             <div class="form-group">
-                              <label for="sub_start_date" class="col-sm-3 control-label">Bid Submission Satrt Date* </label>
+                              <label for="sub_start_date" class="col-sm-3 control-label">Bid Submission Start Date* </label>
 
                               <div class="col-sm-3">
                                 <input type="date" class="form-control" id="bid_sart_date" name="bid_sart_date" >
