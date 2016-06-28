@@ -12,11 +12,11 @@
         $data = $_GET["data"];
     }
 
-    echo $data;
+
     $sql="SELECT * FROM tenderdocument WHERE tender_ref_number=".$data;
     $result = mysqli_query($db,$sql);
     $row = mysqli_fetch_array($result);
-    print_r($row['tender_ref_number']);
+
 ?>
 <!DOCTYPE html>
 
@@ -50,7 +50,117 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-<?php include('../side.php'); ?>
+<header class="main-header">
+    <!-- Logo -->
+    <a href="../index2.html" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>E</b>Proc</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>Easy</b>Proc</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
+
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+
+                <!-- User Account: style can be found in dropdown.less -->
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                        <span class="hidden-xs">Alexander Pierce</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- User image -->
+                        <li class="user-header">
+                            <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
+                            <p>
+                                Alexander Pierce - Web Developer
+                                <small>Member since Nov. 2012</small>
+                            </p>
+                        </li>
+
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <div class="pull-left">
+                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                            </div>
+                            <div class="pull-right">
+                                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+        <!-- /.search form -->
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+            <li class="header">MAIN NAVIGATION</li>
+            <li>
+                <a href="../home.php">
+                    <i class="fa fa-home"></i> <span>Home</span>
+                </a>
+            </li>
+            <li class="treeview active">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>Tenders</span>
+                    <span class="label label-primary pull-right">3</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="../Tenderlist.php"><i class="fa fa-circle-o"></i> Tender List</a></li>
+                    <li><a href="../Publishtender.php"><i class="fa fa-circle-o"></i> Publish Tender </a></li>
+                    <li class="active"><a href="../published.php"><i class="fa fa-circle-o"></i> Published Tenders</a></li>
+
+                </ul>
+            </li>
+            <li>
+                <a href="../Companies.php">
+                    <i class="fa fa-building"></i> <span>Companies</span>
+                </a>
+            </li>
+            <li>
+                <a href="../Bids.php">
+                    <i class="fa fa-th"></i> <span>Bids</span>
+                </a>
+            </li>
+            <li>
+                <a href="../Reports.php">
+                    <i class="fa fa-th"></i> <span>Reports</span>
+                </a>
+            </li>
+            <li>
+                <a href="../Help.php">
+                    <i class="fa fa-th"></i> <span>Help</span>
+                </a>
+            </li>
+            <li>
+                <a href="../About.php">
+                    <i class="fa fa-th"></i> <span>About us</span>
+                </a>
+            </li>
+            <li>
+                <a href="../Contact.php">
+                    <i class="fa fa-th"></i> <span>Contact us</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+</aside>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -110,7 +220,7 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="panel panel-primary">
-                            <div> <!--class="panel-heading"--></div>
+                            <div class="panel-heading"> Submission Detail</div>
                             <div class="panel-body">
                                 <div class="col-lg-6">
                                     <form>
@@ -154,27 +264,79 @@
                             </div>
                         </div>
                         <div class="panel panel-primary">
-                            <div class="panel-heading"> Tender Discription</div>
+                                <div class="panel-heading"> Tender Discription</div>
+                                <div class="panel-body">
+                                    <div class="col-lg-6">
+                                        <form>
+                                            <div class="form-group row">
+                                                <label for="inputEmail3" class="col-sm-7 form-control-label">Item Title</label>
+                                                <div class="col-sm-5">
+                                                    <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputEmail3" class="col-sm-7 form-control-label">Item Description</label>
+                                                <div class="col-sm-5">
+                                                    <textarea class="form-control" rows="3" id="description" name="description" readonly placeholder="<?php echo $row['no_covers'];?>" ></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputEmail3" class="col-sm-7 form-control-label">Product SubCatogary </label>
+                                                <div class="col-sm-5">
+                                                    <textarea class="form-control" rows="3" id="description" name="description" readonly placeholder="<?php echo $row['no_covers'];?>" ></textarea>
+                                                </div>
+                                            </div>
+
+
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <form>
+                                            <div class="form-group row">
+                                                <label for="inputEmail3" class="col-sm-7 form-control-label">Pre Qualification Details </label>
+                                                <div class="col-sm-5">
+                                                    <textarea class="form-control" rows="3" id="description" name="description" readonly placeholder="<?php echo $row['no_covers'];?>" ></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputEmail3" class="col-sm-7 form-control-label">Product Category</label>
+                                                <div class="col-sm-5">
+                                                    <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
+                                                </div>
+                                            </div>
+
+
+                                    </div>
+
+
+
+
+
+                                </div>
+
+                        </div>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading"> Payment Detail</div>
                             <div class="panel-body">
                                 <div class="col-lg-6">
                                     <form>
                                         <div class="form-group row">
-                                            <label for="inputEmail3" class="col-sm-7 form-control-label">Item Title</label>
+                                            <label for="inputEmail3" class="col-sm-7 form-control-label">Contract type</label>
                                             <div class="col-sm-5">
                                                 <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
 
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="inputEmail3" class="col-sm-7 form-control-label">Item Description</label>
+                                            <label for="inputEmail3" class="col-sm-7 form-control-label">Payment Method</label>
                                             <div class="col-sm-5">
-                                                <textarea class="form-control" rows="3" id="description" name="description" readonly placeholder="<?php echo $row['no_covers'];?>" ></textarea>
+                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="inputEmail3" class="col-sm-7 form-control-label">Pre Qualification Details </label>
+                                            <label for="inputEmail3" class="col-sm-7 form-control-label">Tender Fee</label>
                                             <div class="col-sm-5">
-                                                <textarea class="form-control" rows="3" id="description" name="description" readonly placeholder="<?php echo $row['no_covers'];?>" ></textarea>
+                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
                                             </div>
                                         </div>
 
@@ -183,9 +345,9 @@
                                 <div class="col-lg-6">
                                     <form>
                                         <div class="form-group row">
-                                            <label for="inputEmail3" class="col-sm-7 form-control-label">Pre Qualification Details </label>
+                                            <label for="inputEmail3" class="col-sm-7 form-control-label">Any Other Tax Fee(LK)</label>
                                             <div class="col-sm-5">
-                                                <textarea class="form-control" rows="3" id="description" name="description" readonly placeholder="<?php echo $row['no_covers'];?>" ></textarea>
+                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -203,6 +365,59 @@
 
 
                             </div>
+
+                        </div>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading"> Dates</div>
+                            <div class="panel-body">
+                                <div class="col-lg-6">
+                                    <form>
+                                        <div class="form-group row">
+                                            <label for="inputEmail3" class="col-sm-7 form-control-label">Publishing Date</label>
+                                            <div class="col-sm-5">
+                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputEmail3" class="col-sm-7 form-control-label">Document Downloade/Sales start Date</label>
+                                            <div class="col-sm-5">
+                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputEmail3" class="col-sm-7 form-control-label">Bid Submission Satrt Date</label>
+                                            <div class="col-sm-5">
+                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
+                                            </div>
+                                        </div>
+
+
+                                </div>
+                                <div class="col-lg-6">
+                                    <form>
+                                        <div class="form-group row">
+                                            <label for="inputEmail3" class="col-sm-7 form-control-label">Bid Submission Closing Date</label>
+                                            <div class="col-sm-5">
+                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputEmail3" class="col-sm-7 form-control-label">Bid Opening Dates</label>
+                                            <div class="col-sm-5">
+                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
+                                            </div>
+                                        </div>
+
+
+                                </div>
+
+
+
+
+
+                            </div>
+
                         </div>
                     </div>
                     <!-- /.box-body -->
