@@ -48,25 +48,9 @@
    
 
     <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
+      <div class="content-wrapper" style="background-color:#ffffff">
         <!-- Content Header (Page header) -->
-        <section class="content-header">
-          <h1>
-            Home
-            
-          </h1>
-          <?php echo $_SESSION['email']?>
-          <?php echo $_SESSION['username'];?>
-          
-           
 
-
-           
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            
-          </ol>
-        </section>
 
         
             
@@ -75,8 +59,15 @@
 
         
 
-  <section class="content">
+  <section class="content" >
   <!-- Small boxes (Stat box) -->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <img src="images.jpg" alt="procurment cover" style="width:1080px;height:250px; pading-bottom:10px;">
+        </div>
+    </div>
+    <br><br>
       <div class="row">
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->

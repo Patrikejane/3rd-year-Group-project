@@ -1,6 +1,10 @@
+ <?php
+ 
+
+ ?>
  <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo" style="background-color:#020816;">
+    <a href="home.php" class="logo" style="background-color:#020816;">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>E</b>Proc</span>
       <!-- logo for regular state and mobile devices -->
@@ -74,7 +78,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="Tenderlist.php"><i class="fa fa-circle-o"></i> Tender List</a></li>
-            <li><a href="Publishtender.php"><i class="fa fa-circle-o"></i> Publish Tender </a></li>
+           
             <li><a href="Published.php"><i class="fa fa-circle-o"></i> Published Tenders</a></li>
             
           </ul>

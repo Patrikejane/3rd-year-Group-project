@@ -61,7 +61,7 @@
             <ul class="nav navbar-nav">
                 <li ><a href="index.php">Home</a></li>
                 <li class="active" ><a href="about.php">About</a></li>
-                <li><a href="#News">News</a></li>
+                
                 <li ><a href="signup.php">Sign UP</a></li>
 
             </ul>
