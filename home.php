@@ -64,7 +64,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <img src="images.jpg" alt="procurment cover" style="width:1080px;height:250px; pading-bottom:10px;">
+            <img src="images.jpg" alt="procurment cover" style="width:1105px;height:250px; pading-bottom:10px;">
         </div>
     </div>
     <br><br>
@@ -78,7 +78,7 @@
               <p>Tenders</p>
             </div>
             <div class="icon">
-              <i class="fa fa-shopping-cart"></i>
+              <i class="fa fa-file"></i>
             </div>
             <a href="#" class="small-box-footer">
               More info <i class="fa fa-arrow-circle-right"></i>
@@ -95,7 +95,7 @@
               <p>Companies</p>
             </div>
             <div class="icon">
-              <i class="ion ion-stats-bars"></i>
+              <i class="fa fa-building"></i>
             </div>
             <a href="#" class="small-box-footer">
               More info <i class="fa fa-arrow-circle-right"></i>
@@ -112,7 +112,7 @@
               <p>Bids</p>
             </div>
             <div class="icon">
-              <i class="ion ion-person-add"></i>
+              <i class="fa fa-legal"></i>
             </div>
             <a href="#" class="small-box-footer">
               More info <i class="fa fa-arrow-circle-right"></i>
@@ -129,7 +129,7 @@
               <p>Pending Requests</p>
             </div>
             <div class="icon">
-              <i class="ion ion-pie-graph"></i>
+              <i class="fa fa-user-plus"></i>
             </div>
             <a href="#" class="small-box-footer">
               More info <i class="fa fa-arrow-circle-right"></i>
