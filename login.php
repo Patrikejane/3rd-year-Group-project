@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	
 	include("db.php"); //Establishing connection with our database
 	
 	$error = ""; //Variable for storing our errors.

@@ -1,6 +1,6 @@
 <?php
 include('db.php');
-session_start();
+
 $mail_check=$_SESSION['email'];
 
 $ses_sql = mysqli_query($db,"SELECT email FROM user WHERE email='$mail_check' ");
