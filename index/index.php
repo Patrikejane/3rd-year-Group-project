@@ -60,7 +60,7 @@ if ((isset($_SESSION['email']) != ''))
 			  <ul class="nav navbar-nav">
 				<li class="active"><a href="index.php">Home</a></li>
 				<li><a href="about.php">About</a></li>
-                  <li><a href="#News">News</a></li>
+                  
                   <li><a href="signup.php">Sign UP</a></li>
 
 			  </ul>
