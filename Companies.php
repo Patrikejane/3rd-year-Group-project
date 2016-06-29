@@ -186,9 +186,9 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <div class="pull-right hidden-xs">
+    <!--<div class="pull-right hidden-xs">
       <b>Version</b> 1.0.0
-    </div>
+    </div>-->
     <strong>Copyright &copy; 2016 <a href="http://ucsc.cmb.ac.lk/">UCSC</a>.</strong> All rights
     reserved.
   </footer>

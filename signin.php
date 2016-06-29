@@ -70,7 +70,7 @@
                           <div class="col-sm-offset-2 col-sm-10">
                             <div class="checkbox">
                               <label>
-                                <input type="checkbox"> Remember me
+                                <input type="checkbox" name="rememberme"> Remember me
                               </label>
                               <a href="" class="btn btn-link pull-right">Forgot Password?</a>
                             </div>
