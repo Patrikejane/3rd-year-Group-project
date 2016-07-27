@@ -155,7 +155,13 @@ if(isset($_POST["submit"]))
 
                                 <div class="col-sm-4">
 
-                                    <input type="text" name="title" class="form-control" id="title" placeholder="Mr/Mrs/Ms/Dr" required>
+                                    <select type="text" name="title" class="form-control" id="title" required>
+                                        <option disabled selected value>Select a Title</option>
+                                        <option value="Mr">Mr</option>
+                                        <option value="Ms">Ms</option>
+                                        <option value="Dr">Dr</option>
+                                        <option value="Prof">Prof</option>
+                                    </select>
 
 
                                 </div>
@@ -190,7 +196,7 @@ if(isset($_POST["submit"]))
 
                                 <div class="col-sm-4">
 
-                                    <input type="date" name="dob" class="form-control" id="dob" required>
+                                    <input type="date" name="dob" class="form-control" id="dob" max="" required>
 
 
                                 </div>
@@ -502,6 +508,22 @@ if(isset($_POST["submit"]))
 <script src="js/custom.js"></script>
 <!-- js file for sweetalert -->
 <script src="../sweetalert/dist/sweetalert.min.js"></script>
+
+<script type="text/javascript">
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+     if(dd<10){
+            dd='0'+dd
+        } 
+        if(mm<10){
+            mm='0'+mm
+        } 
+
+    today = yyyy+'-'+mm+'-'+dd;
+    document.getElementById("dob").setAttribute("max", today);
+</script>
 
 
 </body>
