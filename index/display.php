@@ -119,11 +119,11 @@
                 <a href="#">
                     <i class="fa fa-files-o"></i>
                     <span>Tenders</span>
-                    <span class="label label-primary pull-right">3</span>
+                    <span class="label label-primary pull-right">2</span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="../Tenderlist.php"><i class="fa fa-circle-o"></i> Tender List</a></li>
-                    <li><a href="../Publishtender.php"><i class="fa fa-circle-o"></i> Publish Tender </a></li>
+                    
+                    <li><a href="../Tenderlist.php"><i class="fa fa-circle-o"></i> Publish Tender </a></li>
                     <li class="active"><a href="../published.php"><i class="fa fa-circle-o"></i> Published Tenders</a></li>
 
                 </ul>
@@ -167,13 +167,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Data Tables
-            <small>advanced tables</small>
+            Published Tender
+            
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Tables</a></li>
-            <li class="active">Data tables</li>
+            <li><a href="#"><i class="fa fa-dashboard"></i>Published Tender</a></li>
         </ol>
     </section>
 
@@ -214,10 +212,8 @@
                 <!-- /.box -->
 
                 <div class="box">
-                    <div class="box-header">
-                        <h3 class="box-title">Fuck you yehen</h3>
-                    </div>
-                    <!-- /.box-header -->
+                    
+                    
                     <div class="box-body">
                         <div class="panel panel-primary">
                             <div class="panel-heading"> Submission Detail</div>

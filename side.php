@@ -74,12 +74,12 @@
           <a href="#">
             <i class="fa fa-file"></i>
             <span>Tenders</span>
-            <span class="label label-primary pull-right">3</span>
+            <span class="label label-primary pull-right">2</span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="Tenderlist.php"><i class="fa fa-circle-o"></i> Tender List</a></li>
+            <li><a href="Tenderlist.php"><i class="fa fa-circle-o"></i>Publish Tender</a></li>
            
-            <li><a href="Published.php"><i class="fa fa-circle-o"></i> Published Tenders</a></li>
+            <li><a href="Published.php"><i class="fa fa-circle-o"></i>Published Tenders</a></li>
             
           </ul>
         </li>

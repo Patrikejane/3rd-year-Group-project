@@ -5,30 +5,25 @@ include ("../db.php");
 $msg = "";
 if(isset($_POST["submit"]))
 {
+
     $title = $_POST["title"];
     $first_name = $_POST["first_name"];
     $last_name = $_POST["last_name"];
     $dob = $_POST["dob"];
     $email = $_POST["email"];
     $password = $_POST["password"];
-    
     $address = $_POST["address"];
-    
     $district = $_POST["district"];
     $city = $_POST["city"];
     
-
-
-    $title = mysqli_real_escape_string($db, $title);
+	$title = mysqli_real_escape_string($db, $title);
     $first_name = mysqli_real_escape_string($db, $first_name);
     $last_name = mysqli_real_escape_string($db, $last_name);
     $dob = mysqli_real_escape_string($db, $dob);
     $email = mysqli_real_escape_string($db, $email);
     $password = mysqli_real_escape_string($db, $password);
     $password = md5($password);
-    
     $address = mysqli_real_escape_string($db, $address);
-    
     $district = mysqli_real_escape_string($db, $district);
     $city = mysqli_real_escape_string($db, $city);
     
@@ -400,7 +395,7 @@ if(isset($_POST["submit"]))
                                 <div class="col-sm-offset-2 col-sm-10">
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" id="checkbox" required> I agree to the <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms & Conditions</a>.
+                                            <input type="checkbox" name="checkbox" id="checkbox" required> I agree to the <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms & Conditions</a>.
                                         </label>
                                         <!--<a href="" class="btn btn-link pull-right">Forgot Password?</a>-->
                                     </div>
@@ -437,6 +432,25 @@ if(isset($_POST["submit"]))
     </section>
 
     <!-- /Section: intro -->
+
+<!-- Modal -->
+	<div class="modal fade" id="t_and_c_m" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h4 class="modal-title" id="myModalLabel">Terms & Conditions</h4>
+				</div>
+				<div class="modal-body">
+					<p>Note : The requested tenders administration accounts details will be communicated by email</p>
+					<p>Disclaimer : This account is meant for publishing and maintaining the tenders information on E-Procurement Management System. The sole responsibility of the accuracy and validity of user information/contents in the tender documents shall rest with the authorized user of the account i.e. the concerened tender inviting authority is responsible for tender administration. NIC shall be responsible only for ensuring the system performance and security.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="i_agree" data-dismiss="modal">I Agree</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->    
 
     <!-- Section: boxes -->
 
@@ -523,6 +537,12 @@ if(isset($_POST["submit"]))
 
     today = yyyy+'-'+mm+'-'+dd;
     document.getElementById("dob").setAttribute("max", today);
+</script>
+
+<script type="text/javascript">
+	$('#i_agree').click(function() {
+    	$('input[name=checkbox]').prop('checked', true);
+	});
 </script>
 
 
