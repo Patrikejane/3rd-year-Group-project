@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	
 
 	include("db.php");
 	
@@ -24,8 +24,7 @@
 	    $query1 = "INSERT INTO notification (notid, actor, description, sender, receive_date) VALUES ('$id','Academic_ Staff','$desc','$sender',NOW())";
 
 	    $result1 = mysqli_query($db,$query1);
-	    echo $_SESSION['email'];
-	    echo $_SESSION['first_name'];
+	    
 
 	    
 
