@@ -23,13 +23,13 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="dist/img/avatar5-160x160.png" class="user-image" alt="User Image">
               <span class="hidden-xs"><?php echo $_SESSION['username']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="dist/img/avatar5-160x160.png" class="img-circle" alt="User Image">
 
                 <p>
                   <?php
@@ -72,14 +72,14 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-files-o"></i>
+            <i class="fa fa-file"></i>
             <span>Tenders</span>
-            <span class="label label-primary pull-right">3</span>
+            <span class="label label-primary pull-right">2</span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="Tenderlist.php"><i class="fa fa-circle-o"></i> Tender List</a></li>
+            <li><a href="Tenderlist.php"><i class="fa fa-circle-o"></i>Publish Tender</a></li>
            
-            <li><a href="Published.php"><i class="fa fa-circle-o"></i> Published Tenders</a></li>
+            <li><a href="Published.php"><i class="fa fa-circle-o"></i>Published Tenders</a></li>
             
           </ul>
         </li>
@@ -90,27 +90,27 @@
         </li>
         <li>
           <a href="Bids.php">
-            <i class="fa fa-th"></i> <span>Bids</span>
+            <i class="fa fa-legal"></i> <span>Bids</span>
           </a>
         </li>
         <li>
           <a href="Reports.php">
-            <i class="fa fa-th"></i> <span>Reports</span>
+            <i class="fa fa-file-text"></i> <span>Reports</span>
           </a>
         </li>
         <li>
           <a href="Help.php">
-            <i class="fa fa-th"></i> <span>Help</span>
+            <i class="fa fa-question-circle"></i> <span>Help</span>
           </a>
         </li>
         <li>
           <a href="About.php">
-            <i class="fa fa-th"></i> <span>About us</span>
+            <i class="fa fa-info-circle"></i> <span>About us</span>
           </a>
         </li>
         <li>
           <a href="Contact.php">
-            <i class="fa fa-th"></i> <span>Contact us</span>
+            <i class="fa fa-phone-square"></i> <span>Contact us</span>
           </a>
         </li>
         

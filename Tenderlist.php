@@ -127,12 +127,12 @@ include("db.php");
           <a href="#">
             <i class="fa fa-files-o"></i>
             <span>Tenders</span>
-            <span class="label label-primary pull-right">3</span>
+            <span class="label label-primary pull-right">2</span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="Tenderlist.php"><i class="fa fa-circle-o"></i> Tender List</a></li>
+            <li class="active"><a href="Tenderlist.php"><i class="fa fa-circle-o"></i>Publish Tender</a></li>
             
-            <li><a href="Published.php"><i class="fa fa-circle-o"></i> Published Tenders</a></li>
+            <li><a href="Published.php"><i class="fa fa-circle-o"></i>Published Tenders</a></li>
             
           </ul>
         </li>
@@ -197,10 +197,10 @@ include("db.php");
           <form class="form-horizontal" method="post" name="main" id="main" action="tenderdata.php">
             
               <div class="form-group">
-                <label for="tender_reference" class="col-sm-4 control-label">Tender Reference Number* </label>
+                <label for="tender_reference" class="col-sm-4 control-label">Tender reference number* </label>
 
                 <div class="col-sm-4">
-                  <input type="text" class="form-control" id="tender_reference" name="tender_reference" placeholder="Tender Reference Number">
+                  <input type="text" class="form-control" id="tender_reference" name="tender_reference" placeholder="Tender reference number">
                 </div>
               </div>
 
@@ -233,7 +233,7 @@ include("db.php");
               </div>
 
               <div class="form-group">
-                <label for="submission" class="col-sm-4 control-label">Should allow Re-bid submission</label>
+                <label for="submission" class="col-sm-4 control-label">Should allow re-bid submission</label>
                 <div class="col-sm-1">
                   <div class="radio" >
                     <label>
@@ -255,7 +255,7 @@ include("db.php");
 
               <!-- /////////////////////////////////////////////////// -->
               <div class="form-group">
-                <label for="tender_reference" class="col-sm-4 control-label">Should allow Withdrawwl of bids</label>
+                <label for="tender_reference" class="col-sm-4 control-label">Should allow withdrawal of bids</label>
                 <div class="col-sm-1">
                   <div class="radio">
                     <label>
@@ -277,7 +277,7 @@ include("db.php");
 
               <!-- /////////////////////////////////////////////////////////// -->
               <div class="form-group">
-                <label for="tender_reference" class="col-sm-4 control-label">Should allow Offline Submission</label>
+                <label for="tender_reference" class="col-sm-4 control-label">Should allow offline submission</label>
                 <div class="col-sm-1">
                   <div class="radio">
                     <label>
@@ -299,7 +299,7 @@ include("db.php");
 
               <!-- //////////////////////////////////////////////////////////// -->
               <div class="form-group">
-                <label for="tender_reference" class="col-sm-4 control-label">Should allow General Technical Submission</label>
+                <label for="tender_reference" class="col-sm-4 control-label">Should allow general technical submission</label>
                 <div class="col-sm-1">
                   <div class="radio">
                     <label>
@@ -350,23 +350,23 @@ include("db.php");
               </div>
 
               <div class="form-group">
-                <label  class="col-sm-4 control-label">Work/Item Description* </label>
+                <label  class="col-sm-4 control-label">Work/Item description* </label>
 
                 <div class="col-sm-4">
-                  <textarea class="form-control" rows="3" id="description" name="description" placeholder="Desccription" ></textarea>
+                  <textarea class="form-control" rows="3" id="description" name="description" placeholder="Description" ></textarea>
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="tender_reference" class="col-sm-4 control-label">Pre Qualification Details * </label>
+                <label for="tender_reference" class="col-sm-4 control-label">Pre qualification details * </label>
 
                 <div class="col-sm-4">
-                  <textarea class="form-control" rows="3" id="predescription" name="predescription" placeholder="Desccription" ></textarea>
+                  <textarea class="form-control" rows="3" id="predescription" name="predescription" placeholder="Description" ></textarea>
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="tender_type" class="col-sm-4 control-label">Product Catogary* </label>
+                <label for="tender_type" class="col-sm-4 control-label">Product category* </label>
                   <div class="col-sm-4 ">
                     
                     <select class="form-control" id="product_catogary" name="product_catogary">
@@ -380,10 +380,10 @@ include("db.php");
               </div>
 
               <div class="form-group">
-                <label for="tender_reference" class="col-sm-4 control-label">Product SubCatogary* </label>
+                <label for="tender_reference" class="col-sm-4 control-label">Product subcategory* </label>
 
                 <div class="col-sm-4">
-                  <textarea class="form-control" rows="3" id="sub_catogary" name="sub_catogary" placeholder="Desccription" ></textarea>
+                  <textarea class="form-control" rows="3" id="sub_catogary" name="sub_catogary" placeholder="Description" ></textarea>
                 </div>
               </div>
 
@@ -403,21 +403,21 @@ include("db.php");
 
 
                 <div class="form-group">
-                  <label for="tender_reference" class="col-sm-4 control-label">Tender Fee(LK) </label>
+                  <label for="tender_reference" class="col-sm-4 control-label">Tender fee(LK) </label>
 
                   <div class="col-sm-4">
                     <input type="text" class="form-control" id="tender_fee" name="tender_fee" placeholder="Tender Fee">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="tender_reference" class="col-sm-4 control-label">Any Other Tax Fee(LK) </label>
+                  <label for="tender_reference" class="col-sm-4 control-label">Any other tax fee(LK) </label>
 
                   <div class="col-sm-4">
                     <input type="text" class="form-control" id="any_other_fee" name="any_other_fee" placeholder="Other Fee">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="publish_date" class="col-sm-4 control-label">Publishing Date* </label>
+                  <label for="publish_date" class="col-sm-4 control-label">Publishing date* </label>
                   
                   <div class="col-sm-4">
                   <input type="text" value="" id="datetimepicker" name="pub_time" style="width:300px;height:35px" placeholder="Enter date and type">
@@ -427,7 +427,7 @@ include("db.php");
                 </div>
 
                 <div class="form-group">
-                  <label for="downloade_date" class="col-sm-4 control-label">Document Downloade/Sales start Date* </label>
+                  <label for="downloade_date" class="col-sm-4 control-label">Document download/Sales start date* </label>
 
                   <div class="col-sm-4">
                   <input type="text" value="" id="datetimepicker1" name="doc_time" style="width:300px;height:35px" placeholder="Enter date and type">
@@ -435,7 +435,7 @@ include("db.php");
                 </div>
 
                 <div class="form-group">
-                  <label for="sub_start_date" class="col-sm-4 control-label">Bid Submission Satrt Date* </label>
+                  <label for="sub_start_date" class="col-sm-4 control-label">Bid submission starting date* </label>
 
                   <div class="col-sm-4">
                   <input type="text" value="" id="datetimepicker2" name="bid_start_time" style="width:300px;height:35px" placeholder="Enter date and type">
@@ -443,7 +443,7 @@ include("db.php");
                 </div>
 
                 <div class="form-group">
-                  <label for="sub_close_date" class="col-sm-4 control-label">Bid Submission Closing Date* </label>
+                  <label for="sub_close_date" class="col-sm-4 control-label">Bid submission closing date* </label>
 
                   <div class="col-sm-4">
                   <input type="text" value="" id="datetimepicker3" name="bid_close_time" style="width:300px;height:35px" placeholder="Enter date and type">
@@ -451,7 +451,7 @@ include("db.php");
                 </div>
 
                 <div class="form-group">
-                  <label for="bid_open_date" class="col-sm-4 control-label">Bid Opening Date* </label>
+                  <label for="bid_open_date" class="col-sm-4 control-label">Bid opening date* </label>
 
                   <div class="col-sm-4">
                   <input type="text" value="" id="datetimepicker4" name="bid_open_time" style="width:300px;height:35px" placeholder="Enter date and type">
@@ -463,7 +463,7 @@ include("db.php");
                     <th style="width: 10px">S.no</th>
                     
                     <th>Cover Name</th>
-                    <th style="width: 40px">Cover Type</th>
+                    <th style="width: 40px">Cover type</th>
                     <th>Add Documents</th>
                     <th>Add Contents</th>
                   </tr>
@@ -477,7 +477,7 @@ include("db.php");
                   <tr>
                     <td>2.</td>
                     <td>2014_</td>
-                    <td>Tender Dcument</td>
+                    <td>Tender Document</td>
                     <td>Document count</td>
                     <td><input type="file" id="tenderdoc" name="tender_doc"></td>
                   </tr>

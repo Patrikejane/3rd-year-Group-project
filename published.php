@@ -16,7 +16,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title> AdminLTE 2 | Data Tables </title>
+  <title>E-Proc UCSC | Published Tenders</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -110,12 +110,12 @@
             <a href="#">
                 <i class="fa fa-files-o"></i>
                 <span>Tenders</span>
-                <span class="label label-primary pull-right">3</span>
+                <span class="label label-primary pull-right">2</span>
             </a>
             <ul class="treeview-menu">
-                <li><a href="Tenderlist.php"><i class="fa fa-circle-o"></i> Tender List</a></li>
+                <li><a href="Tenderlist.php"><i class="fa fa-circle-o"></i>Publish Tender</a></li>
                 
-                <li class="active"><a href="published.php"><i class="fa fa-circle-o"></i> Published Tenders</a></li>
+                <li class="active"><a href="published.php"><i class="fa fa-circle-o"></i>Published Tenders</a></li>
 
             </ul>
         </li>
@@ -158,13 +158,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data Tables
-        <small>advanced tables</small>
+        Published Tenders
+        
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Tables</a></li>
-        <li class="active">Data tables</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Published Tenders</a></li>
       </ol>
     </section>
 
@@ -182,7 +180,7 @@
                               <input type="text" class="form-control" id="usr">
                           </div>
                           <div class="form-group">
-                              <label for="pwd">Key word :</label>
+                              <label for="pwd">Keyword :</label>
                               <input type="password" class="form-control" id="pwd">
                           </div>
                           <div class="form-group">
@@ -193,8 +191,9 @@
                       </div>
                       <div class="col-lg-6">
                           <div class="form-group">
-                              <label for="sel1">Category:</label>
+                              <label for="sel1">Category :</label>
                               <select class="form-control" id="sel1">
+                                  <option disabled selected value>Select a Category</option>
                                   <option>1</option>
                                   <option>2</option>
                                   <option>3</option>
@@ -212,19 +211,19 @@
           <!-- /.box -->
 
           <div class="box">
-            <div class="box-header">
+            <!--<div class="box-header">
               <h3 class="box-title">Data Table With Full Features</h3>
-            </div>
+            </div>-->
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>View</th>
+                  <th>Tender reference number</th>
+                  <th>Tender type</th>
+                  <th>No of covers</th>
+                  <th>Should allow re-bid submission</th>
+                  <th>View all details</th>
                 </tr>
                 </thead>
 
@@ -246,15 +245,7 @@
                 //}
                 ?>
                 </tbody>
-                <tfoot>
-                <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-
-                </tr>
-                </tfoot>
+                
               </table>
             </div>
             <!-- /.box-body -->

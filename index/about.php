@@ -81,10 +81,10 @@
 
 <div class="well well-trans">
 <div class="wow fadeInRight "   data-wow-delay="0.1s">
-<div class="box box-info">
-    We are the third year undergraduate students of University of Colombo School of Computing. We are developing this web site exclusively for the Bidders, Companies as well as for the academic department of UCSC. We providing cutting edge IT solutions to find out the latest tenders of UCSC and also to help each other on the process of procurement management.<br/>
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp By using this web site Academic staff can request their needs using a forums. Bidders can see the tenders and bid online. Supplier department of UCSC can handle the process of tender documentation clearly. As a project of University of Colombo School of Computing we launch this project with the expectation of expanding as an island wide service.
-    <br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Our mission is to develop and launch an efficient procurement system to the consumers like companies, Bidders ,academic staff of UCSC.
+<div class="box box-info" style="text-align:justify">
+    We are the third year undergraduate students of University of Colombo School of Computing. We are developing this web site exclusively for the Bidders, Companies as well as for the academic department of UCSC. We providing cutting edge IT solutions to find out the latest tenders of UCSC and also to help each other on the process of procurement management.<br/><br/>
+    Using this web site Academic staff can request their needs using a forums. Bidders can see the tenders and bid online. Supplier department of UCSC can handle the process of tender documentation clearly. As a project of University of Colombo School of Computing we launch this project with the expectation of expanding as an island wide service.<br/><br/>
+    Our mission is to develop and launch an efficient procurement system to the consumers like companies, Bidders ,academic staff of UCSC.
     <br/>
     <br/>
             ●  Quality<br/>
