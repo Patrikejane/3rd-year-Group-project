@@ -14,8 +14,11 @@ if(isset($_POST["submit"]))
         $query = "SELECT email FROM user where email='$email'";
         $result = mysqli_query($db,$query);
         $rowcount=mysqli_num_rows($result);
+        $Results = mysqli_fetch_array($result);
 
         if($rowcount == 1){
+
+        	$encrypt = md5($Results['email']);
 
 			$mail = new PHPMailer;
 
@@ -36,17 +39,17 @@ if(isset($_POST["submit"]))
 		    $mail->isHTML(true);  // Set email format to HTML
 
 		    $bodyContent = '<h1>Forgot password?</h1>';
-		    $bodyContent .= '<p>Click here to reset your password http://localhost/gitProc/3rd-year-Group-project/resetPassword.php?&action=reset</p>';
+		    $bodyContent .= '<p>Click here to reset your password http://localhost/gitProc/3rd-year-Group-project/resetPassword.php?encrypt='.$encrypt.'&action=reset</p>';
 
 		    $mail->Subject = 'Forgot Password';
 		    $mail->Body    = $bodyContent;
 		    
 
 		    if(!$mail->send()) {
-		        echo 'Message could not be sent.';
+		        echo 'Email could not be sent.';
 		        echo 'Mailer Error: ' . $mail->ErrorInfo;
 		    } else {
-		        echo 'Message has been sent';
+		        echo 'Email has been sent to '.$email;
 		    }            
         }
         else{
@@ -66,7 +69,7 @@ if(isset($_POST["submit"]))
 </head>
 <body>
 <form action="" method="post">
-	<input type="email" name="email" placeholder="Email to get password">
+	<input type="email" name="email" placeholder="Email to get password" required>
 	<button type="submit" name = "submit">RESET PASSWORD</button>
 </form>
 </body>
