@@ -1,5 +1,6 @@
 <?php
 require("classes.php");
+include ('db.php');
 $not = new classes();
 ?>
  <header class="main-header">
@@ -28,13 +29,16 @@ $not = new classes();
             </a>
             <ul class="dropdown-menu">
               <li class="header">You have 10 notifications</li>
-            
+
                 <ul class="dropdown-menu message-dropdown" style="width: 382.22222px;">
                     <div id="notificationContainer">
                         <div id="notificationTitle">Notifications</div>
                         <div id="notificationsBody" class="notifications" runat="server">
+                          echo "yehen";
+                        <?php 
 
-                        
+                           $not->notResualtTeacher($_SESSION["email"]);
+                        ?>
                         </div>
                     </div>
                 </ul>
@@ -47,7 +51,7 @@ $not = new classes();
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs"><?php //echo $_SESSION['username']; ?></span>
+              <span class="hidden-xs"><?php echo $_SESSION['username']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
