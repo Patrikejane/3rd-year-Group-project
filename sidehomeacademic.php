@@ -1,3 +1,7 @@
+<?php
+require("classes.php");
+$not = new classes();
+?>
  <header class="main-header">
     <!-- Logo -->
     <a href="homeacademic.php" class="logo" style="background-color:#020816;">
@@ -15,6 +19,29 @@
 
       <div class="navbar-custom-menu" >
         <ul class="nav navbar-nav" >
+
+          <!-- Notifications: style can be found in dropdown.less -->
+          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-warning"><?php echo $not->getnotcountTeacher(); ?></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have 10 notifications</li>
+            
+                <ul class="dropdown-menu message-dropdown" style="width: 382.22222px;">
+                    <div id="notificationContainer">
+                        <div id="notificationTitle">Notifications</div>
+                        <div id="notificationsBody" class="notifications" runat="server">
+
+                        
+                        </div>
+                    </div>
+                </ul>
+              
+              <li class="footer"><a href="#">View all</a></li>
+            </ul>
+          </li>
                    
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
@@ -28,7 +55,7 @@
                 <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  <?php //echo $_SESSION['username']; ?>
+                  <?php echo $_SESSION['username']; ?>
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>
@@ -79,3 +106,6 @@
     </section>
     <!-- /.sidebar -->
   </aside>
+
+  
+ 
