@@ -1,18 +1,4 @@
-<?php
-  include("db.php");
 
-  // Check connection
-  if($db === false){
-      die("ERROR: Could not connect. " . mysqli_connect_error());
-  }
-
-  // Attempt select query execution
-  $sql = "SELECT Supplier_name, City, Web_url, Diversity_categories FROM supplier";
-
-  $result = mysqli_query($db, $sql);
-
-  $num_rows = mysqli_num_rows($result);
-?>
 
 <!DOCTYPE html>
 <html>
@@ -45,7 +31,23 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-<?php include('side.php'); ?>
+<?php //include('side.php'); ?>
+<?php
+  //include("db.php");
+  include('side.php');
+
+  // Check connection
+  /*if($db === false){
+      die("ERROR: Could not connect. " . mysqli_connect_error());
+  }*/
+
+  // Attempt select query execution
+  $sql = "SELECT Supplier_name, City, Web_url, Diversity_categories FROM supplier";
+
+  $result = mysqli_query($db, $sql);
+
+  $num_rows = mysqli_num_rows($result);
+?>
 
   
   
