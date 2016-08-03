@@ -1,5 +1,5 @@
 <?php
-	
+	//session_start();	
 	include("db.php"); //Establishing connection with our database
 	
 	$error = ""; //Variable for storing our errors.
@@ -22,7 +22,7 @@
 			$password = md5($password);
 			
 			//Check username and password from database
-			$sql="SELECT email,first_name,last_name FROM user WHERE email='$email' and password='$password'";
+			$sql="SELECT type,email,first_name,last_name FROM user WHERE email='$email' and password='$password'";
 			//$sql1 = "SELECT first_name FROM user WHERE email='$email'";
 			
 			$result=mysqli_query($db,$sql);
@@ -35,41 +35,58 @@
 
 			if($rowcount == 1){
 
+
+
 				while ($row = mysqli_fetch_assoc($result)) {
 
                     $first_name = $row["first_name"];
                     $last_name = $row["last_name"];
+                    $type  = $row['type'];
                     
                 }
 
                 $username = $first_name." ".$last_name;
-            	$_SESSION['username'] = $username; 
-            	$_SESSION['email'] = $email; // Initializing Session
-				if(!empty($_POST["remember"])) {
+
+				if(!empty($_POST["remember"])){
+
 					setcookie ("user_email",$_POST["email"],time()+ (10 * 365 * 24 * 60 * 60));
 					setcookie ("user_password",$_POST["password"],time()+ (10 * 365 * 24 * 60 * 60));
-				} else {
+				}
+				else{
 					if(isset($_COOKIE["user_email"])) {
 						setcookie ("user_email","");
 					}
 					if(isset($_COOKIE["user_password"])) {
 						setcookie ("user_password","");
 					}
-				}            	
-	            	
-	            header("location: home.php"); // Redirecting To Other Page
+				}
+            	 
+                if($type == "User"){
+                	$_SESSION['username']=$username;
+                	header("location: ../home.php"); /* If the session is true redirect to home.php page */
+                }elseif($type == "Admin"){
+                	$_SESSION['username']=$username;
+                	header("location: ../adminHome.php");  /* If the session is true, redirect to adminHome.php page */
+                }
+                else{
+                	$_SESSION['username']=$username;
+                	$_SESSION['email']=$email;
+                	header("location: ../academicHome.php");
+                }
 
-	        }
-            else{
-					echo 	'<script type="text/javascript">
+	        }else{
+                echo 	'<script type="text/javascript">
 								setTimeout(function(){
 									swal("", "Incorrect username or password.", "error");
 								},100);
 							</script>';
-			}
+	        }
 		
 
 		}
 	}
 
 ?>
+
+
+
