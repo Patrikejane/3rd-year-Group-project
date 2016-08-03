@@ -1,6 +1,6 @@
 <?php
 	
-
+	
 	include("db.php");
 	
 	if (isset($_POST["submit"])) {
@@ -11,6 +11,7 @@
         $fetch_result = mysqli_fetch_array($result);
         $res = $fetch_result['count'] +1;
         $out = "not".$res ;
+
         
 
         
@@ -19,11 +20,12 @@
 		$desc = $_POST["description"];
 		$sender = "yehen";
 	    $id = $out;
+	    $email = $_SESSION['email']
 	    //$date = date('Y-m-d H:i:s');
 
-	    $query1 = "INSERT INTO notification (notid, actor, description, sender, receive_date) VALUES ('$id','Academic_ Staff','$desc','$sender',NOW())";
+	    $query1 = "INSERT INTO notification (notid, actor, description, sender, receive_date,action,email) VALUES ('$id','Academic_ Staff','$desc','$sender',NOW(),'fromacademic',$email)";
 
-	    $query2 = "INSERT INTO notification_all (notid, actor, description, sender, receive_date) VALUES ('$id','Academic_ Staff','$desc','$sender',NOW())";
+	    $query2 = "INSERT INTO notification_all (notid, actor, description, sender, receive_date,action,email) VALUES ('$id','Academic_ Staff','$desc','$sender',NOW(),'fromacademic',$email)";
 
 
 	    $result1 = mysqli_query($db,$query1);
