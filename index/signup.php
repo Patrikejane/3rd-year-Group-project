@@ -6,6 +6,7 @@ $msg = "";
 if(isset($_POST["submit"]))
 {
 
+    $type = "User";
     $title = $_POST["title"];
     $first_name = $_POST["first_name"];
     $last_name = $_POST["last_name"];
@@ -41,7 +42,7 @@ if(isset($_POST["submit"]))
     }
     else
     {
-        $query = mysqli_query($db, "INSERT INTO user (title, first_name, last_name, dob, email, password, address, district, city)VALUES ('$title', '$first_name', '$last_name', '$dob', '$email', '$password', '$address', '$district', '$city')");
+        $query = mysqli_query($db, "INSERT INTO user (type, title, first_name, last_name, dob, email, password, address, district, city)VALUES ('$type', '$title', '$first_name', '$last_name', '$dob', '$email', '$password', '$address', '$district', '$city')");
         if($query)
         {
             echo    '<script type="text/javascript">

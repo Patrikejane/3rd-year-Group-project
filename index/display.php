@@ -10,13 +10,16 @@
     if(isset($_GET["data"]))
     {
         $data = $_GET["data"];
-    }
 
 
-    $sql="SELECT * FROM tenderdocument WHERE tender_ref_number=".$data;
+    //print($data);
+    $sql="SELECT * FROM tenderdocument WHERE tender_ref_number='$data'";
+    //print($sql);
     $result = mysqli_query($db,$sql);
+    //print_r($result);
     $row = mysqli_fetch_array($result);
-
+    //print_r($row);
+    }
 ?>
 <!DOCTYPE html>
 
@@ -223,13 +226,13 @@
                                         <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-7 form-control-label">Should allow Re-bid submission</label>
                                             <div class="col-sm-5">
-                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
+                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['re_bid_submission'];?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-7 form-control-label">Should allow Withdrawwl of bids</label>
                                             <div class="col-sm-5">
-                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
+                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['withdraw_bids'];?>">
                                             </div>
                                         </div>
 
@@ -240,13 +243,13 @@
                                         <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-7 form-control-label">Should allow Offline Submission</label>
                                             <div class="col-sm-5">
-                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
+                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['offline_submission'];?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-7 form-control-label">Should allow General Technical Submission</label>
                                             <div class="col-sm-5">
-                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
+                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['general_technical_submission'];?>">
                                             </div>
                                         </div>
 
@@ -267,20 +270,20 @@
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-sm-7 form-control-label">Item Title</label>
                                                 <div class="col-sm-5">
-                                                    <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
+                                                    <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['item_title'];?>">
 
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-sm-7 form-control-label">Item Description</label>
                                                 <div class="col-sm-5">
-                                                    <textarea class="form-control" rows="3" id="description" name="description" readonly placeholder="<?php echo $row['no_covers'];?>" ></textarea>
+                                                    <textarea class="form-control" rows="3" id="description" name="description" readonly placeholder="<?php echo $row['item_description'];?>" ></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-sm-7 form-control-label">Product SubCatogary </label>
                                                 <div class="col-sm-5">
-                                                    <textarea class="form-control" rows="3" id="description" name="description" readonly placeholder="<?php echo $row['no_covers'];?>" ></textarea>
+                                                    <textarea class="form-control" rows="3" id="description" name="description" readonly placeholder="<?php echo $row['productsubcatogary'];?>" ></textarea>
                                                 </div>
                                             </div>
 
@@ -291,13 +294,13 @@
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-sm-7 form-control-label">Pre Qualification Details </label>
                                                 <div class="col-sm-5">
-                                                    <textarea class="form-control" rows="3" id="description" name="description" readonly placeholder="<?php echo $row['no_covers'];?>" ></textarea>
+                                                    <textarea class="form-control" rows="3" id="description" name="description" readonly placeholder="<?php echo $row['prequalification'];?>" ></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-sm-7 form-control-label">Product Category</label>
                                                 <div class="col-sm-5">
-                                                    <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
+                                                    <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['productcatogary'];?>">
                                                 </div>
                                             </div>
 
@@ -319,20 +322,20 @@
                                         <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-7 form-control-label">Contract type</label>
                                             <div class="col-sm-5">
-                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
+                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['contract_type'];?>">
 
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-7 form-control-label">Payment Method</label>
                                             <div class="col-sm-5">
-                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
+                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['paymont_method'];?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-7 form-control-label">Tender Fee</label>
                                             <div class="col-sm-5">
-                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
+                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['tender_fee'];?>">
                                             </div>
                                         </div>
 
@@ -343,13 +346,13 @@
                                         <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-7 form-control-label">Any Other Tax Fee(LK)</label>
                                             <div class="col-sm-5">
-                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
+                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['other_tax_fee'];?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-7 form-control-label">Product Category</label>
                                             <div class="col-sm-5">
-                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
+                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['productcatogary'];?>">
                                             </div>
                                         </div>
 
@@ -371,20 +374,20 @@
                                         <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-7 form-control-label">Publishing Date</label>
                                             <div class="col-sm-5">
-                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
+                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['publishing_date'];?>">
 
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-7 form-control-label">Document Downloade/Sales start Date</label>
                                             <div class="col-sm-5">
-                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
+                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['sale_start_date'];?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-7 form-control-label">Bid Submission Satrt Date</label>
                                             <div class="col-sm-5">
-                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
+                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['bid_satrt_date'];?>">
                                             </div>
                                         </div>
 
@@ -395,13 +398,13 @@
                                         <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-7 form-control-label">Bid Submission Closing Date</label>
                                             <div class="col-sm-5">
-                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
+                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['bid_close_date'];?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="inputEmail3" class="col-sm-7 form-control-label">Bid Opening Dates</label>
                                             <div class="col-sm-5">
-                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['no_covers'];?>">
+                                                <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['bid_opening_date'];?>">
                                             </div>
                                         </div>
 
@@ -624,6 +627,7 @@
         <!-- /.tab-pane -->
     </div>
 </aside>
+
 <!-- /.control-sidebar -->
 <!-- Add the sidebar's background. This div must be placed
      immediately after the control sidebar -->

@@ -1,7 +1,8 @@
  <?php
- 
 
- ?>
+  include('db.php');
+  
+?>
  <header class="main-header">
     <!-- Logo -->
     <a href="home.php" class="logo" style="background-color:#020816;">

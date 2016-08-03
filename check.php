@@ -11,6 +11,6 @@ $login_user=$row['email'];
 
 if(!isset($mail_check))
 {
-header("Location: signin.php");
+header("Location: login.php");
 }
 ?>
