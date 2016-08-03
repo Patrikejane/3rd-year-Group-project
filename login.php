@@ -28,46 +28,44 @@
 			$result=mysqli_query($db,$sql);
 			//$result1=mysqli_query($db,$sql1);
 
-			if(mysqli_num_rows($result) == 1)
-			{	while ($row = mysqli_fetch_assoc($result)) {
-                    $email1 = $row["email"];
+			$rowcount=mysqli_num_rows($result);
+
+			//If email and password exist in our database then create a session.
+			//Otherwise echo error.
+
+			if($rowcount == 1){
+
+				while ($row = mysqli_fetch_assoc($result)) {
+
                     $first_name = $row["first_name"];
                     $last_name = $row["last_name"];
                     
-                    
                 }
-            }
 
-            $username = $first_name." ".$last_name;
-            $_SESSION['username']= $username;
-           
+                $username = $first_name." ".$last_name;
+            	$_SESSION['username'] = $username; 
+            	$_SESSION['email'] = $email; // Initializing Session
+				if(!empty($_POST["remember"])) {
+					setcookie ("user_email",$_POST["email"],time()+ (10 * 365 * 24 * 60 * 60));
+					setcookie ("user_password",$_POST["password"],time()+ (10 * 365 * 24 * 60 * 60));
+				} else {
+					if(isset($_COOKIE["user_email"])) {
+						setcookie ("user_email","");
+					}
+					if(isset($_COOKIE["user_password"])) {
+						setcookie ("user_password","");
+					}
+				}            	
+	            	
+	            header("location: home.php"); // Redirecting To Other Page
 
-			
-
-			$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-			
-
-			
-			
-			//If email and password exist in our database then create a session.
-			//Otherwise echo error.
-			
-			
-			if(mysqli_num_rows($result) == 1)
-			{
-				$_SESSION['email'] = $email; // Initializing Session
-				
-				header("location: home.php"); // Redirecting To Other Page
-
-			}else
-
-
-			{
-				echo 	'<script type="text/javascript">
-							setTimeout(function(){
-								swal("", "Incorrect username or password.", "error");
-							},100);
-						</script>';
+	        }
+            else{
+					echo 	'<script type="text/javascript">
+								setTimeout(function(){
+									swal("", "Incorrect username or password.", "error");
+								},100);
+							</script>';
 			}
 		
 

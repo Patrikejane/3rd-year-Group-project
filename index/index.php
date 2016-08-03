@@ -34,6 +34,8 @@ if ((isset($_SESSION['email']) != ''))
 	<link id="bodybg" href="bodybg/bg1.css" rel="stylesheet" type="text/css" />
 	<!-- template skin -->
 	<link id="t-colors" href="color/default.css" rel="stylesheet">
+	<!-- css file for sweetalert -->
+    <link rel="stylesheet" href="../sweetalert/dist/sweetalert.css" />
 
 
 </head>
@@ -118,23 +120,23 @@ if ((isset($_SESSION['email']) != ''))
 			                          <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
 
 			                          <div class="col-sm-10">
-			                            <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
+			                            <input type="email" name="email" value="<?php if(isset($_COOKIE["user_email"])) { echo $_COOKIE["user_email"]; } ?>" class="form-control" id="email" placeholder="Email" required>
 			                          </div>
 			                        </div>
 			                        <div class="form-group">
 			                          <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
 
 			                          <div class="col-sm-10">
-			                            <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+			                            <input type="password" name="password" value="<?php if(isset($_COOKIE["user_password"])) { echo $_COOKIE["user_password"]; } ?>" class="form-control" id="password" placeholder="Password" required>
 			                          </div>
 			                        </div>
 			                        <div class="form-group">
 			                          <div class="col-sm-offset-2 col-sm-10">
 			                            <div class="checkbox">
 			                              <label>
-			                                <input type="checkbox"> Remember me
+			                                <input type="checkbox" name="remember" <?php if(isset($_COOKIE["user_email"])) { ?> checked <?php } ?> id="remember"> Remember me
 			                              </label>
-			                              <a href="" class="btn btn-link pull-right">Forgot Password?</a>
+			                              <a href="../forgotPassword.php" class="btn btn-link pull-right">Forgot Password?</a>
 			                            </div>
 			                          </div>
 			                        </div>
@@ -232,6 +234,8 @@ if ((isset($_SESSION['email']) != ''))
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/nivo-lightbox.min.js"></script>
     <script src="js/custom.js"></script>
+    <!-- js file for sweetalert -->
+	<script src="../sweetalert/dist/sweetalert.min.js"></script>
 
 
 </body>
