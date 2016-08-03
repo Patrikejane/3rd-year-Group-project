@@ -23,7 +23,11 @@
 
 	    $query1 = "INSERT INTO notification (notid, actor, description, sender, receive_date) VALUES ('$id','Academic_ Staff','$desc','$sender',NOW())";
 
+	    $query2 = "INSERT INTO notification_all (notid, actor, description, sender, receive_date) VALUES ('$id','Academic_ Staff','$desc','$sender',NOW())";
+
+
 	    $result1 = mysqli_query($db,$query1);
+	    $result2 = mysqli_query($db,$query2);
 	    
 
 	    
