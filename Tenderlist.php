@@ -370,7 +370,7 @@ include("db.php");
                   <div class="col-sm-4 ">
                     
                     <select class="form-control" id="product_catogary" name="product_catogary">
-                      <option class="active">-Select-</option>
+                      <option class="active" disabled>-Select-</option>
                       <option>Open</option>
                       <option>Limited</option>
                       <option>Auction</option>
