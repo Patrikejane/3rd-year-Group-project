@@ -71,7 +71,7 @@
                 else{
                 	$_SESSION['username']=$username;
                 	$_SESSION['email']=$email;
-                	header("location: ../academicHome.php");
+                	header("location: ../homeacademic.php");
                 }
 
 	        }else{
