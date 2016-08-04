@@ -1,6 +1,6 @@
 <?php
   //include("check.php");
-  include("db.php"); 
+  //include("db.php"); 
 ?>
 <!DOCTYPE html>
 <html>

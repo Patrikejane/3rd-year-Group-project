@@ -1,31 +1,27 @@
 <?php
 	
 	
-	include("db.php");
+	
+	include ('db.php');
 	
 	if (isset($_POST["submit"])) {
 		
 
-		$query = "SELECT COUNT(*) AS count FROM notification";
-		$result = mysqli_query($db,$query);
-        $fetch_result = mysqli_fetch_array($result);
-        $res = $fetch_result['count'] +1;
-        $out = "not".$res ;
-
-        
-
-        
+		            
 
 		
 		$desc = $_POST["description"];
 		$sender = "yehen";
-	    $id = $out;
-	    $email = $_SESSION['email'];
+	    $sender = $_SESSION['email'];
+	    require("classes.php");
+	    $not = new classes();
+        $id = $not->gennotid();
+        $not->sendrequest($id,$desc,$sender);
 	    //$date = date('Y-m-d H:i:s');
 
-	    $query1 = "INSERT INTO notification (notid, actor, description, sender, receive_date,action,email) VALUES ('$id','Academic_ Staff','$desc','$sender',NOW(),'fromacademic','$email')";
+	    /*$query1 = "INSERT INTO notification (notid, actor, description, sender, receive_date,action,email) VALUES ('$id','Academic_ Staff','$desc','$sender',NOW(),'fromacademic','$sender')";
 
-	    $query2 = "INSERT INTO notification_all (notid, actor, description, sender, receive_date,action,email) VALUES ('$id','Academic_ Staff','$desc','$sender',NOW(),'fromacademic','$email')";
+	    $query2 = "INSERT INTO notification_all (notid, actor, description, sender, receive_date,action,email) VALUES ('$id','Academic_ Staff','$desc','$sender',NOW(),'fromacademic','$sender')";
 
 
 	    $result1 = mysqli_query($db,$query1);
@@ -46,7 +42,7 @@
 	        						)
 	        					},100);
 	        				</script>';
-	    }
+	    }*/
 	    
 	
 	}

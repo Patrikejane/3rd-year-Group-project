@@ -25,7 +25,7 @@ $not = new classes();
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
-              <span class="label label-warning"><?php echo $not->getnotcountTeacher(); ?></span>
+              <span class="label label-warning"><?php echo $not->getnotcount(); ?></span>
             </a>
             <ul class="dropdown-menu">
               <li class="header">You have 10 notifications</li>
@@ -37,7 +37,7 @@ $not = new classes();
                           
                         <?php 
 
-                           $not->notResualtTeacher($_SESSION["email"]);
+                           $not->notResualt();
                         ?>
                         </div>
                     </div>
@@ -110,7 +110,6 @@ $not = new classes();
     </section>
     <!-- /.sidebar -->
   </aside>
-  <script src="../assets/js/notification.js"></script>
 
   
  
