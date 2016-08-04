@@ -3,6 +3,17 @@ $mysqli = new mysqli("localhost", "root", "yehen", "proc");
 
 class classes{
 
+    function getnotcountTeacher1(){
+        global $mysqli;
+        $sqlQuery = "SELECT * FROM notification WHERE action = 'fromacademic'";
+        $Result = $mysqli->query($sqlQuery);
+        /*$rows = array();
+        while($row = mysql_fetch_array($Result)){
+            $rows[] = $row;
+        } */       
+        return $Result;
+    }
+
 	function getnotcountTeacher(){
         global $mysqli;
         $sqlQuery = "SELECT COUNT(*) AS notcount FROM notification WHERE action = 'fromacademic'";
@@ -28,20 +39,23 @@ class classes{
     }
 
 
-    function notResualtTeacher($nic){
+    function notResualtTeacher($email){
+        echo '<script language="javascript">';
+        echo 'alertify.alert("Sorry Message cannot send!")';
+        echo '</script>';
         global $mysqli;
-        $sqlQuery = "SELECT * FROM notification WHERE email = '".$email."' ORDER BY notID DESC";
+        $sqlQuery = "SELECT * FROM notification WHERE email = '".$email."' ORDER BY notid DESC";
         $Result = $mysqli->query($sqlQuery);
         $output="";
 
         
             if (mysqli_num_rows($Result) > 0) {
                 while ($row = mysqli_fetch_assoc($Result)) {
-                    $notid = $row["notID"];
-                    $type = $row["type"];
+                    $notid = $row["notid"];
+                    //$type = $row["type"];
                     $action = $row["action"];
                     $des = $row["description"];
-                    $date = $row["date"];
+                    $date = $row["receive_date"];
                     if (strcmp($action, 'fromacademic') == 0) {
                     $output .=   "<div id= '". $notid."' class='notification_teacher' ".
                                 "   <div class='not-content-box col-md-10'>".

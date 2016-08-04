@@ -12,7 +12,7 @@ $(document).ready(function () {
     });
     //Popup Click
     $("#notificationContainer").click(function () {
-        return false
+        return false;
     });
 });
 

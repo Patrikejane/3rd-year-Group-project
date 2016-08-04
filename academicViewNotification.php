@@ -32,7 +32,10 @@
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker-bs3.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-
+  <!-- css file for sweetalert -->
+  <link rel="stylesheet" href="sweetalert/dist/sweetalert.css" />
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <link href="notification.css" rel="stylesheet">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -42,17 +45,66 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
+
+<?php $id = $_GET['id']; ?>
+
+<script type="text/javascript">
+$(".submit").click(function () {
+    alert(this.id);
+    alertify.alert("Message ya ya yo");
+});
 <body class="hold-transition skin-blue sidebar-mini">
-  <div class="wrapper">
+  <div class="wrapper" ">
     <?php include('sidehomeacademic.php'); ?>
 
    
 
     <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper" style="min-height:540px; background-color:#ffffff;">
+      <div class="content-wrapper" style="min-height:540px;background-color:#ffffff;">
         <!-- Content Header (Page header) -->
         
-        
+        <section>
+          <form  method="post" >
+                <div class="container-fluid" style="margin-left: 44px;">
+
+                    <div class="row">
+                        <label style="margin-top:30px;">From :</label>
+                        
+
+                    </div>
+                    <br/>
+
+                    <div class="row">
+                        <label>Message :</label>
+                        <div class="panel panel-default" style="width:750px;">
+                          <div class="panel-body">
+                            
+                          </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <label>Reply :</label>
+                        <div class="panel panel-default" style="width:750px;">
+                          <div class="panel-body">
+                            
+                          </div>
+                        </div>
+
+                    </div>
+                    
+                    
+
+                    <div class="row">
+                      <div class="col-md-offset-10 col-md-2">
+                        <input type="submit" class="btn btn-block btn-primary" value="Submit" name="submit" onclick="submitForms()" style="align:right;" />
+                      </div>
+                    </div>
+
+                </div>
+          </form>
+        </section>
 
         
             
@@ -116,6 +168,22 @@
 <script src="dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
-<script src="notification.js"></script>
+<!-- js file for sweetalert -->
+<script src="sweetalert/dist/sweetalert.min.js"></script>
+<!-- CK Editor -->
+<script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<script>
+  $(function () {
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace('editor1');
+    //bootstrap WYSIHTML5 - text editor
+    $(".textarea").wysihtml5();
+  });
+</script>
+
+
 </body>
 </html>

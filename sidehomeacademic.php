@@ -4,6 +4,8 @@ include ('db.php');
 $not = new classes();
 ?>
  <header class="main-header">
+
+ <link href="notification.css" rel="stylesheet">
     <!-- Logo -->
     <a href="homeacademic.php" class="logo" style="background-color:#020816;">
       <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -22,30 +24,23 @@ $not = new classes();
         <ul class="nav navbar-nav" >
 
           <!-- Notifications: style can be found in dropdown.less -->
-          <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning"><?php echo $not->getnotcountTeacher(); ?></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
+          <li class="dropdown" id="notification_li">
+                    <span id="notification_count" runat="server"><?php echo $not->getnotcountTeacher(); ?></span>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu message-dropdown" style="width: 382.22222px;">
+                        <div id="notificationContainer">
+                            <div id="notificationTitle">Notifications</div>
+                            <div id="notificationsBody" class="notifications" runat="server">
 
-                <ul class="dropdown-menu message-dropdown" style="width: 382.22222px;">
-                    <div id="notificationContainer">
-                        <div id="notificationTitle">Notifications</div>
-                        <div id="notificationsBody" class="notifications" runat="server">
-                          
-                        <?php 
-
-                           $not->notResualtTeacher($_SESSION["email"]);
-                        ?>
+                            <?php 
+                               $not->notResualtTeacher($_SESSION["email"]);
+                            ?>
+                            </div>
                         </div>
-                    </div>
-                </ul>
-              
-              <li class="footer"><a href="#">View all</a></li>
-            </ul>
-          </li>
+                        <li class="footer"><a href="#">View all</a></li>
+                    </ul>
+                </li>
+          
                    
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
@@ -110,7 +105,7 @@ $not = new classes();
     </section>
     <!-- /.sidebar -->
   </aside>
-  <script src="../assets/js/notification.js"></script>
+  <script src="notification.js"></script>
 
   
  
