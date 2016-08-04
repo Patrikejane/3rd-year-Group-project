@@ -4,8 +4,6 @@ include ('db.php');
 $not = new classes();
 ?>
  <header class="main-header">
-
- <link href="notification.css" rel="stylesheet">
     <!-- Logo -->
     <a href="homeacademic.php" class="logo" style="background-color:#020816;">
       <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -40,7 +38,6 @@ $not = new classes();
                         <li class="footer"><a href="#">View all</a></li>
                     </ul>
                 </li>
-          
                    
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">

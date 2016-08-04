@@ -1,6 +1,6 @@
 <?php
   //include("check.php");
-  include("db.php"); 
+  //include("db.php"); 
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,15 +47,9 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper" ">
-    <?php include('sidehomeacademic.php'); ?>
+    <?php include('adminReplySend.php'); ?>
 
-    <?php
       
-
-
-    ?>
-
-   
 
     <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper" style="min-height:540px;background-color:#ffffff;">
