@@ -65,7 +65,7 @@
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li class="header">MAIN NAVIGATION</li>
+        <!--<li class="header">MAIN NAVIGATION</li>-->
         <li>
           <a href="adminHome.php">
             <i class="fa fa-home"></i> <span>Home</span>
@@ -73,39 +73,39 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-file"></i>
+            <i class="fa fa-files-o"></i>
             <span>Tenders</span>
             <span class="label label-primary pull-right">2</span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="Tenderlist.php"><i class="fa fa-circle-o"></i>Publish Tender</a></li>
+            <li><a href="adminTenderlist.php"><i class="fa fa-circle-o"></i>Publish Tender</a></li>
            
-            <li><a href="Published.php"><i class="fa fa-circle-o"></i>Published Tenders</a></li>
+            <li><a href="adminPublished.php"><i class="fa fa-circle-o"></i>Published Tenders</a></li>
             
           </ul>
         </li>
         <li>
-          <a href="Companies.php">
+          <a href="adminCompanies.php">
             <i class="fa fa-building"></i> <span>Companies</span>
           </a>
         </li>
         <li>
-          <a href="Bids.php">
+          <a href="adminBids.php">
             <i class="fa fa-legal"></i> <span>Bids</span>
           </a>
         </li>
         <li>
-          <a href="Reports.php">
+          <a href="#">
             <i class="fa fa-envelope"></i> <span>Requests</span>
           </a>
         </li>
         <li>
-          <a href="Help.php">
+          <a href="#">
             <i class="fa fa-reply"></i> <span>Replies</span>
           </a>
         </li>
         <li>
-          <a href="About.php">
+          <a href="#">
             <i class="fa fa-users"></i> <span>Users</span>
           </a>
         </li>
