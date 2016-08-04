@@ -5,7 +5,7 @@
 ?>
  <header class="main-header">
     <!-- Logo -->
-    <a href="home.php" class="logo" style="background-color:#020816;">
+    <a href="adminHome.php" class="logo" style="background-color:#020816;">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>E</b>Proc</span>
       <!-- logo for regular state and mobile devices -->
@@ -84,11 +84,24 @@
             
           </ul>
         </li>
-        <li>
+        <!--<li>
           <a href="adminCompanies.php">
             <i class="fa fa-building"></i> <span>Companies</span>
           </a>
-        </li>
+        </li>-->
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-building"></i>
+            <span>Companies</span>
+            <span class="label label-primary pull-right">2</span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="adminCompanyDetailForm.php"><i class="fa fa-circle-o"></i>Add Company</a></li>
+           
+            <li><a href="adminCompanies.php"><i class="fa fa-circle-o"></i>Added Companies</a></li>
+            
+          </ul>
+        </li>        
         <li>
           <a href="adminBids.php">
             <i class="fa fa-legal"></i> <span>Bids</span>

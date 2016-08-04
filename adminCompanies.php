@@ -31,8 +31,8 @@
 <div class="wrapper">
 <?php //include('side.php'); ?>
 <?php
-  //include("db.php");
-  include('adminSide.php');
+  include("db.php");
+  //include('adminSide.php');
 
   // Check connection
   /*if($db === false){
@@ -40,12 +40,171 @@
   }*/
 
   // Attempt select query execution
-  $sql = "SELECT Supplier_name, City, Web_url, Diversity_categories FROM supplier";
+  $sql = "SELECT Supplier_ID, Supplier_name, City, Web_url, Diversity_categories FROM supplier";
 
   $result = mysqli_query($db, $sql);
 
   $num_rows = mysqli_num_rows($result);
+
 ?>
+
+<header class="main-header">
+    <!-- Logo -->
+    <a href="adminHome.php" class="logo" style="background-color:#020816;">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>E</b>Proc</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Easy</b>Proc</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top" style="background-color:#020816;">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+
+          <!-- Notifications: style can be found in dropdown.less -->
+          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-warning">10</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have 10 notifications</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
+                      page and may cause design problems
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-users text-red"></i> 5 new members joined
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-shopping-cart text-green"></i> 25 sales made
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-user text-red"></i> You changed your username
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer"><a href="#">View all</a></li>
+            </ul>
+          </li>
+                   
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <span class="hidden-xs"> <?php echo $_SESSION['username']; ?></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
+                <p>
+                  <?php echo $_SESSION['username']; ?>
+                </p>
+              </li>
+                            
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="pull-right">
+                  <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar" style="background-color:#020816;">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu">
+        
+        <li>
+          <a href="adminHome.php">
+            <i class="fa fa-home"></i> <span>Home</span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-files-o"></i>
+            <span>Tenders</span>
+            <span class="label label-primary pull-right">2</span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="adminTenderlist.php"><i class="fa fa-circle-o"></i>Publish Tender</a></li>
+            
+            <li><a href="adminPublished.php"><i class="fa fa-circle-o"></i>Published Tenders</a></li>
+            
+          </ul>
+        <li class="treeview active">
+          <a href="#">
+            <i class="fa fa-building"></i>
+            <span>Companies</span>
+            <span class="label label-primary pull-right">2</span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="adminCompanyDetailForm.php"><i class="fa fa-circle-o"></i>Add Company</a></li>
+           
+            <li class="active"><a href="adminCompanies.php"><i class="fa fa-circle-o"></i>Added Companies</a></li>
+            
+          </ul>
+        </li>
+        <li>     
+          <a href="adminBids.php">
+            <i class="fa fa-legal"></i> <span>Bids</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-envelope"></i> <span>Requests</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-reply"></i> <span>Replies</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-users"></i> <span>Users</span>
+          </a>
+        </li>
+        
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
 
   
   
@@ -134,35 +293,73 @@
             <?php
             if($result = mysqli_query($db, $sql)){
             if(mysqli_num_rows($result) > 0){
-              echo "<table id='example1' class='table table-bordered table-striped'>";
-                echo "<thead>";
-                echo "<tr>";
-                  echo "<th>Name</th>";
-                  echo "<th>Approval</th>";
-                  echo "<th>Status</th>";
-                  echo "<th>City</th>";
-                  echo "<th>Web URL</th>";
-                  echo "<th>Diversity Categories</th>";
-                echo "</tr>";
-                echo "</thead>";
-                echo "<tbody>";
+            ?>
+              <table id='example1' class='table table-bordered table-striped'>
+                <thead>
+                  <tr>
+                    <th>Supplier ID</th>
+                    <th>Name</th>
+                    <th>Approval</th>
+                    <th>Status</th>
+                    <th>City</th>
+                    <th>Web URL</th>
+                    <th>Diversity Categories</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+              <?php
               while($row = mysqli_fetch_array($result)){
-                
 
-                echo "<tr>";
-                  echo "<td>".$row['Supplier_name']."</td>";
-                  echo "<td>Approved</td>";
-                  echo "<td>Active</td>";
-                  echo "<td>".$row['City']."</td>";
-                  echo "<td><a href='url'>".$row['Web_url']."</a></td>";
-                  echo "<td>".$row['Diversity_categories']."</td>";
-                echo "</tr>";
-              }
+                //$Friend_Id[] = $row['Supplier_ID'];
+                //$row['Email'];
+              ?>  
                 
-                echo "</tbody>";
-              echo "</table>";
+                <tr>
+                  <td><?php echo $row['Supplier_ID'];?></td>
+                  <td><?php echo $row['Supplier_name'];?></td>
+                  <td>Approved</td>
+                  <td>Active</td>
+                  <td><?php echo $row['City'];?></td>
+                  <td><a href='url'><?php echo $row['Web_url'];?></a></td>
+                  <td><?php echo $row['Diversity_categories'];?></td>
+                  <td><p data-placement="top" data-toggle="tooltip" title="Delete"><a href="javascript:delete_id(<?php echo $row[0]; ?>)"><button type="button" class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></a></p></td>
+
+                      <!--<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                              <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+                            </div>
+                            <div class="modal-body">
+                         
+                              <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
+                         
+                            </div>
+                            <div class="modal-footer ">
+                            
+                            <a href="adminCompanyDelete.php?id='.$row['Supplier_ID'].'"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button></a>
+                            ?>
+                              <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+                            </div>
+                          </div>-->
+                        <!-- /.modal-content -->
+                        <!--</div>-->
+                        <!-- /.modal-dialog --> 
+                      <!--</div>-->
+
+                </tr>
+                <?php
+              }
+              ?>
+              <!--<a href="adminCompanyDelete.php?id='.$row['Supplier_ID'].'"></a>-->
+                
+                </tbody>
+              </table>
+            <?php  
               // Close result set
-              mysqli_free_result($result);
+              //mysqli_free_result($result);
             } else{
                 echo "No records matching your query were found.";
             }
@@ -170,8 +367,9 @@
                 echo "ERROR: Could not able to execute $sql. " . mysqli_error($db);
             }
 
+
             // Close connection
-            mysqli_close($db);
+            //mysqli_close($db);
             ?>
             </div>
             <!-- /.box-body -->
@@ -181,6 +379,9 @@
         <!-- /.col -->
       </div>
       <!-- /.row -->
+
+
+
     </section>
     <!-- /.content -->
   </div>
@@ -417,6 +618,16 @@
       "autoWidth": false
     });
   });
+</script>
+
+<script type="text/javascript">
+function delete_id(id)
+{
+     if(confirm('Sure To Remove This Record ?'))
+     {
+        window.location.href='adminCompanyDelete.php?id='+id;
+     }
+}
 </script>
 </body>
 </html>
