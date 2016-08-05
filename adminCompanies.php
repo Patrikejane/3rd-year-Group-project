@@ -323,7 +323,7 @@
                   <td><?php echo $row['City'];?></td>
                   <td><a href='url'><?php echo $row['Web_url'];?></a></td>
                   <td><?php echo $row['Diversity_categories'];?></td>
-                  <td><p data-placement="top" data-toggle="tooltip" title="Delete"><a href="javascript:delete_id(<?php echo $row[0]; ?>)"><button type="button" class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></a></p></td>
+                  <td><p data-placement="top" data-toggle="tooltip" title="Delete"><a href="adminCompanyDelete.php?id=<?=$row['0']?>" onclick="return confirm('Sure To Remove This Record ?');"><button type="button" class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"><span class="glyphicon glyphicon-trash"></span></button></a></p></td>
 
                       <!--<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
                         <div class="modal-dialog">
@@ -354,6 +354,7 @@
               }
               ?>
               <!--<a href="adminCompanyDelete.php?id='.$row['Supplier_ID'].'"></a>-->
+              <!--<a href="javascript:delete_id(<?php //echo $row[0]; ?>)">-->
                 
                 </tbody>
               </table>
@@ -620,14 +621,6 @@
   });
 </script>
 
-<script type="text/javascript">
-function delete_id(id)
-{
-     if(confirm('Sure To Remove This Record ?'))
-     {
-        window.location.href='adminCompanyDelete.php?id='+id;
-     }
-}
-</script>
+
 </body>
 </html>

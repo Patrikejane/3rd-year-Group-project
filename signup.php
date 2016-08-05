@@ -64,21 +64,7 @@
 			$query = mysqli_query($db,"INSERT INTO user_admin(email,password,role) VALUES ('$email','$password',normal)");
 			if($query)
 			{
-				if ($user_role === 'bid_opener'){
-					echo 	'<script type="text/javascript">
-								setTimeout(function(){
-	        						swal({title: "", text: "You are now registered as a bid opener.", type: "success"},
-		        						function(isConfirm){
-											if(isConfirm){
-												window.location.href = "companyDetailForm.php";
-											}
-										}
-	        						)
-	        					},100);
-	        				</script>';
-        		}
-        		else
-        		{		
+				
 					echo 	'<script type="text/javascript">
 								setTimeout(function(){
 									swal({title: "", text: "You are now registered.", type: "success"},
@@ -90,7 +76,7 @@
 									)
 								},100);
 						 	 </script>';
-				}
+				
 			}
 		}
 	}
