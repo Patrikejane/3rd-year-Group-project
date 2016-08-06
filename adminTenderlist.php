@@ -339,7 +339,7 @@
                 <label for="tender_reference" class="col-sm-4 control-label">Tender reference number* </label>
 
                 <div class="col-sm-4">
-                  <input type="text" class="form-control" id="tender_reference" name="tender_reference" placeholder="Tender reference number">
+                  <input type="text" class="form-control" id="tender_reference" name="tender_reference" placeholder="Tender reference number" required>
                 </div>
               </div>
 
@@ -347,7 +347,7 @@
                 <label for="tender_type" class="col-sm-4 control-label">Tender type* </label>
                   <div class="col-sm-4 ">
                     
-                    <select class="form-control" name="select_tender_type">
+                    <select class="form-control" name="select_tender_type" required>
                       <option class="active" disabled selected value>-Select-</option>
                       <option>Open</option>
                       <option>Limited</option>
@@ -361,7 +361,7 @@
                 <label for="tender_type" class="col-sm-4 control-label">No of Covers* </label>
                   <div class="col-sm-4 ">
                     
-                    <select class="form-control" name="select_covers">
+                    <select class="form-control" name="select_covers" required>
                       <option class="active" disabled selected value>-Select-</option>
                       <option>1</option>
                       <option>2</option>
@@ -460,19 +460,13 @@
               
               <!-- //////////////////////////////////////////////////////////// -->  
               
-              <div class="form-group">
+              <div class="form-group" required>
                 <label for="tender_type" class="col-sm-4 control-label">Payment Method* </label>
+                
                 <div class="col-sm-1">
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name="payment" id="paymentoff"> Offline
-                    </label>
-                  </div>
-                </div>
-                <div class="col-sm-1">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" name="payment" id="paymenton"> Online
+                      <input type="checkbox" name="payment" id="paymenton" required> Online
                     </label>
                   </div>
                 </div>
@@ -484,7 +478,7 @@
                 <label for="work_title" class="col-sm-4 control-label">Work/Item Title* </label>
 
                 <div class="col-sm-4">
-                  <input type="text" class="form-control" id="work_title" name="work_title" placeholder="Title">
+                  <input type="text" class="form-control" id="work_title" name="work_title" placeholder="Title" required>
                 </div>
               </div>
 
@@ -492,7 +486,7 @@
                 <label  class="col-sm-4 control-label">Work/Item description* </label>
 
                 <div class="col-sm-4">
-                  <textarea class="form-control" rows="3" id="description" name="description" placeholder="Description" ></textarea>
+                  <textarea class="form-control" rows="3" id="description" name="description" placeholder="Description" required></textarea>
                 </div>
               </div>
 
@@ -500,7 +494,7 @@
                 <label for="tender_reference" class="col-sm-4 control-label">Pre qualification details * </label>
 
                 <div class="col-sm-4">
-                  <textarea class="form-control" rows="3" id="predescription" name="predescription" placeholder="Description" ></textarea>
+                  <textarea class="form-control" rows="3" id="predescription" name="predescription" placeholder="Description" required></textarea>
                 </div>
               </div>
 
@@ -508,7 +502,7 @@
                 <label for="tender_type" class="col-sm-4 control-label">Product category* </label>
                   <div class="col-sm-4 ">
                     
-                    <select class="form-control" id="product_catogary" name="product_catogary">
+                    <select class="form-control" id="product_catogary" name="product_catogary" required>
                       <option class="active" disabled selected value>-Select-</option>
                       <option>Open</option>
                       <option>Limited</option>
@@ -522,7 +516,7 @@
                 <label for="tender_reference" class="col-sm-4 control-label">Product subcategory* </label>
 
                 <div class="col-sm-4">
-                  <textarea class="form-control" rows="3" id="sub_catogary" name="sub_catogary" placeholder="Description" ></textarea>
+                  <textarea class="form-control" rows="3" id="sub_catogary" name="sub_catogary" placeholder="Description" required></textarea>
                 </div>
               </div>
 
@@ -530,7 +524,7 @@
                 <label for="tender_type" class="col-sm-4 control-label">Contract type</label>
                   <div class="col-sm-4 ">
                     
-                    <select class="form-control" id="contract_type" name="contract_type">
+                    <select class="form-control" id="contract_type" name="contract_type" required>
                       <option class="active" disabled selected value>-Select-</option>
                       <option>Open</option>
                       <option>Limited</option>
@@ -545,21 +539,21 @@
                   <label for="tender_reference" class="col-sm-4 control-label">Tender fee(LK) </label>
 
                   <div class="col-sm-4">
-                    <input type="text" class="form-control" id="tender_fee" name="tender_fee" placeholder="Tender Fee">
+                    <input type="text" class="form-control" id="tender_fee" name="tender_fee" placeholder="Tender Fee" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="tender_reference" class="col-sm-4 control-label">Any other tax fee(LK) </label>
 
                   <div class="col-sm-4">
-                    <input type="text" class="form-control" id="any_other_fee" name="any_other_fee" placeholder="Other Fee">
+                    <input type="text" class="form-control" id="any_other_fee" name="any_other_fee" placeholder="Other Fee" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="publish_date" class="col-sm-4 control-label">Publishing date* </label>
                   
                   <div class="col-sm-4">
-                  <input type="text" value="" id="datetimepicker" name="pub_time" style="width:300px;height:35px" placeholder="Enter date and type">
+                  <input type="text" value="" id="datetimepicker" name="pub_time" style="width:300px;height:35px" placeholder="Enter date and type" required>
                   </div>
 
                   
@@ -569,7 +563,7 @@
                   <label for="downloade_date" class="col-sm-4 control-label">Document download/Sales start date* </label>
 
                   <div class="col-sm-4">
-                  <input type="text" value="" id="datetimepicker1" name="doc_time" style="width:300px;height:35px" placeholder="Enter date and type">
+                  <input type="text" value="" id="datetimepicker1" name="doc_time" style="width:300px;height:35px" placeholder="Enter date and type" required>
                   </div>
                 </div>
 
@@ -577,7 +571,7 @@
                   <label for="sub_start_date" class="col-sm-4 control-label">Bid submission starting date* </label>
 
                   <div class="col-sm-4">
-                  <input type="text" value="" id="datetimepicker2" name="bid_start_time" style="width:300px;height:35px" placeholder="Enter date and type">
+                  <input type="text" value="" id="datetimepicker2" name="bid_start_time" style="width:300px;height:35px" placeholder="Enter date and type" required>
                   </div>
                 </div>
 
@@ -585,7 +579,7 @@
                   <label for="sub_close_date" class="col-sm-4 control-label">Bid submission closing date* </label>
 
                   <div class="col-sm-4">
-                  <input type="text" value="" id="datetimepicker3" name="bid_close_time" style="width:300px;height:35px" placeholder="Enter date and type">
+                  <input type="text" value="" id="datetimepicker3" name="bid_close_time" style="width:300px;height:35px" placeholder="Enter date and type" required>
                   </div>
                 </div>
 
@@ -593,7 +587,7 @@
                   <label for="bid_open_date" class="col-sm-4 control-label">Bid opening date* </label>
 
                   <div class="col-sm-4">
-                  <input type="text" value="" id="datetimepicker4" name="bid_open_time" style="width:300px;height:35px" placeholder="Enter date and type">
+                  <input type="text" value="" id="datetimepicker4" name="bid_open_time" style="width:300px;height:35px" placeholder="Enter date and type" required>
                   </div>
                 </div>
                 <div class="col-md-offset-1">
@@ -611,14 +605,14 @@
                     <td>2014_</td>
                     <td>Fee/PreQual/Technical</td>
                     <td>Document count</td>
-                    <td><input type="file" id="fee/tec" name="fee_doc"></td>
+                    <td><input type="file" id="fee/tec" name="fee_doc" required></td>
                   </tr>
                   <tr>
                     <td>2.</td>
                     <td>2014_</td>
                     <td>Tender Document</td>
                     <td>Document count</td>
-                    <td><input type="file" id="tenderdoc" name="tender_doc"></td>
+                    <td><input type="file" id="tenderdoc" name="tender_doc" required></td>
                   </tr>
                   
                 </table>
@@ -719,7 +713,7 @@ startDate:  '1986/01/05'
 </script>
 <!-- js file for sweetalert -->
 <script src="sweetalert/dist/sweetalert.min.js"></script>
-s
+
 </body>
 </html>
 

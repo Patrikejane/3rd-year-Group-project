@@ -214,7 +214,7 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          <div class="box">
+          <!--<div class="box">
               <div class="panel panel-primary">
                   <div class="panel-heading">SEARCH</div>
                   <div class="panel-body">
@@ -250,9 +250,10 @@
 
                   </div>
               </div>
-            <!-- /.box-body -->
-          </div>
+             /.box-body 
+          </div>-->
           <!-- /.box -->
+
 
           <div class="box">
             <!--<div class="box-header">
