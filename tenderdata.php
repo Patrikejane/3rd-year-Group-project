@@ -66,11 +66,27 @@
 						},100);
 					 </script>';
 		}else{
-			$query = mysqli_query($db, "INSERT INTO tenderdocument(tender_ref_number, tender_type, no_covers, re_bid_submission, withdraw_bids, offline_submission,general_technical_submission, paymont_method, item_title, item_description, prequalification, productcatogary, productsubcatogary, contract_type, tender_fee, other_tax_fee, publishing_date, sale_start_date, bid_satrt_date, bid_close_date, bid_opening_date, fee_doc, tender_doc) VALUES ('$tender_ref_number','$tender_type','$no_covers','$re_bid_submission','$withdraw_bids','$offline_submission','$general_technical_submission','$payment_method','$item_title','$item_description','$prequalification','$productcatogary','$productsubcatogary','$contract_type','$tender_fee','$other_tax_fee','publishing_date','$sale_start_date','$bid_start_date','$bid_close_date','$bid_opening_date','$fee_doc','$tender_doc')");
+			$query = mysqli_query($db, "INSERT INTO tenderdocument(tender_ref_number, tender_type, no_covers, re_bid_submission, withdraw_bids, offline_submission,general_technical_submission, paymont_method, item_title, item_description, prequalification, productcatogary, productsubcatogary, contract_type, tender_fee, other_tax_fee, publishing_date, sale_start_date, bid_satrt_date, bid_close_date, bid_opening_date, fee_doc, tender_doc) VALUES ('$tender_ref_number','$tender_type','$no_covers','$re_bid_submission','$withdraw_bids','$offline_submission','$general_technical_submission','$payment_method','$item_title','$item_description','$prequalification','$productcatogary','$productsubcatogary','$contract_type','$tender_fee','$other_tax_fee','$publishing_date','$sale_start_date','$bid_start_date','$bid_close_date','$bid_opening_date','$fee_doc','$tender_doc')");
 			
 			
+		
+		if($query)
+			{
+				
+					echo 	'<script type="text/javascript">
+								setTimeout(function(){
+									swal({title: "", text: "Tender Document Published", type: "success"},
+										function(isConfirm){
+											if(isConfirm){
+												window.location.href = "adminTenderlist.php";
+											}
+										}
+									)
+								},100);
+						 	 </script>';
+				
+			}
 		}
-
 	}
 	
 
