@@ -1,7 +1,7 @@
  <?php
-
-  include('db.php');
-  
+require("classes.php");
+include ('db.php');
+$not = new classes();
 ?>
  <header class="main-header">
     <!-- Logo -->
@@ -20,6 +20,31 @@
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
+
+            <li class="dropdown" id="notification_li">
+                    <span id="notification_count" runat="server"><?php echo $not->getnotcount(); ?></span>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-o"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu message-dropdown" style="width: 382.22222px;">
+                        <li class="msg">
+                          <a href="#" class="myDropDown" runat="server">
+                            <?php 
+                               $not->notResualt();
+                            ?>
+                            
+                          </a>
+                        </li>
+                        <!--<div id="notificationContainer">
+                            <div id="notificationTitle">Notifications</div>
+                            <div id="notificationsBody" class="notifications" runat="server">
+
+                            <?php 
+                               $not->notResualtTeacher($_SESSION["email"]);
+                            ?>
+                            </div>
+                        </div>-->
+                        
+                    </ul>
+                </li>
                    
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">

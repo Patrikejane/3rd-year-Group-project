@@ -1,5 +1,7 @@
 <?php 
-  include("db.php");
+  require("classes.php");
+  include ('db.php');
+  $not = new classes();
   
 
   if(isset($_POST["submit"]))
@@ -141,7 +143,7 @@
   <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <!-- css file for sweetalert -->
   <link rel="stylesheet" href="sweetalert/dist/sweetalert.css" />
-
+   <link href="notification.css" rel="stylesheet">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -170,48 +172,30 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
 
-          <!-- Notifications: style can be found in dropdown.less -->
-          <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
-                      page and may cause design problems
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-users text-red"></i> 5 new members joined
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-user text-red"></i> You changed your username
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="footer"><a href="#">View all</a></li>
-            </ul>
-          </li>
+          <li class="dropdown" id="notification_li">
+                    <span id="notification_count" runat="server"><?php echo $not->getnotcount(); ?></span>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-o"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu message-dropdown" style="width: 382.22222px;">
+                        <li class="msg">
+                          <a href="#" class="myDropDown" runat="server">
+                            <?php 
+                               $not->notResualt();
+                            ?>
+                            
+                          </a>
+                        </li>
+                        <!--<div id="notificationContainer">
+                            <div id="notificationTitle">Notifications</div>
+                            <div id="notificationsBody" class="notifications" runat="server">
+
+                            <?php 
+                               $not->notResualtTeacher($_SESSION["email"]);
+                            ?>
+                            </div>
+                        </div>-->
+                        
+                    </ul>
+                </li>
                    
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
@@ -466,7 +450,16 @@
                 <div class="col-sm-1">
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name="payment" id="paymenton" required> Online
+
+                      <input type="checkbox" name="payment" id="paymentoff" > Offline
+                    </label>
+                  </div>
+                </div>
+                <div class="col-sm-1">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="payment" id="paymenton" > Online
+
                     </label>
                   </div>
                 </div>
@@ -696,6 +689,7 @@
 <script src="dist/js/demo.js"></script>
 <script src="jquery.js"></script>
 <script src="jquery.datetimepicker.full.js"></script>
+<script src="notification.js"></script>
 <script>/*
 window.onerror = function(errorMsg) {
   $('#console').html($('#console').html()+'<br>'+errorMsg)
