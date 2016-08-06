@@ -133,7 +133,7 @@ $not = new classes();
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="adminRequest.php">
             <i class="fa fa-envelope"></i> <span>Requests</span>
           </a>
         </li>
