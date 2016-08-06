@@ -32,6 +32,7 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+     <link href="notification.css" rel="stylesheet">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -60,54 +61,58 @@
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
 
-                <!-- Notifications: style can be found in dropdown.less -->
-                <li class="dropdown" id="notification_li">
-                    <span id="notification_count" runat="server"><?php echo $not->getnotcount(); ?></span>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-o"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu message-dropdown" style="width: 382.22222px;">
-                        <li class="msg">
-                          <a href="#" class="myDropDown" runat="server">
-                            <?php 
-                               $not->notResualt();
-                            ?>
-                            
-                          </a>
-                        </li>
-                        
-                    
-                            <div class="pull-right">
-                                <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>
-                            </div>
-                        </li>
+                        <li class="dropdown" id="notification_li">
+                            <span id="notification_count" runat="server"><?php echo $not->getnotcount(); ?></span>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-o"></i> <b class="caret"></b></a>
+                            <ul class="dropdown-menu message-dropdown" style="width: 382.22222px;">
+                                <li class="msg">
+                                  <a href="#" class="myDropDown" runat="server">
+                                    <?php 
+                                       $not->notResualt();
+                                    ?>
+                                    
+                                  </a>
+                                </li>
+                                <!--<div id="notificationContainer">
+                                    <div id="notificationTitle">Notifications</div>
+                                    <div id="notificationsBody" class="notifications" runat="server">
 
-                <!-- User Account: style can be found in dropdown.less -->
-                <li class="dropdown user user-menu">
+                                    <?php 
+                                       $not->notResualtTeacher($_SESSION["email"]);
+                                    ?>
+                                    </div>
+                                </div>-->
+                                
+                            </ul>
+                        </li>
+                           
+                  <!-- User Account: style can be found in dropdown.less -->
+                  <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                        <span class="hidden-xs"><?php echo $_SESSION['username']; ?></span>
+                      <img src="dist/img/avatar5-160x160.png" class="user-image" alt="User Image">
+                      <span class="hidden-xs"> <?php echo $_SESSION['username']; ?></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <!-- User image -->
-                        <li class="user-header">
-                            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                      <!-- User image -->
+                      <li class="user-header">
+                        <img src="dist/img/avatar5-160x160.png" class="img-circle" alt="User Image">
 
-                            <p>
-                                <?php echo $_SESSION['username']; ?>
-                            </p>
-                        </li>
-
-                        <!-- Menu Footer-->
-                        <li class="user-footer">
-                            <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
-                            </div>
-                            <div class="pull-right">
-                                <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>
-                            </div>
-                        </li>
+                        <p>
+                          <?php echo $_SESSION['username']; ?>
+                        </p>
+                      </li>
+                                    
+                      <!-- Menu Footer-->
+                      <li class="user-footer">
+                        <div class="pull-left">
+                          <a href="#" class="btn btn-default btn-flat">Profile</a>
+                        </div>
+                        <div class="pull-right">
+                          <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>
+                        </div>
+                      </li>
                     </ul>
-                </li>
-
+                  </li>
             </ul>
         </div>
     </nav>
@@ -283,7 +288,7 @@
                       <td><?php echo $row['tender_type'];?></td>
                       <td><?php echo $row['no_covers'];?></td>
                       <td><?php echo $row['re_bid_submission'];?></td>
-                      <?php echo '<td> <a href="index/display.php?data='.$row['tender_ref_number'].'">Clickhere</a></td>';?>
+                      <?php echo '<td> <a href="adminPublishedView.php?data='.$row['tender_ref_number'].'">Clickhere</a></td>';?>
                       <td><p data-placement="top" data-toggle="tooltip" title="Delete"><a href="adminTenderDelete.php?id=<?=$row['0']?>" onclick="return confirm('Sure To Remove This Record ?');"><button type="button" class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></a></p></td>
                     </tr>
                      <!--</a>-->
@@ -349,6 +354,8 @@
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 <!-- page script -->
+<script src="notification.js"></script>
+
 <script>
   $(function () {
     $("#example1").DataTable();

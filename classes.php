@@ -1,5 +1,5 @@
 <?php
-$mysqli = new mysqli("localhost", "root", "", "proc");
+$mysqli = new mysqli("localhost", "root", "yehen", "proc");
 
 class classes{
 
@@ -17,7 +17,7 @@ class classes{
 	function getnotcountTeacher(){
         global $mysqli;
         $email = $_SESSION['email'];
-        $sqlQuery = "SELECT COUNT(*) AS notcount FROM notification WHERE action = 'fromadmin' AND sender = '$email' ";
+        $sqlQuery = "SELECT COUNT(*) AS notcount FROM notification WHERE action = 'fromadmin' AND sender = '$email'  ";
         $Result = $mysqli->query($sqlQuery);
         $fetch_result = mysqli_fetch_array($Result);
         $notcount = $fetch_result['notcount'];
@@ -109,7 +109,7 @@ class classes{
 
     function reply($reply,$receiver,$id){
         global $mysqli;
-        $query = "UPDATE notification_all SET reply = '".$reply."' , receiver = '". $receiver."', replydate = NOW() WHERE notid = '".$id."'  ";
+        $query = "UPDATE notification_all SET  action = 'fromadmin' ,reply = '".$reply."' , receiver = '". $receiver."', replydate = NOW() WHERE notid = '".$id."'  ";
         $result = $mysqli->query($query);
         if ($result != 1) {
             echo '<script type="text/javascript">
@@ -123,6 +123,7 @@ class classes{
                                     )
                                 },100);
                             </script>';
+
 
         }
         else{
@@ -236,11 +237,15 @@ class classes{
     }
 
     function viewreply($id){
+    
         global $mysqli;
-        $sqlQuery = "SELECT reply FROM notification_all WHERE notID = '".$id."'";
+        $sqlQuery = "SELECT reply FROM notification_all WHERE notid = '".$id."'";
+        //$query1 = "UPDATE notification_all SET state = '1' WHERE notid = '". $id."'";
+
         $Result = $mysqli->query($sqlQuery);
         $fetch_result = mysqli_fetch_array($Result);
         $msg = $fetch_result['reply'];
+        //$Result1 = $mysqli->query($query1);
         return $msg;
     } 
 

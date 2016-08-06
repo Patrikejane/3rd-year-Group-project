@@ -31,179 +31,29 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-<?php //include('side.php'); ?>
-<?php
-  require("classes.php");
-  include ('db.php');
-  $not = new classes();
+  <?php include('sidehomeacademic.php'); ?>
+  <?php
+  //require("classes.php");
+  //include ('db.php');
+  //$not = new classes();
   //include('adminSide.php');
 
   // Check connection
   /*if($db === false){
       die("ERROR: Could not connect. " . mysqli_connect_error());
   }*/
+  $email = $_SESSION['email'];
+  //echo "yehen";
 
   // Attempt select query execution
-  $sql = "SELECT Supplier_ID, Supplier_name, City, Web_url, Diversity_categories FROM supplier";
+  $sql = "SELECT * FROM notification_all WHERE sender ='$email' AND action='fromadmin'" ;
 
-  $result = mysqli_query($db, $sql);
+  $result = mysqli_query($db, $sql); 
+  //print_r($result);
 
-  $num_rows = mysqli_num_rows($result);
+  //$num_rows = mysqli_num_rows($result);
 
 ?>
-
-<header class="main-header">
-    <!-- Logo -->
-    <a href="adminHome.php" class="logo" style="background-color:#020816;">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>E</b>Proc</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Easy</b>Proc</span>
-    </a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top" style="background-color:#020816;">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-        <span class="sr-only">Toggle navigation</span>
-      </a>
-
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-
-          <li class="dropdown" id="notification_li">
-                    <span id="notification_count" runat="server"><?php echo $not->getnotcount(); ?></span>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-o"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu message-dropdown" style="width: 382.22222px;">
-                        <li class="msg">
-                          <a href="#" class="myDropDown" runat="server">
-                            <?php 
-                               $not->notResualt();
-                            ?>
-                            
-                          </a>
-                        </li>
-                        <!--<div id="notificationContainer">
-                            <div id="notificationTitle">Notifications</div>
-                            <div id="notificationsBody" class="notifications" runat="server">
-
-                            <?php 
-                               $not->notResualtTeacher($_SESSION["email"]);
-                            ?>
-                            </div>
-                        </div>-->
-                        
-                    </ul>
-                </li>
-                   
-          <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="dist/img/avatar5-160x160.png" class="user-image" alt="User Image">
-              <span class="hidden-xs"> <?php echo $_SESSION['username']; ?></span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header">
-                <img src="dist/img/avatar5-160x160.png" class="img-circle" alt="User Image">
-
-                <p>
-                  <?php echo $_SESSION['username']; ?>
-                </p>
-              </li>
-                            
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div class="pull-right">
-                  <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-          
-        </ul>
-      </div>
-    </nav>
-  </header>
-  <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar" style="background-color:#020816;">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-      
-      <!-- /.search form -->
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu">
-        
-        <li>
-          <a href="adminHome.php">
-            <i class="fa fa-home"></i> <span>Home</span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-files-o"></i>
-            <span>Tenders</span>
-            <span class="label label-primary pull-right">2</span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="adminTenderlist.php"><i class="fa fa-circle-o"></i>Publish Tender</a></li>
-            
-            <li><a href="adminPublished.php"><i class="fa fa-circle-o"></i>Published Tenders</a></li>
-            
-          </ul>
-        <li class="treeview active">
-          <a href="#">
-            <i class="fa fa-building"></i>
-            <span>Companies</span>
-            <span class="label label-primary pull-right">2</span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="adminCompanyDetailForm.php"><i class="fa fa-circle-o"></i>Add Company</a></li>
-           
-            <li class="active"><a href="adminCompanies.php"><i class="fa fa-circle-o"></i>Added Companies</a></li>
-            
-          </ul>
-        </li>
-        <!--<li>     
-          <a href="adminBids.php">
-            <i class="fa fa-legal"></i> <span>Bids</span>
-          </a>
-        </li>-->
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-legal"></i>
-            <span>Bids</span>
-            <span class="label label-primary pull-right">3</span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="AdminBidindex1.php"><i class="fa fa-circle-o"></i>Impending Bids</a></li>
-           
-            <li><a href="AdminBidindex2.php"><i class="fa fa-circle-o"></i>Evaluating Bids</a></li>
-            
-            <li><a href="AdminBidindex3.php"><i class="fa fa-circle-o"></i>Open Bids</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fa fa-envelope"></i> <span>Requests</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fa fa-reply"></i> <span>Replies</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fa fa-users"></i> <span>Users</span>
-          </a>
-        </li>
-        
-    </section>
-    <!-- /.sidebar -->
-  </aside>
 
 
   
@@ -213,68 +63,16 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Companies
+        All Request
         
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Companies</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> All Requests</a></li>
 
         
       </ol>
     </section>
-    <section class="content">
-      <div class="row">
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-aqua">
-            <div class="inner">
-              <h3><?php echo "$num_rows"; ?></h3>
-
-              <p>COMPANY RECORDS</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-building"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-      
-
-        <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-green">
-              <div class="inner">
-                <h3>0</h3>
-
-                <p>COMPANIES PENDING APPROVAL</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-building"></i>
-              </div>
-              <a href="#" class="small-box-footer">
-                More info <i class="fa fa-arrow-circle-right"></i>
-              </a>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-yellow">
-              <div class="inner">
-                <h3>0</h3>
-
-                <p>INSURANCE EXPIRING NEXT 90 DAYS</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-building""></i>
-              </div>
-              <a href="#" class="small-box-footer">
-                More info <i class="fa fa-arrow-circle-right"></i>
-              </a>
-            </div>
-        </div>
-      </div>
-    </section>
+    
 
     <!-- Main content -->
     <section class="content">
@@ -297,14 +95,12 @@
               <table id='example1' class='table table-bordered table-striped'>
                 <thead>
                   <tr>
-                    <th>Supplier ID</th>
-                    <th>Name</th>
-                    <th>Approval</th>
-                    <th>Status</th>
-                    <th>City</th>
-                    <th>Web URL</th>
-                    <th>Diversity Categories</th>
-                    <th>Delete</th>
+                    <th>Notification ID</th>
+                    <th>Description</th>
+                    <th>Reply</th>
+                    <th>Send Date</th>
+                    <th>Reply Date</th>
+                    <th>View Details</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -316,14 +112,14 @@
               ?>  
                 
                 <tr>
-                  <td><?php echo $row['Supplier_ID'];?></td>
-                  <td><?php echo $row['Supplier_name'];?></td>
-                  <td>Approved</td>
-                  <td>Active</td>
-                  <td><?php echo $row['City'];?></td>
-                  <td><a href='url'><?php echo $row['Web_url'];?></a></td>
-                  <td><?php echo $row['Diversity_categories'];?></td>
-                  <td><p data-placement="top" data-toggle="tooltip" title="Delete"><a href="adminCompanyDelete.php?id=<?=$row['0']?>" onclick="return confirm('Sure To Remove This Record ?');"><button type="button" class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"><span class="glyphicon glyphicon-trash"></span></button></a></p></td>
+                  <td><?php echo $row['notid'];?></td>
+                  <td><?php echo $row['description'];?></td>
+                  
+                  <td><?php echo $row['reply'];?></td>
+                  <td><?php echo $row['receive_date'];?></td>
+                  <td><?php echo $row['replydate'];?></td>
+                  <?php echo '<td> <a href="academicViewNotification.php?id='.$row['notid'].'">Clickhere</a></td>';?>
+                  
 
                       <!--<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
                         <div class="modal-dialog">
