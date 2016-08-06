@@ -19,16 +19,16 @@ $(document).ready(function () {
 //Notification link click function
 $(".notification").click(function () {
     //alert(this.id);
-    window.location.assign("viewNotification.php?id=" + this.id);
+    window.location.assign("adminReply.php?id=" + this.id);
 });
 
 $(".notificationAll").click(function () {
     //alert(this.id);
-    window.location.assign("messageview.php?id=" + this.id);
+    window.location.assign("adminReply.php?id=" + this.id);
 });
 
 //Notification teacher's link click function
 $(".notification_teacher").click(function () {
     //alert(this.id);
-    window.location.assign("messageview.php?id=" + this.id);
+    window.location.assign("academicViewNotification.php?id=" + this.id);
 });

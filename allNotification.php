@@ -1,6 +1,5 @@
 <?php
-  //include("check.php");
-  //include("db.php"); 
+  //include("check.php"); 
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,6 +36,7 @@
   <link rel="stylesheet" href="sweetalert/dist/sweetalert.css" />
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <link href="notification.css" rel="stylesheet">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,57 +45,29 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
+
+
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper" ">
-    <?php include('adminReplySend.php'); ?>
+    <?php include('adminSide.php'); ?>
 
-      
+   
 
     <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper" style="min-height:540px;background-color:#ffffff;">
+      <div class="content-wrapper" style="min-height:540px;">
         <!-- Content Header (Page header) -->
-        
-        <section>
-          <form  method="post" action="request.php">
-                <div class="container-fluid" style="margin-left: 44px;">
+          <form  method="post">
+                <div class="container-fluid" style="margin-left: 44px; ">
+                    <?php 
+                        //require("../classes/Shownotification.php");
+                        //$notifi = new Shownotification();
+                        $not->viewallnotifications();
 
-                    <div class="row">
-                        <label style="margin-top:30px;">From :</label>
-                        
-
-                    </div>
-                    <br/>
-
-                    <div class="row">
-                        <label>Message :</label>
-                        <div class="panel panel-default" style="width:750px;">
-                          <div class="panel-body">
-                            
-                          </div>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <label>Reply :</label>
-                        <div class="panel panel-default" style="width:750px;">
-                            <div class="panel-body">
-                                <textarea  placeholder="Place some text here" name="description" id="description" style="width: 100%; height: 200px; font-size: 14px;  border: 1px solid #dddddd; padding: 10px;" required=""></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    
-
-                    <div class="row">
-                      <div class="col-md-offset-10 col-md-2">
-                        <input type="submit" class="btn btn-block btn-primary" value="Submit" name="submit" onclick="submitForms()" style="align:right;" />
-                      </div>
-                    </div>
+                     ?>
 
                 </div>
           </form>
-        </section>
+        
 
         
             
@@ -165,7 +137,10 @@
 <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
 <!-- Bootstrap WYSIHTML5 -->
 <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<script src="notification.js"></script>
+
 <script>
+
   $(function () {
     // Replace the <textarea id="editor1"> with a CKEditor
     // instance, using default configuration.

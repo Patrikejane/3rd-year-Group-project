@@ -45,11 +45,11 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<?php $id = $_GET['id']; ?>
+
 
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper" ">
-    <?php include('sidehomeacademic.php'); ?>
+    <?php include('adminSide.php'); ?>
 
    
 
@@ -58,21 +58,27 @@
         <!-- Content Header (Page header) -->
 
         <?php 
+                    
+                    $id = $_GET['id'];
                     if (isset($_POST['submit'])) {
-                        $not->deletemsg($id);
-
-                        //header("Location: teacher_home.php");
+                        //require("../classes/Shownotification.php");
+                        $reply = $_POST['reply'];
+                        $reciever = $_SESSION["email"];
+                        $not = new classes();
+                        //$reveiver = $not->email($id);
+                        $not->reply($reply,$reciever,$id);
+                        
                     }
 
                  ?>
         
         <section>
-          <form  method="post" >
+          <form  method="post" style="padding-bottom:4px" >
                 <div class="container-fluid" style="margin-left: 44px;">
 
                     <div class="row">
                         <label style="margin-top:30px;">From :</label>
-                        <?php echo $_SESSION['username']; ?>
+                        <?php echo $not->name($id); ?>
 
                     </div>
                     <br/>
@@ -84,8 +90,7 @@
                             <?php echo $not->message($id); ?>
                           </div>
                         </div>
-                        <div style="margin-left: 600px; color:#6495ED;"><?php echo $not->getmessagedate($id); ?>
-                        </div>
+                        
 
                     </div>
 
@@ -93,21 +98,19 @@
                         <label>Reply :</label>
                         <div class="panel panel-default" style="width:750px;">
                           <div class="panel-body">
-                            <?php echo $not->viewreply($id); ?>
+                            <textarea  placeholder="Place some text here" name="reply" id="rely" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required=""></textarea>
                           </div>
                         </div>
-                        <div style="margin-left: 600px; color:#6495ED;"><?php echo $not->getmessagereplydate($id); ?>
-                        </div>
-
+                        
                     </div>
                     
                     
 
                     <div class="row">
 
-                      <input type="button" class="btn btn-primary col-md-offset-5 col-md-2" value="Back" name="submit"  style="margin-right:20px;" onClick="history.go(-1);"  />
+                      
 
-                      <input type="submit" class="btn btn-primary col-md-2" value="Delete" name="submit"   />
+                      <input type="submit" class="btn btn-primary col-md-offset-7 col-md-2 " value="Reply" name="submit"   />
 
                       
                     </div>

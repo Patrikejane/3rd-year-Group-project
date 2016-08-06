@@ -26,9 +26,17 @@ $not = new classes();
           <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown" id="notification_li">
                     <span id="notification_count" runat="server"><?php echo $not->getnotcountTeacher(); ?></span>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-o"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu message-dropdown" style="width: 382.22222px;">
-                        <div id="notificationContainer">
+                        <li class="msg">
+                          <a href="#" class="myDropDown" runat="server">
+                            <?php 
+                               $not->notResualtTeacher($_SESSION["email"]);
+                            ?>
+                            
+                          </a>
+                        </li>
+                        <!--<div id="notificationContainer">
                             <div id="notificationTitle">Notifications</div>
                             <div id="notificationsBody" class="notifications" runat="server">
 
@@ -36,7 +44,7 @@ $not = new classes();
                                $not->notResualtTeacher($_SESSION["email"]);
                             ?>
                             </div>
-                        </div>
+                        </div>-->
                         <li class="footer"><a href="#">View all</a></li>
                     </ul>
                 </li>
