@@ -36,16 +36,8 @@ $not = new classes();
                             
                           </a>
                         </li>
-                        <!--<div id="notificationContainer">
-                            <div id="notificationTitle">Notifications</div>
-                            <div id="notificationsBody" class="notifications" runat="server">
-
-                            <?php 
-                               $not->notResualtTeacher($_SESSION["email"]);
-                            ?>
-                            </div>
-                        </div>-->
-                        <li class="footer"><a href="#">View all</a></li>
+                        
+                        
                     </ul>
                 </li>
           
@@ -104,8 +96,8 @@ $not = new classes();
           </a>
         </li>
         <li>
-          <a href="#">
-            <i class="fa fa-th"></i> <span>Help</span>
+          <a href="academicAllRequests.php">
+            <i class="fa fa-th"></i> <span>All Requests</span>
           </a>
         </li>
         
