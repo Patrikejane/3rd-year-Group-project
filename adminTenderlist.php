@@ -420,7 +420,7 @@
                 </div>
               </div>
 
-              <!-- //////////////////////////////////////////////////////////// -->
+              
               <div class="form-group">
                 <label for="tender_reference" class="col-sm-4 control-label">Should allow general technical submission</label>
                 <div class="col-sm-1">
@@ -442,23 +442,16 @@
                 </div>
               </div>
               
-              <!-- //////////////////////////////////////////////////////////// -->  
+              
               
               <div class="form-group" required>
                 <label for="tender_type" class="col-sm-4 control-label">Payment Method* </label>
                 
+                
                 <div class="col-sm-1">
                   <div class="checkbox">
                     <label>
-
-                      <input type="checkbox" name="payment" id="paymentoff" > Offline
-                    </label>
-                  </div>
-                </div>
-                <div class="col-sm-1">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" name="payment" id="paymenton" > Online
+                      <input type="checkbox" name="payment" id="paymenton" required> Online
 
                     </label>
                   </div>
