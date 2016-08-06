@@ -1,60 +1,42 @@
 <?php
-  //include('adminSide.php'); 
+include 'db.php';
 
-  include ("db.php");	
+if(isset($_POST['submit'])){
+$Bid_Id=mysqli_real_escape_string($db,$_POST['Bid_Id']);
+$Bid_Name=mysqli_real_escape_string($db,$_POST['Bid_Name']);
 
-	$msg = "";
-	if(isset($_POST["submit"]))
-	{
-		$company_name = $_POST["company_name"];
-		$email = $_POST["email"];
-		$tin_number = $_POST["tin_number"];
-		$diversity_categories = $_POST["diversity_categories"];
-		$city = $_POST["city"];
-		$web_url = $_POST["web_url"];
-		$phone_number = $_POST["phone_number"];
-		$fax_number = $_POST["fax_number"];
+//$sql="INSERT INTO open_bid (Bid_Id,Bid_Name) values('$Bid_Id','$Bid_Name')";
 
-		$company_name = mysqli_real_escape_string($db, $company_name);
-		$email = mysqli_real_escape_string($db, $email);
-		$tin_number = mysqli_real_escape_string($db, $tin_number);
-		$diversity_categories = mysqli_real_escape_string($db, $diversity_categories);
-		$city = mysqli_real_escape_string($db, $city);
-		$web_url = mysqli_real_escape_string($db, $web_url);
-		$phone_number = mysqli_real_escape_string($db, $phone_number);
-		$fax_number = mysqli_real_escape_string($db, $fax_number);
+$sql=mysqli_query($db,"SELECT * FROM evaluating_bid WHERE Bid_Id='$Bid_Id'");
+    if(mysqli_num_rows($sql)>0){
+        
+        ?>
+        <script>
+        alert('Bid already exists');
+        </script>
+        <?php
+    }
+    else{
+        if(mysqli_query($db,"INSERT INTO evaluating_bid (Bid_Id,Bid_Name) values('$Bid_Id','$Bid_Name')")){
+                
+        ?>
+    
+        <?php 
+                header('Location:AdminBidindex2.php');
+    }
+    else{
+        ?>
+        <script>alert('error ');</script>
+        <?php 
+    }
+    }
 
-		$sql="SELECT email FROM supplier WHERE email='$email'";
-		$result=mysqli_query($db,$sql);
-		$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-		if(mysqli_num_rows($result) == 1)
-		{
-			echo "This email already exist...";
-		}
-		else
-		{
-			$query = mysqli_query($db, "INSERT INTO supplier (Supplier_name, Email, Tin_number, Diversity_categories, City, Web_url, Phone_number, Fax_number)VALUES ('$company_name', '$email', '$tin_number', '$diversity_categories', '$city', '$web_url', '$phone_number', '$fax_number')");
-			if($query)
-			{
-				echo  '<script type="text/javascript">
-                setTimeout(function(){
-                  swal({title: "", text: "Company is added to database", type: "success"},
-                    function(isConfirm){
-                      if(isConfirm){
-                        window.location.href = "adminCompanies.php";
-                      }
-                    }
-                  )
-                },100);
-               </script>';
-			}
-		}
-	}
-			
+}
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -82,7 +64,120 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+<style type="text/css">
+.form-style-7{
+    max-width:400px;
+    margin:50px auto;
+    background:#fff;
+    border-radius:2px;
+    padding:20px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+.form-style-7 h1{
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0px 0px 20px 0px;
+    color: #5C5C5C;
+    font-size:x-large;
+}
+.form-style-7 ul{
+    list-style:none;
+    padding:0;
+    margin:0;   
+}
+.form-style-7 li{
+    display: block;
+    padding: 9px;
+    border:1px solid #DDDDDD;
+    margin-bottom: 30px;
+    border-radius: 3px;
+}
+.form-style-7 li:last-child{
+    border:none;
+    margin-bottom: 0px;
+    text-align: center;
+}
+.form-style-7 li > label{
+    display: block;
+    float: left;
+    margin-top: -19px;
+    background: #FFFFFF;
+    height: 14px;
+    padding: 2px 5px 2px 5px;
+    color: #B9B9B9;
+    font-size: 14px;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.form-style-7 input[type="text"],
+.form-style-7 input[type="date"],
+.form-style-7 input[type="datetime"],
+.form-style-7 input[type="email"],
+.form-style-7 input[type="number"],
+.form-style-7 input[type="search"],
+.form-style-7 input[type="time"],
+.form-style-7 input[type="url"],
+.form-style-7 input[type="password"],
+.form-style-7 textarea,
+.form-style-7 select 
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    display: block;
+    outline: none;
+    border: none;
+    height: 25px;
+    line-height: 25px;
+    font-size: 16px;
+    padding: 0;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+.form-style-7 input[type="text"]:focus,
+.form-style-7 input[type="date"]:focus,
+.form-style-7 input[type="datetime"]:focus,
+.form-style-7 input[type="email"]:focus,
+.form-style-7 input[type="number"]:focus,
+.form-style-7 input[type="search"]:focus,
+.form-style-7 input[type="time"]:focus,
+.form-style-7 input[type="url"]:focus,
+.form-style-7 input[type="password"]:focus,
+.form-style-7 textarea:focus,
+.form-style-7 select:focus 
+{
+}
+.form-style-7 li > span{
+    background: #F3F3F3;
+    display: block;
+    padding: 3px;
+    margin: 0 -9px -9px -9px;
+    text-align: center;
+    color: #C0C0C0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+.form-style-7 textarea{
+    resize:none;
+}
+.form-style-7 input[type="submit"],
+.form-style-7 input[type="button"]{
+    background: #2471FF;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    border-bottom: 3px solid #5994FF;
+    border-radius: 3px;
+    color: #D2E2FF;
+}
+.form-style-7 input[type="submit"]:hover,
+.form-style-7 input[type="button"]:hover{
+    background: #6B9FFF;
+    color:#fff;
+}
+</style>
 </head>
+
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 <!--<div class="container">-->
@@ -206,14 +301,14 @@
             
           </ul>
         </li>
-        <li class="treeview active">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-building"></i>
             <span>Companies</span>
             <span class="label label-primary pull-right">2</span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="adminCompanyDetailForm.php"><i class="fa fa-circle-o"></i>Add Company</a></li>
+            <li><a href="adminCompanyDetailForm.php"><i class="fa fa-circle-o"></i>Add Company</a></li>
            
             <li><a href="adminCompanies.php"><i class="fa fa-circle-o"></i>Added Companies</a></li>
             
@@ -224,7 +319,7 @@
             <i class="fa fa-legal"></i> <span>Bids</span>
           </a>
         </li>-->
-        <li class="treeview">
+        <li class="treeview active">
           <a href="#">
             <i class="fa fa-legal"></i>
             <span>Bids</span>
@@ -233,7 +328,7 @@
           <ul class="treeview-menu">
             <li><a href="AdminBidindex1.php"><i class="fa fa-circle-o"></i>Impending Bids</a></li>
            
-            <li><a href="AdminBidindex2.php"><i class="fa fa-circle-o"></i>Evaluating Bids</a></li>
+            <li class="active"><a href="AdminBidindex2.php"><i class="fa fa-circle-o"></i>Evaluating Bids</a></li>
             
             <li><a href="AdminBidindex3.php"><i class="fa fa-circle-o"></i>Open Bids</a></li>
           </ul>
@@ -263,99 +358,37 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Add Company
+        Evaluating Bids
         
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Add Company</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Evaluating Bids</a></li>
         
       </ol>
     </section>
     <section class="content">
-        <div class="row" style="margin-top:60px">
-        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-4">
-                  <!-- Horizontal Form -->
-                  <div class="box box-info">
-                    <div class="box-header with-border">
-                      <h3 class="box-title">Enter Company Details</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <!-- form start -->
-                    <form class="form-horizontal" method="post" action="">
-                      <div class="box-body">
-                        <div class="form-group">
-                          <label for="company_name" class="col-sm-4 control-label">Company Name<span style="color:red;">*</span></label>
 
-                          <div class="col-sm-8">
-                            <input type="text" name="company_name" class="form-control" id="company_name" placeholder="Company Name" required>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="email" class="col-sm-4 control-label">Email<span style="color:red;">*</span></label>
+        <form class="form-style-7" action="" method="POST">
+        <ul>
+        <li>
+            <label for="id">Bid Id</label>
+            <input type="text" name="Bid_Id" id="Bid_Id" maxlength="100">
+            <span>Enter Bid Id </span>
+        </li>
+        <li>
+            <label for="name">Bid Name</label>
+            <input type="text" name="Bid_Name" id="Bid_Name" maxlength="100">
+            <span>Enter Bid Name</span>
+        </li>
 
-                          <div class="col-sm-8">
-                            <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="tin_number" class="col-sm-4 control-label">TIN Number<span style="color:red;">*</span></label>
-
-                          <div class="col-sm-8">
-                            <input type="text" name="tin_number" class="form-control" id="tin_number" placeholder="TIN Number" required>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="diversity_categories" class="col-sm-4 control-label">Diversity Categories<span style="color:red;">*</span></label>
-
-                          <div class="col-sm-8">
-                            <input type="text" name="diversity_categories" class="form-control" id="diversity_categories" placeholder="Diversity Categories" required>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="city" class="col-sm-4 control-label">City<span style="color:red;">*</span></label>
-
-                          <div class="col-sm-8">
-                            <input type="text" name="city" class="form-control" id="city" placeholder="City" required>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="web_url" class="col-sm-4 control-label">Web URL<span style="color:red;">*</span></label>
-
-                          <div class="col-sm-8">
-                            <input type="url" name="web_url" class="form-control" id="web_url" placeholder="Web URL" required>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="phone_number" class="col-sm-4 control-label">Phone Number</label>
-
-                          <div class="col-sm-8">
-                            <input type="tel" name="phone_number" class="form-control" id="phone_number" placeholder="Phone Number">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="fax_number" class="col-sm-4 control-label">Fax Number</label>
-
-                          <div class="col-sm-8">
-                            <input type="tel" name="fax_number" class="form-control" id="fax_number" placeholder="Fax Number">
-                          </div>
-                        </div>
-                        
-                      </div>
-                      <!-- /.box-body -->
-                      <div class="box-footer">
-                        <div class="row">
-                        
-                        <div class="col-md-12"> 
-                        <button type="submit" name = "submit" class="btn btn-info pull-right">Submit</button>
-                        </div>
-                        </div>
-                      </div>
-                      <!-- /.box-footer -->
-                    </form>
-        </div>
-        </div>
+        <li>
+            <input type="submit" value="submit" name="submit" >
+        </li>
+        </ul>
+        </form>
     </section>
-  </div> 
+    </div>
+
 </div>
 <!-- ./wrapper -->
 
@@ -373,7 +406,15 @@
 <!-- js file for sweetalert -->
 <script src="sweetalert/dist/sweetalert.min.js"></script>
 
-
-
 </body>
+
 </html>
+
+
+
+
+
+
+
+
+

@@ -103,20 +103,6 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
   
-  <link rel="stylesheet" type="text/css" href="jquery.datetimepicker.css"/>
-  <style type="text/css">
-
-  .custom-date-style {
-    background-color: red !important;
-  }
-
-  .input{ 
-  }
-  .input-wide{
-    width: 500px;
-  }
-
-  </style>
   
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
@@ -143,7 +129,22 @@
   <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <!-- css file for sweetalert -->
   <link rel="stylesheet" href="sweetalert/dist/sweetalert.css" />
-   <link href="notification.css" rel="stylesheet">
+  <link href="notification.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="jquery.datetimepicker.css"/>
+  <style type="text/css">
+
+  .custom-date-style {
+    background-color: red !important;
+  }
+
+  .input{ 
+  }
+  .input-wide{
+    width: 500px;
+  }
+
+  </style>
+  
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -269,10 +270,24 @@
             
           </ul>
         </li>
-        <li>
+        <!--<li>
           <a href="adminBids.php">
             <i class="fa fa-legal"></i> <span>Bids</span>
           </a>
+        </li>-->
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-legal"></i>
+            <span>Bids</span>
+            <span class="label label-primary pull-right">3</span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="AdminBidindex1.php"><i class="fa fa-circle-o"></i>Impending Bids</a></li>
+           
+            <li><a href="AdminBidindex2.php"><i class="fa fa-circle-o"></i>Evaluating Bids</a></li>
+            
+            <li><a href="AdminBidindex3.php"><i class="fa fa-circle-o"></i>Open Bids</a></li>
+          </ul>
         </li>
         <li>
           <a href="#">
@@ -289,7 +304,7 @@
             <i class="fa fa-users"></i> <span>Users</span>
           </a>
         </li>
-        
+      </ul>  
     </section>
     <!-- /.sidebar -->
   </aside>

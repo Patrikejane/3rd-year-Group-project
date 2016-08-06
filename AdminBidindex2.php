@@ -1,56 +1,5 @@
-<?php
-  //include('adminSide.php'); 
-
-  include ("db.php");	
-
-	$msg = "";
-	if(isset($_POST["submit"]))
-	{
-		$company_name = $_POST["company_name"];
-		$email = $_POST["email"];
-		$tin_number = $_POST["tin_number"];
-		$diversity_categories = $_POST["diversity_categories"];
-		$city = $_POST["city"];
-		$web_url = $_POST["web_url"];
-		$phone_number = $_POST["phone_number"];
-		$fax_number = $_POST["fax_number"];
-
-		$company_name = mysqli_real_escape_string($db, $company_name);
-		$email = mysqli_real_escape_string($db, $email);
-		$tin_number = mysqli_real_escape_string($db, $tin_number);
-		$diversity_categories = mysqli_real_escape_string($db, $diversity_categories);
-		$city = mysqli_real_escape_string($db, $city);
-		$web_url = mysqli_real_escape_string($db, $web_url);
-		$phone_number = mysqli_real_escape_string($db, $phone_number);
-		$fax_number = mysqli_real_escape_string($db, $fax_number);
-
-		$sql="SELECT email FROM supplier WHERE email='$email'";
-		$result=mysqli_query($db,$sql);
-		$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-		if(mysqli_num_rows($result) == 1)
-		{
-			echo "This email already exist...";
-		}
-		else
-		{
-			$query = mysqli_query($db, "INSERT INTO supplier (Supplier_name, Email, Tin_number, Diversity_categories, City, Web_url, Phone_number, Fax_number)VALUES ('$company_name', '$email', '$tin_number', '$diversity_categories', '$city', '$web_url', '$phone_number', '$fax_number')");
-			if($query)
-			{
-				echo  '<script type="text/javascript">
-                setTimeout(function(){
-                  swal({title: "", text: "Company is added to database", type: "success"},
-                    function(isConfirm){
-                      if(isConfirm){
-                        window.location.href = "adminCompanies.php";
-                      }
-                    }
-                  )
-                },100);
-               </script>';
-			}
-		}
-	}
-			
+<?php  
+include 'db.php';
 ?>
 
 <!DOCTYPE html>
@@ -206,14 +155,14 @@
             
           </ul>
         </li>
-        <li class="treeview active">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-building"></i>
             <span>Companies</span>
             <span class="label label-primary pull-right">2</span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="adminCompanyDetailForm.php"><i class="fa fa-circle-o"></i>Add Company</a></li>
+            <li><a href="adminCompanyDetailForm.php"><i class="fa fa-circle-o"></i>Add Company</a></li>
            
             <li><a href="adminCompanies.php"><i class="fa fa-circle-o"></i>Added Companies</a></li>
             
@@ -224,7 +173,7 @@
             <i class="fa fa-legal"></i> <span>Bids</span>
           </a>
         </li>-->
-        <li class="treeview">
+        <li class="treeview active">
           <a href="#">
             <i class="fa fa-legal"></i>
             <span>Bids</span>
@@ -233,7 +182,7 @@
           <ul class="treeview-menu">
             <li><a href="AdminBidindex1.php"><i class="fa fa-circle-o"></i>Impending Bids</a></li>
            
-            <li><a href="AdminBidindex2.php"><i class="fa fa-circle-o"></i>Evaluating Bids</a></li>
+            <li  class="active"><a href="AdminBidindex2.php"><i class="fa fa-circle-o"></i>Evaluating Bids</a></li>
             
             <li><a href="AdminBidindex3.php"><i class="fa fa-circle-o"></i>Open Bids</a></li>
           </ul>
@@ -263,99 +212,54 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Add Company
+        Evaluating Bids
         
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Add Company</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Evaluating Bids</a></li>
         
       </ol>
     </section>
     <section class="content">
-        <div class="row" style="margin-top:60px">
-        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-4">
-                  <!-- Horizontal Form -->
-                  <div class="box box-info">
-                    <div class="box-header with-border">
-                      <h3 class="box-title">Enter Company Details</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <!-- form start -->
-                    <form class="form-horizontal" method="post" action="">
-                      <div class="box-body">
-                        <div class="form-group">
-                          <label for="company_name" class="col-sm-4 control-label">Company Name<span style="color:red;">*</span></label>
 
-                          <div class="col-sm-8">
-                            <input type="text" name="company_name" class="form-control" id="company_name" placeholder="Company Name" required>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="email" class="col-sm-4 control-label">Email<span style="color:red;">*</span></label>
+		
+		<a  href="AdminBidadd2.php">Add New</a><br/></br>
+		<table border="1" cellspacing="0" cellpadding="5px">
+		<tr>
+			
+			<th>Bid Id</th>
+			<th>Bid Name</th>
+			<th>Action</th>
+		</tr>
 
-                          <div class="col-sm-8">
-                            <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="tin_number" class="col-sm-4 control-label">TIN Number<span style="color:red;">*</span></label>
 
-                          <div class="col-sm-8">
-                            <input type="text" name="tin_number" class="form-control" id="tin_number" placeholder="TIN Number" required>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="diversity_categories" class="col-sm-4 control-label">Diversity Categories<span style="color:red;">*</span></label>
+		<?php  
+		$sql="select Row_Id,Bid_Id,Bid_Name from evaluating_bid";
+		$result=mysqli_query($db,$sql);
+		if(mysqli_num_rows($result)>0){
+			while($row=mysqli_fetch_assoc($result)){
+				
 
-                          <div class="col-sm-8">
-                            <input type="text" name="diversity_categories" class="form-control" id="diversity_categories" placeholder="Diversity Categories" required>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="city" class="col-sm-4 control-label">City<span style="color:red;">*</span></label>
+		?>
 
-                          <div class="col-sm-8">
-                            <input type="text" name="city" class="form-control" id="city" placeholder="City" required>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="web_url" class="col-sm-4 control-label">Web URL<span style="color:red;">*</span></label>
+		<tr>
+			
+			<td><?=$row['Bid_Id']?></td>
+			<td><?=$row['Bid_Name']?></td>
+			<td>
+			<a href="AdminBidedit2.php?id=<?=$row['Row_Id']?>">Edit</a> |
+			<a href="AdminBiddelete2.php?id=<?=$row['Row_Id']?>" onclick="return confirm('Are you sure');">Delete</a>
+			</td>
+		</tr>
+		<?php 
+			}
+		}
+		?>
+			
+		</table>
+	</section>
+	</div>
 
-                          <div class="col-sm-8">
-                            <input type="url" name="web_url" class="form-control" id="web_url" placeholder="Web URL" required>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="phone_number" class="col-sm-4 control-label">Phone Number</label>
-
-                          <div class="col-sm-8">
-                            <input type="tel" name="phone_number" class="form-control" id="phone_number" placeholder="Phone Number">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="fax_number" class="col-sm-4 control-label">Fax Number</label>
-
-                          <div class="col-sm-8">
-                            <input type="tel" name="fax_number" class="form-control" id="fax_number" placeholder="Fax Number">
-                          </div>
-                        </div>
-                        
-                      </div>
-                      <!-- /.box-body -->
-                      <div class="box-footer">
-                        <div class="row">
-                        
-                        <div class="col-md-12"> 
-                        <button type="submit" name = "submit" class="btn btn-info pull-right">Submit</button>
-                        </div>
-                        </div>
-                      </div>
-                      <!-- /.box-footer -->
-                    </form>
-        </div>
-        </div>
-    </section>
-  </div> 
 </div>
 <!-- ./wrapper -->
 
@@ -372,8 +276,6 @@
 
 <!-- js file for sweetalert -->
 <script src="sweetalert/dist/sweetalert.min.js"></script>
-
-
 
 </body>
 </html>

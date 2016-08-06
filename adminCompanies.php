@@ -182,10 +182,24 @@
             
           </ul>
         </li>
-        <li>     
+        <!--<li>     
           <a href="adminBids.php">
             <i class="fa fa-legal"></i> <span>Bids</span>
           </a>
+        </li>-->
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-legal"></i>
+            <span>Bids</span>
+            <span class="label label-primary pull-right">3</span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="AdminBidindex1.php"><i class="fa fa-circle-o"></i>Impending Bids</a></li>
+           
+            <li><a href="AdminBidindex2.php"><i class="fa fa-circle-o"></i>Evaluating Bids</a></li>
+            
+            <li><a href="AdminBidindex3.php"><i class="fa fa-circle-o"></i>Open Bids</a></li>
+          </ul>
         </li>
         <li>
           <a href="#">

@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<style>
+
+
+</style>
+
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+
+
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>AdminLTE 2 | Dashboard</title>
@@ -36,6 +47,29 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  
+  <style  type="text/css">
+table{
+	
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	font-size: 13pt;
+}
+td{
+	 
+	 border-left:1px solid #ccc; 
+	 border-top:1px solid #ccc;
+}
+th{
+	background:#eee; 
+	padding:5px; 
+	border-left:1px solid #ccc; 
+	border-top:1px solid #ccc;
+}
+
+
+</style>
+  
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -47,20 +81,118 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        Bids
-        
-      </h1>
+
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Bids</a></li>
         
       </ol>
     </section>
 
-    
-        
-    
-  </div>
+
+	<section class="content">
+      <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3>
+				<?php
+$con=mysqli_connect("localhost","root","","proc") or die("Error Connection");
+$sql="select count(1) FROM openbid";
+
+$result = mysqli_query($con,$sql);
+$row = mysqli_fetch_array($result);
+
+$total = $row[0];
+echo  $total;
+
+mysqli_close($con)
+?>
+			  
+			  </h3>
+
+              <p>Open Bids</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+		
+		<div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><?php
+$con=mysqli_connect("localhost","root","","proc") or die("Error Connection");
+$sql="select count(1) FROM impending_bid";
+
+$result = mysqli_query($con,$sql);
+$row = mysqli_fetch_array($result);
+
+$total = $row[0];
+echo  $total;
+
+mysqli_close($con)
+?><sup style="font-size: 20px"></sup></h3>
+
+              <p>Impending Bids</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+              More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+          </div>  
+        </div>
+		
+		<div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3><?php
+$con=mysqli_connect("localhost","root","","proc") or die("Error Connection");
+$sql="select count(1) FROM evaluating_bid";
+
+$result = mysqli_query($con,$sql);
+$row = mysqli_fetch_array($result);
+
+$total = $row[0];
+echo  $total;
+
+mysqli_close($con)
+?></h3>
+
+              <p>Evaluating Bids</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-pie-graph"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+              More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+		
+		</div>
+		<br><br>
+		<center>
+		<table border="collapse" cellpadding="0" cellspacing="0" width="100%" >
+<tr><th> <center>Bid Id</center></th><th><center>Bid Name</center></th></tr>
+<?php
+$con=mysqli_connect("localhost","root","","proc") or die("Error Connection");
+$query="select * from openbid";
+$result=mysqli_query($con,$query);
+while($row=mysqli_fetch_array($result)){
+	echo "<tr><td>".$row["Bid_Id"]."</td><td>".$row["Bid_Name"]."</td></tr>";
+}
+?>
+</table>
+</center>
+		
+		</section>
 
     
   </div>
