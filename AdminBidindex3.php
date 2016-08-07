@@ -1,5 +1,10 @@
-<?php  
-include 'db.php';
+<?php
+
+  include 'db.php';
+  $sql="select Row_Id,Bid_Id,Bid_Name from openbid";
+  $result=mysqli_query($db,$sql);
+  $num_rows = mysqli_num_rows($result);
+
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +29,9 @@ include 'db.php';
 
   <!-- css file for sweetalert -->
   <link rel="stylesheet" href="sweetalert/dist/sweetalert.css" />
+
+  <!-- DataTables -->
+  <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">  
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -220,44 +228,85 @@ include 'db.php';
         
       </ol>
     </section>
+
+
+    <!-- Main content -->
     <section class="content">
-
-		
-		<a  href="AdminBidadd.php">Add New</a><br/></br>
-		<table border="1" cellspacing="0" cellpadding="5px">
-		<tr>
-			
-			<th>Bid Id</th>
-			<th>Bid Name</th>
-			<th>Action</th>
-		</tr>
+      <div class="row">
+        <div class="col-xs-12">
+        <a  href="AdminBidadd.php">Add New</a><br/></br>
+          
 
 
-		<?php  
-		$sql="select Row_Id,Bid_Id,Bid_Name from openbid";
-		$result=mysqli_query($db,$sql);
-		if(mysqli_num_rows($result)>0){
-			while($row=mysqli_fetch_assoc($result)){
-				
+          <div class="box">
+            <!--<div class="box-header">
+              <h3 class="box-title">Data Table With Full Features</h3>
+            </div>-->
+            <!-- /.box-header -->
+            <div class="box-body">
+            <?php
+            if($result = mysqli_query($db, $sql)){
+            if(mysqli_num_rows($result) > 0){
+            ?>
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Bid ID</th>
+                  <th>Bid Name</th>
+                  <th>Action</th>
+                  
+                </tr>
+                </thead>
 
-		?>
+                <tbody>
+                <?php
 
-		<tr>
-			
-			<td><?=$row['Bid_Id']?></td>
-			<td><?=$row['Bid_Name']?></td>
-			<td>
-			<a href="AdminBidedit.php?id=<?=$row['Row_Id']?>">Edit</a> |
-			<a href="AdminBiddelete.php?id=<?=$row['Row_Id']?>" onclick="return confirm('Are you sure');">Delete</a>
-			</td>
-		</tr>
-		<?php 
-			}
-		}
-		?>
-			
-		</table>
-	</section>
+                while ($row = mysqli_fetch_array($result)) {
+
+                ?>
+                    <tr>
+                      <td><?php echo $row['Bid_Id'];?></td>
+                      <td><?php echo $row['Bid_Name'];?></td>
+                      <td>
+                        <a href="AdminBidedit.php?id=<?=$row['Row_Id']?>">Edit</a> |
+                        <a href="AdminBiddelete.php?id=<?=$row['Row_Id']?>" onclick="return confirm('Are you sure');">Delete</a>
+                      </td>
+                      
+                    </tr>
+                     <!--</a>-->
+
+                
+                <?php
+                }
+
+                ?>
+                </tbody>
+                
+              </table>
+              <?php  
+              // Close result set
+              //mysqli_free_result($result);
+            } else{
+                echo "No records matching your query were found.";
+            }
+            } else{
+                echo "ERROR: Could not able to execute $sql. " . mysqli_error($db);
+            }
+
+
+            // Close connection
+            //mysqli_close($db);
+            ?>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>    
+
 	</div>
 
 </div>
@@ -276,6 +325,24 @@ include 'db.php';
 
 <!-- js file for sweetalert -->
 <script src="sweetalert/dist/sweetalert.min.js"></script>
+
+<!-- DataTables -->
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+  });
+</script>
 
 </body>
 </html>
