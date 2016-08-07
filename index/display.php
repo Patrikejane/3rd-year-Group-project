@@ -1,26 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Smalkakulage
- * Date: 6/28/16
- * Time: 1:46 PM
- */
-    include("../db.php");
-
-    if(isset($_GET["data"]))
-    {
-        $data = $_GET["data"];
-
-
-    //print($data);
-    $sql="SELECT * FROM tenderdocument WHERE tender_ref_number='$data'";
-    //print($sql);
-    $result = mysqli_query($db,$sql);
-    //print_r($result);
-    $row = mysqli_fetch_array($result);
-    //print_r($row);
-    }
-?>
 <!DOCTYPE html>
 
 <html>
@@ -53,119 +30,178 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-<header class="main-header">
+<?php
+
+    include("..\db.php");
+
+    if(isset($_GET["data"]))
+    {
+        $data = $_GET["data"];
+
+
+    //print($data);
+    $sql="SELECT * FROM tenderdocument WHERE tender_ref_number='$data'";
+    //print($sql);
+    $result = mysqli_query($db,$sql);
+    //print_r($result);
+    $row = mysqli_fetch_array($result);
+    //print_r($row);
+    }
+?>
+
+
+
+ <header class="main-header">
     <!-- Logo -->
-    <a href="../index2.html" class="logo">
-        <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>E</b>Proc</span>
-        <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Easy</b>Proc</span>
+    <a href="home.php" class="logo" style="background-color:#020816;">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>E</b>Proc</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Easy</b>Proc</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
-        <!-- Sidebar toggle button-->
-        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Toggle navigation</span>
-        </a>
+    <nav class="navbar navbar-static-top" style="background-color:#020816;">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
 
-        <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
 
-                <!-- User Account: style can be found in dropdown.less -->
-                <li class="dropdown user user-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                        <span class="hidden-xs">Alexander Pierce</span>
+          <!-- Notifications: style can be found in dropdown.less -->
+          <li class="dropdown notifications-menu" id="#mail_notificatoin_bar">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-warning">10</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have 10 notifications</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
                     </a>
-                    <ul class="dropdown-menu">
-                        <!-- User image -->
-                        <li class="user-header">
-                            <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
-                            <p>
-                                Alexander Pierce - Web Developer
-                                <small>Member since Nov. 2012</small>
-                            </p>
-                        </li>
-
-                        <!-- Menu Footer-->
-                        <li class="user-footer">
-                            <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
-                            </div>
-                            <div class="pull-right">
-                                <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
+                      page and may cause design problems
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-users text-red"></i> 5 new members joined
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-shopping-cart text-green"></i> 25 sales made
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-user text-red"></i> You changed your username
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer"><a href="#">View all</a></li>
             </ul>
-        </div>
+          </li>
+                   
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="dist/img/avatar5-160x160.png" class="user-image" alt="User Image">
+              <span class="hidden-xs"><?php echo $_SESSION['username']; ?></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="dist/img/avatar5-160x160.png" class="img-circle" alt="User Image">
+
+                <p>
+                  <?php
+                  
+                  echo $_SESSION['username'];
+                  ?>
+                  <small>Member since Nov. 2012</small>
+                </p>
+              </li>
+                            
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="pull-right">
+                  <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          
+        </ul>
+      </div>
     </nav>
-</header>
-<!-- Left side column. contains the logo and sidebar -->
-<aside class="main-sidebar">
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar" style="background-color:#020816";>
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-
-        <!-- /.search form -->
-        <!-- sidebar menu: : style can be found in sidebar.less -->
-        <ul class="sidebar-menu">
-            <li class="header">MAIN NAVIGATION</li>
-            <li>
-                <a href="../home.php">
-                    <i class="fa fa-home"></i> <span>Home</span>
-                </a>
-            </li>
-            <li class="treeview active">
-                <a href="#">
-                    <i class="fa fa-files-o"></i>
-                    <span>Tenders</span>
-                    <span class="label label-primary pull-right">2</span>
-                </a>
-                <ul class="treeview-menu">
-                    
-                    <li><a href="../Tenderlist.php"><i class="fa fa-circle-o"></i> Publish Tender </a></li>
-                    <li class="active"><a href="../published.php"><i class="fa fa-circle-o"></i> Published Tenders</a></li>
-
-                </ul>
-            </li>
-            <li>
-                <a href="../Companies.php">
-                    <i class="fa fa-building"></i> <span>Companies</span>
-                </a>
-            </li>
-            <li>
-                <a href="../Bids.php">
-                    <i class="fa fa-th"></i> <span>Bids</span>
-                </a>
-            </li>
-            <li>
-                <a href="../Reports.php">
-                    <i class="fa fa-th"></i> <span>Reports</span>
-                </a>
-            </li>
-            <li>
-                <a href="../Help.php">
-                    <i class="fa fa-th"></i> <span>Help</span>
-                </a>
-            </li>
-            <li>
-                <a href="../About.php">
-                    <i class="fa fa-th"></i> <span>About us</span>
-                </a>
-            </li>
-            <li>
-                <a href="../Contact.php">
-                    <i class="fa fa-th"></i> <span>Contact us</span>
-                </a>
-            </li>
-        </ul>
+      
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu">
+        
+        <li>
+          <a href="..\home.php">
+            <i class="fa fa-home"></i> <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="..\Published.php">
+            <i class="fa fa-files-o"></i> <span>Tenders</span>
+          </a>
+        </li>
+        <li>
+          <a href="..\Companies.php">
+            <i class="fa fa-building"></i> <span>Companies</span>
+          </a>
+        </li>
+        <li>
+          <a href="..\Bids.php">
+            <i class="fa fa-legal"></i> <span>Bids</span>
+          </a>
+        </li>
+        <li>
+          <a href="..\Reports.php">
+            <i class="fa fa-file-text"></i> <span>Reports</span>
+          </a>
+        </li>
+        <li>
+          <a href="..\Help.php">
+            <i class="fa fa-question-circle"></i> <span>Help</span>
+          </a>
+        </li>
+        <li>
+          <a href="..\About.php">
+            <i class="fa fa-info-circle"></i> <span>About us</span>
+          </a>
+        </li>
+        <li>
+          <a href="..\Contact.php">
+            <i class="fa fa-phone-square"></i> <span>Contact us</span>
+          </a>
+        </li>
+        
     </section>
-</aside>
-
-<!-- Content Wrapper. Contains page content -->
+    <!-- /.sidebar -->
+  </aside>
+  <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -230,7 +266,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="inputEmail3" class="col-sm-7 form-control-label">Should allow Withdrawwl of bids</label>
+                                            <label for="inputEmail3" class="col-sm-7 form-control-label">Should allow Withdrawal of bids</label>
                                             <div class="col-sm-5">
                                                 <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['withdraw_bids'];?>">
                                             </div>
@@ -379,13 +415,13 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="inputEmail3" class="col-sm-7 form-control-label">Document Downloade/Sales start Date</label>
+                                            <label for="inputEmail3" class="col-sm-7 form-control-label">Document Download/Sales start Date</label>
                                             <div class="col-sm-5">
                                                 <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['sale_start_date'];?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="inputEmail3" class="col-sm-7 form-control-label">Bid Submission Satrt Date</label>
+                                            <label for="inputEmail3" class="col-sm-7 form-control-label">Bid Submission Start Date</label>
                                             <div class="col-sm-5">
                                                 <input type="email" class="form-control" id="inputEmail3" readonly placeholder="<?php echo $row['bid_satrt_date'];?>">
                                             </div>
@@ -418,6 +454,17 @@
                             </div>
 
                         </div>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading"> Download</div>
+                            <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <button type="button" class="btn btn-secondary btn-lg btn-block">Download Tender Document</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -438,195 +485,6 @@
     reserved.
 </footer>
 
-<!-- Control Sidebar -->
-<aside class="control-sidebar control-sidebar-dark">
-    <!-- Create the tabs -->
-    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-        <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-        <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-        <!-- Home tab content -->
-        <div class="tab-pane" id="control-sidebar-home-tab">
-            <h3 class="control-sidebar-heading">Recent Activity</h3>
-            <ul class="control-sidebar-menu">
-                <li>
-                    <a href="javascript:void(0)">
-                        <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-                        <div class="menu-info">
-                            <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                            <p>Will be 23 on April 24th</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <i class="menu-icon fa fa-user bg-yellow"></i>
-
-                        <div class="menu-info">
-                            <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
-                            <p>New phone +1(800)555-1234</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-
-                        <div class="menu-info">
-                            <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
-                            <p>nora@example.com</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
-                        <div class="menu-info">
-                            <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
-                            <p>Execution time 5 seconds</p>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-            <!-- /.control-sidebar-menu -->
-
-            <h3 class="control-sidebar-heading">Tasks Progress</h3>
-            <ul class="control-sidebar-menu">
-                <li>
-                    <a href="javascript:void(0)">
-                        <h4 class="control-sidebar-subheading">
-                            Custom Template Design
-                            <span class="label label-danger pull-right">70%</span>
-                        </h4>
-
-                        <div class="progress progress-xxs">
-                            <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <h4 class="control-sidebar-subheading">
-                            Update Resume
-                            <span class="label label-success pull-right">95%</span>
-                        </h4>
-
-                        <div class="progress progress-xxs">
-                            <div class="progress-bar progress-bar-success" style="width: 95%"></div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <h4 class="control-sidebar-subheading">
-                            Laravel Integration
-                            <span class="label label-warning pull-right">50%</span>
-                        </h4>
-
-                        <div class="progress progress-xxs">
-                            <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <h4 class="control-sidebar-subheading">
-                            Back End Framework
-                            <span class="label label-primary pull-right">68%</span>
-                        </h4>
-
-                        <div class="progress progress-xxs">
-                            <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-            <!-- /.control-sidebar-menu -->
-
-        </div>
-        <!-- /.tab-pane -->
-        <!-- Stats tab content -->
-        <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-        <!-- /.tab-pane -->
-        <!-- Settings tab content -->
-        <div class="tab-pane" id="control-sidebar-settings-tab">
-            <form method="post">
-                <h3 class="control-sidebar-heading">General Settings</h3>
-
-                <div class="form-group">
-                    <label class="control-sidebar-subheading">
-                        Report panel usage
-                        <input type="checkbox" class="pull-right" checked>
-                    </label>
-
-                    <p>
-                        Some information about this general settings option
-                    </p>
-                </div>
-                <!-- /.form-group -->
-
-                <div class="form-group">
-                    <label class="control-sidebar-subheading">
-                        Allow mail redirect
-                        <input type="checkbox" class="pull-right" checked>
-                    </label>
-
-                    <p>
-                        Other sets of options are available
-                    </p>
-                </div>
-                <!-- /.form-group -->
-
-                <div class="form-group">
-                    <label class="control-sidebar-subheading">
-                        Expose author name in posts
-                        <input type="checkbox" class="pull-right" checked>
-                    </label>
-
-                    <p>
-                        Allow the user to show his name in blog posts
-                    </p>
-                </div>
-                <!-- /.form-group -->
-
-                <h3 class="control-sidebar-heading">Chat Settings</h3>
-
-                <div class="form-group">
-                    <label class="control-sidebar-subheading">
-                        Show me as online
-                        <input type="checkbox" class="pull-right" checked>
-                    </label>
-                </div>
-                <!-- /.form-group -->
-
-                <div class="form-group">
-                    <label class="control-sidebar-subheading">
-                        Turn off notifications
-                        <input type="checkbox" class="pull-right">
-                    </label>
-                </div>
-                <!-- /.form-group -->
-
-                <div class="form-group">
-                    <label class="control-sidebar-subheading">
-                        Delete chat history
-                        <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-                    </label>
-                </div>
-                <!-- /.form-group -->
-            </form>
-        </div>
-        <!-- /.tab-pane -->
-    </div>
-</aside>
 
 <!-- /.control-sidebar -->
 <!-- Add the sidebar's background. This div must be placed

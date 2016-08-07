@@ -1,15 +1,4 @@
 <!DOCTYPE html>
-<?php
-    include("db.php");
-
-    $sql="SELECT tender_ref_number,tender_type,no_covers,re_bid_submission FROM tenderdocument";
-    $result = mysqli_query($db,$sql);
-
-    $num_rows = mysqli_num_rows($result);
-    //echo $num_rows;
-    $fields = $num_rows;
-
-?>
 
 
 <html>
@@ -42,159 +31,19 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-<header class="main-header">
-    <!-- Logo -->
-    <a href="home.php" class="logo" style="background-color:#020816;">
-        <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>E</b>Proc</span>
-        <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Easy</b>Proc</span>
-    </a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top" style="background-color:#020816;">
-        <!-- Sidebar toggle button-->
-        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Toggle navigation</span>
-        </a>
+<?php
+    include("side.php");
 
-        <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
+    $sql="SELECT tender_ref_number,tender_type,no_covers,re_bid_submission FROM tenderdocument";
+    $result = mysqli_query($db,$sql);
 
-                <!-- Notifications: style can be found in dropdown.less -->
-                <li class="dropdown notifications-menu">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-bell-o"></i>
-                    <span class="label label-warning">10</span>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li class="header">You have 10 notifications</li>
-                    <li>
-                      <!-- inner menu: contains the actual data -->
-                      <ul class="menu">
-                        <li>
-                          <a href="#">
-                            <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
-                            page and may cause design problems
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <i class="fa fa-users text-red"></i> 5 new members joined
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <i class="fa fa-user text-red"></i> You changed your username
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="footer"><a href="#">View all</a></li>
-                  </ul>
-                </li>
+    $num_rows = mysqli_num_rows($result);
+    //echo $num_rows;
+    $fields = $num_rows;
 
-                <!-- User Account: style can be found in dropdown.less -->
-                <li class="dropdown user user-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                        <span class="hidden-xs"><?php echo $_SESSION['username']; ?></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <!-- User image -->
-                        <li class="user-header">
-                            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+?>
 
-                            <p>
-                                <?php echo $_SESSION['username']; ?>
-                            </p>
-                        </li>
 
-                        <!-- Menu Footer-->
-                        <li class="user-footer">
-                            <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
-                            </div>
-                            <div class="pull-right">
-                                <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-
-            </ul>
-        </div>
-    </nav>
-</header>
-<!-- Left side column. contains the logo and sidebar -->
-<aside class="main-sidebar" style="background-color:#020816;">
-<!-- sidebar: style can be found in sidebar.less -->
-<section class="sidebar">
-
-    <!-- /.search form -->
-    <!-- sidebar menu: : style can be found in sidebar.less -->
-    <ul class="sidebar-menu">
-        
-        <li>
-            <a href="home.php">
-                <i class="fa fa-home"></i> <span>Home</span>
-            </a>
-        </li>
-        <li class="treeview active">
-            <a href="#">
-                <i class="fa fa-files-o"></i>
-                <span>Tenders</span>
-                <span class="label label-primary pull-right">2</span>
-            </a>
-            <ul class="treeview-menu">
-                <li><a href="Tenderlist.php"><i class="fa fa-circle-o"></i>Publish Tender</a></li>
-                
-                <li class="active"><a href="published.php"><i class="fa fa-circle-o"></i>Published Tenders</a></li>
-
-            </ul>
-        </li>
-        <li>
-            <a href="Companies.php">
-                <i class="fa fa-building"></i> <span>Companies</span>
-            </a>
-        </li>
-        <li>
-            <a href="Bids.php">
-                <i class="fa fa-th"></i> <span>Bids</span>
-            </a>
-        </li>
-        <li>
-            <a href="Reports.php">
-                <i class="fa fa-th"></i> <span>Reports</span>
-            </a>
-        </li>
-        <li>
-            <a href="Help.php">
-                <i class="fa fa-th"></i> <span>Help</span>
-            </a>
-        </li>
-        <li>
-            <a href="About.php">
-                <i class="fa fa-th"></i> <span>About us</span>
-            </a>
-        </li>
-        <li>
-            <a href="Contact.php">
-                <i class="fa fa-th"></i> <span>Contact us</span>
-            </a>
-        </li>
-    </ul>
-</section>
-</aside>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -213,7 +62,7 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          <div class="box">
+          <!--<div class="box">
               <div class="panel panel-primary">
                   <div class="panel-heading">SEARCH</div>
                   <div class="panel-body">
@@ -248,9 +97,9 @@
 
 
                   </div>
-              </div>
+              </div>-->
             <!-- /.box-body -->
-          </div>
+          <!--</div>-->
           <!-- /.box -->
 
           <div class="box">
@@ -279,7 +128,7 @@
                         echo '<td>'.$row[$i].'</td>';
                     }
                     //echo $row['tender_ref_number'];
-                    echo '<td> <a href="index/display.php?data='.$row['tender_ref_number'].'">Clickhere</a></td>';
+                    echo '<td> <a href="display.php?data='.$row['tender_ref_number'].'">Clickhere</a></td>';
                     echo '</tr>';
                 }
 

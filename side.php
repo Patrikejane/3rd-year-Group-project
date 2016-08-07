@@ -114,18 +114,10 @@
             <i class="fa fa-home"></i> <span>Home</span>
           </a>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-file"></i>
-            <span>Tenders</span>
-            <span class="label label-primary pull-right">2</span>
+        <li>
+          <a href="Published.php">
+            <i class="fa fa-files-o"></i> <span>Tenders</span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="Tenderlist.php"><i class="fa fa-circle-o"></i>Publish Tender</a></li>
-           
-            <li><a href="Published.php"><i class="fa fa-circle-o"></i>Published Tenders</a></li>
-            
-          </ul>
         </li>
         <li>
           <a href="Companies.php">
