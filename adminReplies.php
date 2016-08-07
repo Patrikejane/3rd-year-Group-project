@@ -48,7 +48,7 @@
   //echo "yehen";
 
   // Attempt select query execution
-  $sql = "SELECT * FROM notification_all WHERE action='fromacademic'" ;
+  $sql = "SELECT * FROM notification_all WHERE action='fromadmin' " ;
 
   $result = mysqli_query($db, $sql);
   ?>
@@ -60,11 +60,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Requests
+        All Notifications
         
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Requests</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> All notofications</a></li>
 
         
       </ol>
@@ -92,9 +92,9 @@
                   <tr>
                     <th>Notification ID</th>
                     <th>Description</th>
-                    
+                    <th>Reply</th>
                     <th>Received Date</th>
-                    
+                    <th>Replied Date</th>
                     <th>View Details</th>
                   </tr>
                 </thead>
@@ -109,11 +109,11 @@
                 <tr>
                   <td><?php echo $row['notid'];?></td>
                   <td><?php echo $row['description'];?></td>
-                  
-                  
+                  <td><?php echo $row['reply'];?></td>
                   <td><?php echo $row['receive_date'];?></td>
+                  <td><?php echo $row['replydate'];?></td>
                   
-                  <?php echo '<td> <a href="adminReply.php?id='.$row['notid'].'">Clickhere</a></td>';?>
+                  <?php echo '<td> <a href="academicViewNotification.php?id='.$row['notid'].'">Clickhere</a></td>';?>
                   
 
                       <!--<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">

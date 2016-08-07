@@ -152,7 +152,7 @@ $not = new classes();
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="adminReplies.php">
             <i class="fa fa-reply"></i> <span>Replies</span>
           </a>
         </li>

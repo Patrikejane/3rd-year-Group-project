@@ -290,12 +290,12 @@
           </ul>
         </li>
         <li>
-          <a href="#">
+          <a href="adminRequest.php">
             <i class="fa fa-envelope"></i> <span>Requests</span>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="adminReplies.php">
             <i class="fa fa-reply"></i> <span>Replies</span>
           </a>
         </li>
