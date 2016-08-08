@@ -115,7 +115,7 @@
           </a>
         </li>
         <li>
-          <a href="Published.php">
+          <a href="published.php">
             <i class="fa fa-files-o"></i> <span>Tenders</span>
           </a>
         </li>
