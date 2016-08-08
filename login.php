@@ -64,16 +64,16 @@
                 if($type == "User"){
                 	$_SESSION['username']=$username;
                 	$_SESSION['email']=$email;
-                	header("location: ../home.php"); /* If the session is true redirect to home.php page */
+                	header("location: home.php"); /* If the session is true redirect to home.php page */
                 }elseif($type == "Admin"){
                 	$_SESSION['username']=$username;
                 	$_SESSION['email']=$email;
-                	header("location: ../adminHome.php");  /* If the session is true, redirect to adminHome.php page */
+                	header("location: adminHome.php");  /* If the session is true, redirect to adminHome.php page */
                 }
                 else{
                 	$_SESSION['username']=$username;
                 	$_SESSION['email']=$email;
-                	header("location: ../homeacademic.php");
+                	header("location: homeacademic.php");
                 }
 
 	        }else{

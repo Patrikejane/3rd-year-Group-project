@@ -1,6 +1,6 @@
 <?php
 
-include ("../login.php");
+include ("login.php");
 
 /*if ((isset($_SESSION['email']) != '')) 
     {
@@ -34,7 +34,7 @@ include ("../login.php");
 	<!-- template skin -->
 	<link id="t-colors" href="color/default.css" rel="stylesheet">
 	<!-- css file for sweetalert -->
-    <link rel="stylesheet" href="../sweetalert/dist/sweetalert.css" />
+    <link rel="stylesheet" href="sweetalert/dist/sweetalert.css" />
 
 
 </head>
@@ -60,7 +60,7 @@ include ("../login.php");
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
 			  <ul class="nav navbar-nav">
 				<li class="active"><a href="index.php">Home</a></li>
-				<li><a href="about.php">About</a></li>
+				<li><a href="aboutlogin.php">About</a></li>
                   
                   <li><a href="signup.php">Sign UP</a></li>
 
@@ -234,7 +234,7 @@ include ("../login.php");
 	<script src="js/nivo-lightbox.min.js"></script>
     <script src="js/custom.js"></script>
     <!-- js file for sweetalert -->
-	<script src="../sweetalert/dist/sweetalert.min.js"></script>
+	<script src="sweetalert/dist/sweetalert.min.js"></script>
 
 
 </body>

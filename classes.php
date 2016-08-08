@@ -1,5 +1,5 @@
 <?php
-$mysqli = new mysqli("localhost", "root", "", "proc");
+$mysqli = new mysqli("localhost", "root", "yehen", "proc");
 
 class classes{
 

@@ -1,6 +1,6 @@
 <?php
 
-include ("../db.php");
+include ("db.php");
 
 $msg = "";
 if(isset($_POST["submit"]))
@@ -81,15 +81,14 @@ if(isset($_POST["submit"]))
     <link href="css/animate.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet">
     <!-- css file for sweetalert -->
-    <link rel="stylesheet" href="../sweetalert/dist/sweetalert.css" />
+    <link rel="stylesheet" href="sweetalert/dist/sweetalert.css" />
 
     <!-- boxed bg -->
     <link id="bodybg" href="bodybg/bg1.css" rel="stylesheet" type="text/css" />
     <!-- template skin -->
     <link id="t-colors" href="color/default.css" rel="stylesheet">
     
-    <!-- css file for sweetalert -->
-    <link rel="stylesheet" href="../sweetalert/dist/sweetalert.css" />
+    
 
 
 </head>
@@ -115,7 +114,7 @@ if(isset($_POST["submit"]))
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                 <ul class="nav navbar-nav">
                     <li ><a href="index.php">Home</a></li>
-                    <li><a href="about.php">About</a></li>
+                    <li><a href="aboutlogin.php">About</a></li>
                     
                     <li class="active"><a href="signup.php">Sign UP</a></li>
 
@@ -522,7 +521,7 @@ if(isset($_POST["submit"]))
 <script src="js/nivo-lightbox.min.js"></script>
 <script src="js/custom.js"></script>
 <!-- js file for sweetalert -->
-<script src="../sweetalert/dist/sweetalert.min.js"></script>
+<script src="sweetalert/dist/sweetalert.min.js"></script>
 
 <script type="text/javascript">
     var today = new Date();
