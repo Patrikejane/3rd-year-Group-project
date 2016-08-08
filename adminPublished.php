@@ -1,15 +1,5 @@
 <!DOCTYPE html>
-<?php
-    require("classes.php");
-    include ('db.php');
-    $not = new classes();
 
-    $sql="SELECT tender_id,tender_ref_number,tender_type,no_covers,re_bid_submission FROM tenderdocument";
-    $result = mysqli_query($db,$sql);
-
-    $num_rows = mysqli_num_rows($result);
-
-?>
 
 
 <html>
@@ -43,6 +33,17 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
+<?php
+    require("classes.php");
+    include ('db.php');
+    $not = new classes();
+
+    $sql="SELECT tender_id,tender_ref_number,tender_type,no_covers,re_bid_submission FROM tenderdocument";
+    $result = mysqli_query($db,$sql);
+
+    $num_rows = mysqli_num_rows($result);
+
+?>
 <header class="main-header">
     <!-- Logo -->
     <a href="adminHome.php" class="logo" style="background-color:#020816;">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Admin Home</title>
+  <title>E-Proc UCSC | Admin Home</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -42,7 +42,27 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-<?php include('adminSide.php'); ?>
+<?php 
+
+	include('adminSide.php');
+
+      $sql1 = "SELECT * FROM tenderdocument";
+      $result1 = mysqli_query($db, $sql1);
+      $num_rows1 = mysqli_num_rows($result1);
+
+      $sql2 = "SELECT * FROM supplier";
+      $result2 = mysqli_query($db, $sql2);
+      $num_rows2 = mysqli_num_rows($result2);
+
+      $sql3 = "SELECT * FROM openbid";
+      $result3 = mysqli_query($db, $sql3);
+      $num_rows3 = mysqli_num_rows($result3);
+
+      $sql4 = "SELECT * FROM notification_all WHERE action='fromacademic'" ;
+      $result4 = mysqli_query($db, $sql4);
+      $num_rows4 = mysqli_num_rows($result4);	 
+
+?>
 
  
 
@@ -61,14 +81,14 @@
 		          <!-- small box -->
 		          <div class="small-box bg-aqua">
 		            <div class="inner">
-		              <h3>150</h3>
+		              <h3><?php echo "$num_rows1"; ?></h3>
 
 		              <p>Tenders</p>
 		            </div>
 		            <div class="icon">
 		              <i class="fa fa-file"></i>
 		            </div>
-		            <a href="#" class="small-box-footer">
+		            <a href="adminPublished.php" class="small-box-footer">
 		              More info <i class="fa fa-arrow-circle-right"></i>
 		            </a>
 		          </div>
@@ -78,14 +98,14 @@
 		          <!-- small box -->
 		          <div class="small-box bg-green">
 		            <div class="inner">
-		              <h3>53</h3>
+		              <h3><?php echo "$num_rows2"; ?></h3>
 
 		              <p>Companies</p>
 		            </div>
 		            <div class="icon">
 		              <i class="fa fa-building"></i>
 		            </div>
-		            <a href="#" class="small-box-footer">
+		            <a href="adminCompanies.php" class="small-box-footer">
 		              More info <i class="fa fa-arrow-circle-right"></i>
 		            </a>
 		          </div>
@@ -95,14 +115,14 @@
 		          <!-- small box -->
 		          <div class="small-box bg-yellow">
 		            <div class="inner">
-		              <h3>44</h3>
+		              <h3><?php echo "$num_rows3"; ?></h3>
 
 		              <p>Bids</p>
 		            </div>
 		            <div class="icon">
 		              <i class="fa fa-legal"></i>
 		            </div>
-		            <a href="#" class="small-box-footer">
+		            <a href="AdminBidindex3.php" class="small-box-footer">
 		              More info <i class="fa fa-arrow-circle-right"></i>
 		            </a>
 		          </div>
@@ -112,14 +132,14 @@
 		          <!-- small box -->
 		          <div class="small-box bg-red">
 		            <div class="inner">
-		              <h3>65</h3>
+		              <h3><?php echo "$num_rows4"; ?></h3>
 
 		              <p>Pending Requests</p>
 		            </div>
 		            <div class="icon">
 		              <i class="fa fa-user-plus"></i>
 		            </div>
-		            <a href="#" class="small-box-footer">
+		            <a href="adminRequest.php" class="small-box-footer">
 		              More info <i class="fa fa-arrow-circle-right"></i>
 		            </a>
 		          </div>

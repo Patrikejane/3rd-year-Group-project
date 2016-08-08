@@ -1,14 +1,4 @@
 <!DOCTYPE html>
-<?php
-    
-    include('adminSide.php');
-
-    $sql="SELECT user_id,type,first_name,last_name,email,address FROM user";
-    $result = mysqli_query($db,$sql);
-
-    $num_rows = mysqli_num_rows($result);
-
-?>
 
 
 <html>
@@ -43,6 +33,16 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
+<?php
+    
+    include('adminSide.php');
+
+    $sql="SELECT user_id,type,first_name,last_name,email,address FROM user";
+    $result = mysqli_query($db,$sql);
+
+    $num_rows = mysqli_num_rows($result);
+
+?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

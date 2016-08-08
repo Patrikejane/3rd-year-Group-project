@@ -51,7 +51,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Tender</title>
+	<title>E-Proc UCSC | Request</title>
 <!-- css file for sweetalert -->
 <link rel="stylesheet" href="sweetalert/dist/sweetalert.css" />
 </head>

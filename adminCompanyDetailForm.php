@@ -1,66 +1,10 @@
-<?php
-  //include('adminSide.php'); 
-
-  require("classes.php");
-  include ('db.php');
-  $not = new classes();
-
-	$msg = "";
-	if(isset($_POST["submit"]))
-	{
-		$company_name = $_POST["company_name"];
-		$email = $_POST["email"];
-		$tin_number = $_POST["tin_number"];
-		$diversity_categories = $_POST["diversity_categories"];
-		$city = $_POST["city"];
-		$web_url = $_POST["web_url"];
-		$phone_number = $_POST["phone_number"];
-		$fax_number = $_POST["fax_number"];
-
-		$company_name = mysqli_real_escape_string($db, $company_name);
-		$email = mysqli_real_escape_string($db, $email);
-		$tin_number = mysqli_real_escape_string($db, $tin_number);
-		$diversity_categories = mysqli_real_escape_string($db, $diversity_categories);
-		$city = mysqli_real_escape_string($db, $city);
-		$web_url = mysqli_real_escape_string($db, $web_url);
-		$phone_number = mysqli_real_escape_string($db, $phone_number);
-		$fax_number = mysqli_real_escape_string($db, $fax_number);
-
-		$sql="SELECT email FROM supplier WHERE email='$email'";
-		$result=mysqli_query($db,$sql);
-		$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-		if(mysqli_num_rows($result) == 1)
-		{
-			echo "This email already exist...";
-		}
-		else
-		{
-			$query = mysqli_query($db, "INSERT INTO supplier (Supplier_name, Email, Tin_number, Diversity_categories, City, Web_url, Phone_number, Fax_number)VALUES ('$company_name', '$email', '$tin_number', '$diversity_categories', '$city', '$web_url', '$phone_number', '$fax_number')");
-			if($query)
-			{
-				echo  '<script type="text/javascript">
-                setTimeout(function(){
-                  swal({title: "", text: "Company is added to database", type: "success"},
-                    function(isConfirm){
-                      if(isConfirm){
-                        window.location.href = "adminCompanies.php";
-                      }
-                    }
-                  )
-                },100);
-               </script>';
-			}
-		}
-	}
-			
-?>
 
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Company Detail Form</title>
+  <title>E-Proc UCSC | Admin Register Company</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -90,6 +34,63 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 <!--<div class="container">-->
+<?php
+  //include('adminSide.php'); 
+
+  require("classes.php");
+  include ('db.php');
+  $not = new classes();
+
+  $msg = "";
+  if(isset($_POST["submit"]))
+  {
+    $company_name = $_POST["company_name"];
+    $email = $_POST["email"];
+    $tin_number = $_POST["tin_number"];
+    $diversity_categories = $_POST["diversity_categories"];
+    $city = $_POST["city"];
+    $web_url = $_POST["web_url"];
+    $phone_number = $_POST["phone_number"];
+    $fax_number = $_POST["fax_number"];
+
+    $company_name = mysqli_real_escape_string($db, $company_name);
+    $email = mysqli_real_escape_string($db, $email);
+    $tin_number = mysqli_real_escape_string($db, $tin_number);
+    $diversity_categories = mysqli_real_escape_string($db, $diversity_categories);
+    $city = mysqli_real_escape_string($db, $city);
+    $web_url = mysqli_real_escape_string($db, $web_url);
+    $phone_number = mysqli_real_escape_string($db, $phone_number);
+    $fax_number = mysqli_real_escape_string($db, $fax_number);
+
+    $sql="SELECT email FROM supplier WHERE email='$email'";
+    $result=mysqli_query($db,$sql);
+    $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+    if(mysqli_num_rows($result) == 1)
+    {
+      echo "This email already exist...";
+    }
+    else
+    {
+      $query = mysqli_query($db, "INSERT INTO supplier (Supplier_name, Email, Tin_number, Diversity_categories, City, Web_url, Phone_number, Fax_number)VALUES ('$company_name', '$email', '$tin_number', '$diversity_categories', '$city', '$web_url', '$phone_number', '$fax_number')");
+      if($query)
+      {
+        echo  '<script type="text/javascript">
+                setTimeout(function(){
+                  swal({title: "", text: "Company is added to database", type: "success"},
+                    function(isConfirm){
+                      if(isConfirm){
+                        window.location.href = "adminCompanies.php";
+                      }
+                    }
+                  )
+                },100);
+               </script>';
+      }
+    }
+  }
+      
+?>
+
 <header class="main-header">
     <!-- Logo -->
     <a href="adminHome.php" class="logo" style="background-color:#020816;">

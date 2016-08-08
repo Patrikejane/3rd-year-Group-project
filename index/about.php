@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>E-Proc UCSC</title>
+    <title>E-Proc UCSC | About</title>
 
     <!-- css -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">

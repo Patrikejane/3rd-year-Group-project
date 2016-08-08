@@ -65,7 +65,7 @@ if(isset($_POST["submit"]))
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Forgot Password</title>
+	<title>E-Proc UCSC | Forgot Password</title>
 </head>
 <body>
 <form action="" method="post">

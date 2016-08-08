@@ -18,7 +18,7 @@ include ("../login.php");
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>E-Proc UCSC</title>
+    <title>E-Proc UCSC | Login</title>
 
     <!-- css -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
