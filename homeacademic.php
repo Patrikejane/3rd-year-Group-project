@@ -52,6 +52,9 @@
       <div class="content-wrapper" style="min-height:540px; background-color:#ffffff;">
         <!-- Content Header (Page header) -->
         
+        <div>
+          <img src="img/homeacademic.jpg" style="padding-left:50px"; alt="" width="750" height="540" />
+        </div>
         
 
         
