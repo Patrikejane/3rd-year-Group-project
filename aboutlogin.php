@@ -59,10 +59,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
             <ul class="nav navbar-nav">
-                <li ><a href="index.php">Home</a></li>
+                <li ><a href="index.php">Sign In</a></li>
                 <li class="active" ><a href="aboutlogin.php">About</a></li>
                 
-                <li ><a href="signup.php">Sign UP</a></li>
+                <li ><a href="signup.php">Sign Up</a></li>
 
             </ul>
         </div>
