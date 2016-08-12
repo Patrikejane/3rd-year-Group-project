@@ -18,7 +18,7 @@ include ("login.php");
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>E-Proc UCSC | Login</title>
+    <title>E-Proc UCSC | Log In</title>
 
     <!-- css -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -59,10 +59,10 @@ include ("login.php");
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
 			  <ul class="nav navbar-nav">
-				<li class="active"><a href="index.php">Home</a></li>
+				<li class="active"><a href="index.php">Sign In</a></li>
 				<li><a href="aboutlogin.php">About</a></li>
                   
-                  <li><a href="signup.php">Sign UP</a></li>
+                  <li><a href="signup.php">Sign Up</a></li>
 
 			  </ul>
             </div>
