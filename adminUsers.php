@@ -37,10 +37,11 @@
     
     include('adminSide.php');
 
-    $sql="SELECT user_id,type,first_name,last_name,email,address FROM user";
-    $result = mysqli_query($db,$sql);
+    $sql1="SELECT user_id,first_name,last_name,email,address FROM user WHERE type='User'";
+    $result1 = mysqli_query($db,$sql1);
 
-    $num_rows = mysqli_num_rows($result);
+    $sql2="SELECT user_id,type,first_name,last_name,email,address FROM user WHERE type='AcademicRegistered' or type='AcademicSelected'";
+    $result2 = mysqli_query($db,$sql2);    
 
 ?>
 
@@ -64,20 +65,20 @@
 
 
           <div class="box">
-            <!--<div class="box-header">
-              <h3 class="box-title">Data Table With Full Features</h3>
-            </div>-->
+            <div class="box-header">
+              <h3 class="box-title">Users</h3>
+            </div>
             <!-- /.box-header -->
             <div class="box-body">
             <?php
-            if($result = mysqli_query($db, $sql)){
-            if(mysqli_num_rows($result) > 0){
+            if($result1 = mysqli_query($db, $sql1)){
+            if(mysqli_num_rows($result1) > 0){
             ?>
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>User ID</th>
-                  <th>Type</th>
+                  <!--<th>Type</th>-->
                   <th>Name</th>
                   <th>Email</th>
                   <th>Address</th>
@@ -89,16 +90,100 @@
                 <tbody>
                 <?php
 
-                while ($row = mysqli_fetch_array($result)) {
+                while ($row = mysqli_fetch_array($result1)) {
 
                 ?>
                     <tr>
                       <td><?php echo $row['user_id'];?></td>
-                      <td><?php echo $row['type'];?></td>
+                      <!--<td>--><?php //echo $row['type'];?><!--</td>-->
                       <td><?php echo $row['first_name']." ".$row['last_name'];?></td>
                       <td><?php echo $row['email'];?></td>
                       <td><?php echo $row['address'];?></td>
                       <?php echo '<td> <a href="adminUsersView.php?data='.$row['user_id'].'">Clickhere</a></td>';?>
+                      <td><p data-placement="top" data-toggle="tooltip" title="Delete"><a href="adminUsersDelete.php?id=<?=$row['0']?>" onclick="return confirm('Sure To Remove This Record ?');"><button type="button" class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></a></p></td>
+                    </tr>
+                     <!--</a>-->
+
+                
+                <?php
+                }
+
+                ?>
+                </tbody>
+                
+              </table>
+              <?php  
+              // Close result set
+              //mysqli_free_result($result);
+            } else{
+                echo "No records matching your query were found.";
+            }
+            } else{
+                echo "ERROR: Could not able to execute $sql. " . mysqli_error($db);
+            }
+
+
+            // Close connection
+            //mysqli_close($db);
+            ?>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+
+
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Academic Staff Members</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+            <?php
+            if($result2 = mysqli_query($db, $sql2)){
+            if(mysqli_num_rows($result2) > 0){
+            ?>
+              <table id="example2" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Academic Staff Member ID</th>
+                  <th>Status</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Address</th>
+                  <th>View all details</th>
+                  <th>Delete</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <?php
+
+                while ($row = mysqli_fetch_array($result2)) {
+
+                ?>
+                    <tr>
+                      <td><?php echo $row['user_id'];?></td>
+                      <td><?php
+								if($row['type'] == "AcademicRegistered"){
+									echo '<span class="label label-warning">Registered</span>';
+								}elseif($row['type'] == "AcademicSelected"){
+        							echo '<span class="label label-success">Selected</span>';
+    							}
+							?></td>
+                      <td><?php echo $row['first_name']." ".$row['last_name'];?></td>
+                      <td><?php echo $row['email'];?></td>
+                      <td><?php echo $row['address'];?></td>
+                      <?php echo '<td> <a href="adminAcademicView.php?data='.$row['user_id'].'">Clickhere</a></td>';?>
                       <td><p data-placement="top" data-toggle="tooltip" title="Delete"><a href="adminUsersDelete.php?id=<?=$row['0']?>" onclick="return confirm('Sure To Remove This Record ?');"><button type="button" class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></a></p></td>
                     </tr>
                      <!--</a>-->
@@ -171,14 +256,17 @@
     $("#example1").DataTable();
     $('#example2').DataTable({
       "paging": true,
-      "lengthChange": false,
-      "searching": false,
+      "lengthChange": true,
+      "searching": true,
       "ordering": true,
       "info": true,
-      "autoWidth": false
+      "autoWidth": true
     });
   });
 </script>
 
 </body>
 </html>
+
+
+

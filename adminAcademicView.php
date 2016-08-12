@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>E-Proc UCSC | Admin Users View</title>
+    <title>E-Proc UCSC | Admin Academic View</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -37,8 +37,8 @@
     include ('adminSide.php');
     
 
-    if(isset($_GET["data"]))
-    {
+    if(isset($_GET["data"])){
+
         $data = $_GET["data"];
 
 
@@ -50,6 +50,10 @@
     $row = mysqli_fetch_array($result);
     //print_r($row);
     }
+
+
+
+    
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -57,11 +61,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Registered User
+            Academic Staff Member
             
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i>Registered User</a></li>
+            <li><a href="#"><i class="fa fa-dashboard"></i>Academic Staff Member</a></li>
         </ol>
     </section>
 
@@ -71,18 +75,21 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="panel panel-primary">
-                        <div class="panel-heading">User Detail</div>
+                        <div class="panel-heading">Academic Staff Member Detail</div>
+                        <!-- form start -->
+                        <form method="post" action="adminAcademicStateChange.php?data=<?=$row['user_id']?>">
                         <div class="panel-body">
-
+                            
                             <div class="row">
+
                                 <div class="col-lg-6">
-                                    <label for="usr">User ID</label>
+                                    <label for="usr">Academic Staff Member ID</label>
                                     <input type="text" class="form-control" id="usr" readonly placeholder="<?php echo $row['user_id'];?>">
                                 </div>
-                                <!--<div class="col-lg-6">
-                                    <label for="pwd">Type</label>
+                                <div class="col-lg-6">
+                                    <label for="pwd">Status</label>
                                     <input type="password" class="form-control" id="pwd" readonly placeholder="<?php echo $row['type'];?>">
-                                </div>-->
+                                </div>
 
                             </div>
 
@@ -144,6 +151,21 @@
 
                             </div>
 
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label for="usr">Change Status</label>
+                                    <!--<form action="handle_submit.php" method="POST">-->
+                                      <select id="apprrovalstat" name="apprrovalstat">
+                                        <option value="AcademicRegistered">Registered</option>
+                                        <option value="AcademicSelected">Selected</option>
+                                      </select>
+                                      <input type="submit">
+                                    <!--</form>-->
+                                </div>
+                                <div class="col-lg-6">
+                                    
+                                </div>
+                            </div>
                         
 
 
@@ -155,6 +177,7 @@
 
 
                         </div>
+                        </form>
                     </div>
                     <!-- /.box-body -->
                 </div>

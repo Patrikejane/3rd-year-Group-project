@@ -6,7 +6,7 @@ $msg = "";
 if(isset($_POST["submit"]))
 {
 
-    $type = "User";
+    $type = $_POST["type"];
     $title = $_POST["title"];
     $first_name = $_POST["first_name"];
     $last_name = $_POST["last_name"];
@@ -17,6 +17,7 @@ if(isset($_POST["submit"]))
     $district = $_POST["district"];
     $city = $_POST["city"];
     
+    $type = mysqli_real_escape_string($db, $type);
 	$title = mysqli_real_escape_string($db, $title);
     $first_name = mysqli_real_escape_string($db, $first_name);
     $last_name = mysqli_real_escape_string($db, $last_name);
@@ -146,6 +147,21 @@ if(isset($_POST["submit"]))
 
                             <div class="form-group">
 
+                                <label for="type" class="col-sm-2 control-label">Sign Up as a</label>
+
+                                <div class="col-sm-4">
+
+                                    <select type="text" name="type" class="form-control" id="type" required>
+                                        <option disabled selected value>Select an User Role</option>
+                                        <option value="User">User</option>
+                                        <option value="AcademicRegistered">Academic Staff Member</option>
+                                        <!--<option value="Dr">Dr</option>
+                                        <option value="Prof">Prof</option>-->
+                                    </select>
+
+
+                                </div>
+
                                 <label for="title" class="col-sm-2 control-label">Title</label>
 
                                 <div class="col-sm-4">
@@ -160,6 +176,7 @@ if(isset($_POST["submit"]))
 
 
                                 </div>
+
 
                             </div>
 
