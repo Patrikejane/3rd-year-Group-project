@@ -76,6 +76,7 @@
                 <div class="box">
                     <div class="panel panel-primary">
                         <div class="panel-heading">Academic Staff Member Detail</div>
+                        <div class="box-body">
                         <!-- form start -->
                         <form method="post" action="adminAcademicStateChange.php?data=<?=$row['user_id']?>">
                         <div class="panel-body">
@@ -153,31 +154,53 @@
 
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <label for="usr">Change Status</label>
+                                    <label for="usr"></label>
                                     <!--<form action="handle_submit.php" method="POST">-->
-                                      <select id="apprrovalstat" name="apprrovalstat">
+                                    
+                                      <!--<select id="apprrovalstat" name="apprrovalstat">
                                         <option value="AcademicRegistered">Registered</option>
                                         <option value="AcademicSelected">Selected</option>
                                       </select>
-                                      <input type="submit">
+                                      <input type="submit">-->
                                     <!--</form>-->
-                                </div>
-                                <div class="col-lg-6">
                                     
                                 </div>
+                                
                             </div>
-                        
+
+                
+							<div class="form-group">
+
+                                <label for="type" class="col-sm-2 control-label">Change Status</label>
+
+                                <div class="col-sm-4">
+
+                                    <select type="text" name="apprrovalstat" class="form-control" id="apprrovalstat" required>
+                                        <option disabled selected value>Select Status</option>
+                                        <option value="AcademicRegistered">Registered</option>
+                                        <option value="AcademicSelected">Selected</option>
+                                    </select>
 
 
+                                </div>
+
+                                <label for="title" class="col-sm-4 control-label"></label>
+
+                                <div class="col-sm-2">
+
+                                    <input type="submit" value="Change" class="btn btn-primary">
 
 
+                                </div>
 
 
+                            </div>
 
-
+                            
 
                         </div>
                         </form>
+                        </div>
                     </div>
                     <!-- /.box-body -->
                 </div>
