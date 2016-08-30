@@ -4,10 +4,12 @@ include ("login.php");
 
 /*if ((isset($_SESSION['email']) != '')) 
     {
-        header('Location: ../home.php');
+        header('Location: home.php');
     }*/
 
-
+ /*if(!isset($_SESSION['isLoggedIn'])){
+	 	header("location: home.php");
+	 }*/
 ?>
 <!DOCTYPE html>
 <html lang="en">

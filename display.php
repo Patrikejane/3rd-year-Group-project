@@ -310,7 +310,7 @@
                             <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <button type="button" class="btn btn-secondary btn-lg btn-block">Download Tender Document</button>
+                                    <a href="example.php"><button type="button" class="btn btn-secondary btn-lg btn-block">Download Tender Document</button></a>
                                 </div>
                             </div>
                             </div>
