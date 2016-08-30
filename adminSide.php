@@ -156,16 +156,27 @@ $not = new classes();
             <i class="fa fa-reply"></i> <span>Replies</span>
           </a>
         </li>
+        
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-building"></i>
+            <span>Committees</span>
+            <span class="label label-primary pull-right">2</span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="adminApointProcumentCommittee.php"><i class="fa fa-circle-o"></i>Add Committee</a></li>
+           
+            <li><a href="adminApointedCommittees.php"><i class="fa fa-circle-o"></i>Apointed Committees</a></li>
+            
+          </ul>
+        </li>
         <li>
           <a href="adminUsers.php">
             <i class="fa fa-users"></i> <span>Users</span>
           </a>
         </li>
-        <li>
-          <a href="adminApointProcumentCommittee.php">
-            <i class="fa fa-users"></i> <span>Apoint Committees</span>
-          </a>
-        </li>
+        
         
         
     </section>
