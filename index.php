@@ -10,6 +10,15 @@ include ("login.php");
  /*if(!isset($_SESSION['isLoggedIn'])){
 	 	header("location: home.php");
 	 }*/
+    $sql="SELECT item_title,item_description FROM tenderdocument";
+    $result = mysqli_query($db,$sql);
+
+    $num_rows = mysqli_num_rows($result);
+    //echo $num_rows;
+    $fields = $num_rows;
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,20 +91,30 @@ include ("login.php");
 					<div class="col-lg-6">
 
 						<div class="well well-trans" style="opacity: 0.7;">
-						<div class="wow fadeInRight " style="height: 200px;overflow: hidden;"  data-wow-delay="0.1s">
+						<div class="wow fadeInRight " style="height: 200px;overflow: hidden;"  data-wow-delay="0.01s">
                             <div style="overflow-y: hidden;">
                                 list of  new proc details
                                     <marquee direction="up"  scrollamount=7>
                                         <ul class="lead-list">
+                                            <?php
+                                            while ($row = mysqli_fetch_array($result)) {
+                                                echo '<li>';
+                                                for($i = 0; $i < 2 ; $i++) {
+                                                    if($i == 0){
+                                                    echo '<span class="list"><strong> Tender of '.$row[$i].'</strong><br />';
+                                                    }
+                                                    if($i == 1){
+                                                        echo $row[$i];
+                                                    }
+                                                }
 
-                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
-                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
-                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
-                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
-                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
-                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
-                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
-                                            <li><span class="list"><strong>xxxxxxxxxxxxxxxxxx</strong><br />xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></li>
+                                                echo '</span></li>';
+                                            }
+
+
+
+                                            ?>
+
 
                                         </ul>
                                     </marquee>
