@@ -19,8 +19,15 @@
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
+    <!-- Daterange picker -->
+  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker-bs3.css">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <!-- css file for sweetalert -->
+  <link rel="stylesheet" href="sweetalert/dist/sweetalert.css" />
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
     <link href="notification.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="jquery.datetimepicker.css"/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,37 +38,77 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-<?php
+<?php 
+  
 
+  include ('adminSide.php');
+  
+
+  if(isset($_POST["submit"]))
+  {
     
-    include ('adminSide.php');
+    $tender_ID = $_POST["tender_id"];
+    $committee_id = $_POST["committee_id"];
+    $member_1= $_POST["member_1"];
+    $member_2 = $_POST["member_2"];
+    $member_3 = $_POST["member_3"];
+    $create_date = $_POST["create_date"];
+
+
+
+    $tender_ID = mysqli_real_escape_string($db, $tender_ID);
+    $committee_id = mysqli_real_escape_string($db, $committee_id);
+    $member_1 = mysqli_real_escape_string($db, $member_1);
+    $member_2 = mysqli_real_escape_string($db, $member_2);
+    $member_3 = mysqli_real_escape_string($db, $member_3);
+    $create_date = mysqli_real_escape_string($db, $create_date);
     
-
-    if(isset($_GET["data"])){
-
-        $data = $_GET["data"];
-
-
-    //print($data);
-    $sql="SELECT * FROM user WHERE user_id='$data'";
-    //print($sql);
-    $result = mysqli_query($db,$sql);
-    //print_r($result);
-    $row = mysqli_fetch_array($result);
-    //print_r($row);
+    
+    
+    $sql="SELECT committee_id FROM committee WHERE committee_id='$committee_id'";
+    $result=mysqli_query($db,$sql);
+    $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+    if (mysqli_num_rows($result) == 1) {
+      echo  '<script type="text/javascript">
+            setTimeout(function(){
+              sweetAlert("", "This Committee is already exist...", "error")
+            },100);
+           </script>';
+    }else{
+      $query = mysqli_query($db, "INSERT INTO committee(Tender_ID,Committee_ID,Member_1,Member_2,Member_3,Create_date) VALUES ('$tender_ID','$committee_id','$member_1','$member_2','$member_3','$create_date')");
+      
+      
+    
+    if($query)
+      {
+        
+          echo  '<script type="text/javascript">
+                setTimeout(function(){
+                  swal({title: "", text: "Committee Created", type: "success"},
+                    function(isConfirm){
+                      if(isConfirm){
+                        window.location.href = "adminHome.php";
+                      }
+                    }
+                  )
+                },100);
+               </script>';
+        
+      }
     }
+  }
+  
 
-
-
-    
 ?>
+
+
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Appoint Academic Staff to Procurement Committee
+            Appoint Academic Staff 
             
         </h1>
         <ol class="breadcrumb">
@@ -72,74 +119,127 @@
     <!-- Main content -->
     <section class="content">
         <div class="row" style="margin-top:60px">
-        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-4">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-2">
                   <!-- Horizontal Form -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Enter Company Details</h3>
+              <h3 class="box-title">Enter Committee Details</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
             <form class="form-horizontal" method="post" action="">
               <div class="box-body">
                 <div class="form-group">
-                  <label for="company_name" class="col-sm-4 control-label">Company Name<span style="color:red;">*</span></label>
+                  <label for="tender_id" class="col-sm-4 control-label">Tender ID <span style="color:red;">*</span></label>
 
                   <div class="col-sm-8">
-                    <input type="text" name="company_name" class="form-control" id="company_name" placeholder="Company Name" required>
+                    <input type="text" name="tender_id" class="form-control" id="tender_id" placeholder="Tender ID" required>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="email" class="col-sm-4 control-label">Email<span style="color:red;">*</span></label>
+                  <label for="committee_id" class="col-sm-4 control-label">Committee ID <span style="color:red;">*</span></label>
 
                   <div class="col-sm-8">
-                    <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="tin_number" class="col-sm-4 control-label">TIN Number<span style="color:red;">*</span></label>
-
-                  <div class="col-sm-8">
-                    <input type="text" name="tin_number" class="form-control" id="tin_number" placeholder="TIN Number" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="diversity_categories" class="col-sm-4 control-label">Diversity Categories<span style="color:red;">*</span></label>
-
-                  <div class="col-sm-8">
-                    <input type="text" name="diversity_categories" class="form-control" id="diversity_categories" placeholder="Diversity Categories" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="city" class="col-sm-4 control-label">City<span style="color:red;">*</span></label>
-
-                  <div class="col-sm-8">
-                    <input type="text" name="city" class="form-control" id="city" placeholder="City" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="web_url" class="col-sm-4 control-label">Web URL<span style="color:red;">*</span></label>
-
-                  <div class="col-sm-8">
-                    <input type="url" name="web_url" class="form-control" id="web_url" placeholder="Web URL" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="phone_number" class="col-sm-4 control-label">Phone Number</label>
-
-                  <div class="col-sm-8">
-                    <input type="tel" name="phone_number" class="form-control" id="phone_number" placeholder="Phone Number">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="fax_number" class="col-sm-4 control-label">Fax Number</label>
-
-                  <div class="col-sm-8">
-                    <input type="tel" name="fax_number" class="form-control" id="fax_number" placeholder="Fax Number">
+                    <input type="committee_id" name="committee_id" class="form-control" id="committee_id" placeholder="Committee ID" required>
                   </div>
                 </div>
                 
+                <div class="form-group">
+                <label for="member_1" class="col-sm-4 control-label">Member 1 <span style="color:red;">*</span></label>
+                  <div class="col-sm-8 ">
+                    
+                    <select class="form-control" name="member_1" required>
+                      <option class="active" disabled selected value>-Select-</option>
+                      <?php
+
+                          $db = mysqli_connect('localhost', 'root', 'yehen','proc');
+
+
+                          $sql = "SELECT * FROM user WHERE type='AcademicSelected' ";
+                          $result = mysqli_query($db,$sql);
+
+                          //echo "<select name='user_id'>";
+                          while ($row = mysqli_fetch_array($result)) {
+                              $name = $row['first_name']." ".$row['last_name'];
+                              echo "<option value='" . $name . "'>" . $name . "</option>";
+                          }
+                          //echo "</select>";
+
+                          ?>
+                    </select>
+                  </div>
               </div>
+
+              <div class="form-group">
+                <label for="member_2" class="col-sm-4 control-label">Member 2 <span style="color:red;">*</span></label>
+                  <div class="col-sm-8 ">
+                    
+                    <select class="form-control" name="member_2" required>
+                      <option class="active" disabled selected value>-Select-</option>
+                      <?php
+
+                          $db = mysqli_connect('localhost', 'root', 'yehen','proc');
+
+
+                          $sql = "SELECT * FROM user WHERE type='AcademicSelected' ";
+                          $result = mysqli_query($db,$sql);
+
+                          //echo "<select name='user_id'>";
+                          while ($row = mysqli_fetch_array($result)) {
+                              $name = $row['first_name']." ".$row['last_name'];
+                              echo "<option value='" . $name . "'>" . $name . "</option>";
+                          }
+                          //echo "</select>";
+
+                          ?>
+                    </select>
+                  </div>
+              </div>
+
+              <div class="form-group">
+                <label for="member_3" class="col-sm-4 control-label">Member 3 <span style="color:red;">*</span></label>
+                  <div class="col-sm-8 ">
+                    
+                    <select class="form-control" name="member_3" required>
+                      <option class="active" disabled selected value>-Select-</option>
+                      <?php
+
+                          $db = mysqli_connect('localhost', 'root', 'yehen','proc');
+
+
+                          $sql = "SELECT * FROM user WHERE type='AcademicSelected' ";
+                          $result = mysqli_query($db,$sql);
+
+                          //echo "<select name='user_id'>";
+                          while ($row = mysqli_fetch_array($result)) {
+                              $name = $row['first_name']." ".$row['last_name'];
+                              echo "<option value='" . $name . "'>" . $name . "</option>";
+                          }
+                          //echo "</select>";
+
+                          ?>
+                    </select>
+                  </div>
+              </div>
+
+              <div class="form-group">
+                  <label for="sub_start_date" class="col-sm-4 control-label"> Create Date <span style="color:red;">*</span> </label>
+
+                  <div class="col-sm-4">
+                  <input type="text" value="" id="datetimepicker2" name="create_date" style="width:300px;height:35px" placeholder="Enter date and type" required>
+                  </div>
+                </div>
+              </div>
+
+
+
+              
+
+              
+
+              
+                
+              
               <!-- /.box-body -->
               <div class="box-footer">
                 <div class="row">
@@ -189,7 +289,14 @@
 <script src="dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+<script src="jquery.js"></script>
+<script src="jquery.datetimepicker.full.js"></script>
 <!-- page script -->
+<!-- daterangepicker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<script src="plugins/daterangepicker/daterangepicker.js"></script>
+<!-- datepicker -->
+<script src="plugins/datepicker/bootstrap-datepicker.js"></script>
 <script>
     $(function () {
         $("#example1").DataTable();
@@ -202,6 +309,22 @@
             "autoWidth": false
         });
     });
+</script>
+
+<script>/*
+window.onerror = function(errorMsg) {
+  $('#console').html($('#console').html()+'<br>'+errorMsg)
+}*/
+
+$.datetimepicker.setLocale('en');
+$('#datetimepicker,#datetimepicker1,#datetimepicker2,#datetimepicker3,#datetimepicker4').datetimepicker({
+dayOfWeekStart : 1,
+lang:'en',
+disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
+startDate:  'date("Y/m/d")'
+});
+//$('#datetimepicker').datetimepicker({value:'2016/06/26 05:03',step:10});
+
 </script>
 </body>
 </html>

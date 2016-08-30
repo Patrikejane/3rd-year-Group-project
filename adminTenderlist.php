@@ -709,7 +709,7 @@ $('#datetimepicker,#datetimepicker1,#datetimepicker2,#datetimepicker3,#datetimep
 dayOfWeekStart : 1,
 lang:'en',
 disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
-startDate:  '1986/01/05'
+startDate:  'date("Y/m/d")'
 });
 //$('#datetimepicker').datetimepicker({value:'2016/06/26 05:03',step:10});
 

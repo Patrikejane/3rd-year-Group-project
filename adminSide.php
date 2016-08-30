@@ -161,6 +161,11 @@ $not = new classes();
             <i class="fa fa-users"></i> <span>Users</span>
           </a>
         </li>
+        <li>
+          <a href="adminApointProcumentCommittee.php">
+            <i class="fa fa-users"></i> <span>Apoint Committees</span>
+          </a>
+        </li>
         
         
     </section>
